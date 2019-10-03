@@ -40,6 +40,39 @@ class Wording extends BaseController{
 				$file->$object = ((object)$list);
 			}
 		}
+
+		if($object == 'partitions'){
+			end($file->$object);
+			$partitions_id = key($file->$object);
+
+			// update to current partitions
+			if($_POST['curr_partitions'] == 'on'){
+				$curr = $file->curr_partitions;
+				$curr[] = $partitions_id;
+				$file->curr_partitions = $curr;
+			}
+
+			// update to special partitions
+			if($_POST['special_partitions'] == 'on'){
+				$curr = $file->special_partitions;
+				$curr[] = $partitions_id;
+				$file->special_partitions = $curr;
+			}
+
+			// update to showed partitions
+			if($_POST['showed_partitions'] == 'on'){
+				$curr = $file->showed_partitions;
+				$curr[] = $partitions_id;
+				$file->showed_partitions = $curr;
+			}
+
+			// update to data partitions
+			if($_POST['data_partitions'] == 'on'){
+				$curr = $file->data_partitions;
+				$curr[] = $partitions_id;
+				$file->data_partitions = $curr;
+			}
+		}
 		file_put_contents('assets/packages.json',json_encode($file));
 		return redirect()->to(site_url('/wording/'.$object));
 	}
@@ -55,6 +88,24 @@ class Wording extends BaseController{
 			$getId = array_search($id,$file->curr_packages);
 			if($getId){
 				unset($file->curr_packages[$getId]);
+			}
+		} elseif($object == 'partitions'){
+//			delete other partitions relation if exist
+			$getSpcPartitions = array_search($id,$file->special_partitions);
+			if($getSpcPartitions){
+				unset($file->special_partitions[$getId]);
+			}
+			$getCurrPartitions = array_search($id,$file->curr_partitions);
+			if($getCurrPartitions){
+				unset($file->curr_partitions[$getId]);
+			}
+			$getShowPartitions = array_search($id,$file->showed_partitions);
+			if($getShowPartitions){
+				unset($file->showed_partitions[$getId]);
+			}
+			$getDataPartitions = array_search($id,$file->data_partitions);
+			if($getDataPartitions){
+				unset($file->data_partitions[$getId]);
 			}
 		}
 		foreach ($file as $key_file => $entry) {
@@ -105,6 +156,52 @@ class Wording extends BaseController{
 				}
 			}
 		}
+
+		if($object == 'partitions'){
+			end($file->$object);
+			$partitions_id = key($file->$object);
+
+			// update to current partitions
+			if($_POST['curr_partitions'] == 'on'){
+				$curr = $file->curr_partitions;
+				$curr[] = $partitions_id;
+				$file->curr_partitions = $curr;
+			} else {
+				$getId = array_search($partitions_id,$file->curr_partitions);
+				unset($file->curr_partitions[$getId]);
+			}
+
+			// update to special partitions
+			if($_POST['special_partitions'] == 'on'){
+				$curr = $file->special_partitions;
+				$curr[] = $partitions_id;
+				$file->special_partitions = $curr;
+			} else {
+				$getId = array_search($partitions_id,$file->special_partitions);
+				unset($file->special_partitions[$getId]);
+			}
+
+			// update to showed partitions
+			if($_POST['showed_partitions'] == 'on'){
+				$curr = $file->showed_partitions;
+				$curr[] = $partitions_id;
+				$file->showed_partitions = $curr;
+			} else {
+				$getId = array_search($partitions_id,$file->showed_partitions);
+				unset($file->showed_partitions[$getId]);
+			}
+
+			// update to data partitions
+			if($_POST['data_partitions'] == 'on'){
+				$curr = $file->data_partitions;
+				$curr[] = $partitions_id;
+				$file->data_partitions = $curr;
+			} else {
+				$getId = array_search($partitions_id,$file->data_partitions);
+				unset($file->data_partitions[$getId]);
+			}
+		}
+
 		file_put_contents('assets/packages.json',json_encode($file));
 		return redirect()->to(site_url('/wording/'.$object));
 	}

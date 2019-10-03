@@ -30,20 +30,25 @@
 						<div class="card-body">
 							<form role="form" method="post" action="<?=site_url('wording/partitions/update/'.$id)?>">
 								<div class="form-check">
-									<input type="checkbox" name="special_partitions" class="form-check-input">
-									<label class="form-check-label" for="exampleCheck1"><b>Special Partitions</b></label>
+									<input
+										<?php if(in_array($id,$special_partitions)){ echo "checked"; } ?>
+										type="checkbox" name="special_partitions" class="form-check-input">
+									<label class="form-check-label"><b>Special Partitions</b></label>
 								</div>
 								<div class="form-check">
-									<input type="checkbox" name="curr_partitions" class="form-check-input">
-									<label class="form-check-label" for="exampleCheck1"><b>Current Partitions</b></label>
+									<input type="checkbox" <?php if(in_array($id,$curr_partitions)){ echo "checked"; } ?>
+										   name="curr_partitions" class="form-check-input">
+									<label class="form-check-label"><b>Current Partitions</b></label>
 								</div>
 								<div class="form-check">
-									<input type="checkbox" name="showed_partitions" class="form-check-input">
-									<label class="form-check-label" for="exampleCheck1"><b>Showed Partitions</b></label>
+									<input type="checkbox" <?php if(in_array($id,$showed_partitions)){ echo "checked"; } ?>
+										   name="showed_partitions" class="form-check-input">
+									<label class="form-check-label"><b>Showed Partitions</b></label>
 								</div>
 								<div class="form-check">
-									<input type="checkbox" name="data_partitions" class="form-check-input">
-									<label class="form-check-label" for="exampleCheck1"><b>Data Partitions</b></label>
+									<input <?php if(in_array($id,$data_partitions)){ echo "checked"; } ?>
+										type="checkbox" name="data_partitions" class="form-check-input">
+									<label class="form-check-label"><b>Data Partitions</b></label>
 								</div>
 								<div class="card-body">
 									<div class="form-group">

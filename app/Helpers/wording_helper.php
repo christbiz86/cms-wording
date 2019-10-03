@@ -5,12 +5,10 @@ if ( ! function_exists('get_object_wording'))
 	function get_object_wording($object)
 	{
 
-//		unset($file->special_partitions);
-//		unset($file->curr_partitions);
-//		unset($file->showed_partitions);
-//		unset($file->data_partitions);
-
-
+//		unset($file->special_partitions); --> done
+//		unset($file->curr_partitions); --> done
+//		unset($file->showed_partitions); --> done
+//		unset($file->data_partitions); --> done
 //		unset($file->curr_packages); --> done
 //		unset($file->pack_calc); --> done
 //		unset($file->map_offer_profile); --> done
