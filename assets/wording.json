@@ -1,0 +1,549 @@
+{
+    "words": {
+        "Panggilan": ["Bicara", "Voice"],
+        "Ke": ["Ke", "To"],
+        "OperatorLain": ["Operator lain", "Other operators"],
+        "Sepuasnya": ["Sepuasnya", "Unlimited"],
+        "KeSemuaOperator": ["Ke semua operator", "To all operators"],
+        "NelponOperatorLain": ["Telpon ke operator lain", "Call to other operators"],
+        "NelponOperatorNasional": ["Telpon ke operator lain (Nasional)", "Call to other operators (National)"],
+        "PaketInternet": ["Paket internet", "Internet package"],
+        "AksesInternet": ["Akses internet", "Internet access"],
+        "TelponSesama": ["Telpon ke sesama Smartfren", "Call to Smartfren"],
+        "Bulanan": ["Bulanan", "Monthly"],
+        "BulananAuto": ["Bulanan(Otomatis)", "Monthly renewal"],
+        "IkutBulanan": ["mengikuti internet bulanan", "follow monthly internet"],
+        "PunyaBulanan": ["harus memiliki internet volume bulanan", "must have monthly volume internet"],
+        "InternetMalam": ["Internet Malam", "Midnight Internet"],
+        "Mingguan": ["Mingguan", "Weekly"],
+        "Harian": ["Harian", "Daily"],
+        "hari": ["hari", "day"],
+        "HariIni": ["Hari Ini", "Today"],
+        "HariLagi": ["Hari Lagi", "Days Left"],
+        "hari": ["hari", "day"],
+        "Sampai": ["sampai", "up to"],
+        "Sejak": ["sejak", "since"],
+        "Menit": ["Menit", "Minutes"],
+        "BeliGaleri": ["Untuk pembelian paket ini, silahkan kunjungi Galeri Smartfren terdekat", "In order to purchase, please visit to the Smartfren Galery"],
+        "Kuota": ["Kuota", "Quota"],
+        "Processing": ["Permintaan Anda akan diproses. Silahkan tunggu SMS notifikasi", "Your request will be processed. Please wait SMS notification"],
+        "BuySuccess": ["pesan pembelian sukses", "message success buy package"],
+        "OffSuccess": ["non aktif sukses", "message success off package"],
+        "OffFailure": ["non aktif gagal", "message fail off package"],
+        "OffProgress": ["non aktif dalam proses", "off package is on progress"],
+        "BuyFailure": ["pesan pembelian gagal", "message fail buy package"],
+        "offMessage": ["Nonaktifkan paket akan menghapus semua paket yang ada", "Deactivate paket will remove all current packages"],
+        "EVOoffMessage": ["Menonaktifkan layanan Internet Connex EVO akan mengembalikan kartu ke profil regular dengan fitur voice, SMS, internet", "Deactivate EVO service will change the mobile number to the regular profile (voice, SMS, internet)"],
+        "GaloffMessage": ["Untuk menonaktifkan paket, silakan kunjungi galeri Smartfren terdekat", "In order to deactivate the package, please visit Smartfren galery"],
+        "ConInfo": ["Auto Renewal", "Perpanjang Otomatis"]
+    },
+    "error_code": {
+        "1001": ["Pengisian ulang gagal karena voucher belum terdaftar di system. Info: 888", "Pengisian ulang gagal karena voucher belum terdaftar di system. Info: 888"],
+        "1002": ["Pengisian ulang gagal karena voucher sudah sudah tidak berlaku. Info: 888", "Pengisian ulang gagal karena voucher sudah sudah tidak berlaku. Info: 888"],
+        "1003": ["Maaf kode voucher yang Anda masukkan sudah pernah digunakan. Info: 888", "Maaf kode voucher yang Anda masukkan sudah pernah digunakan. Info: 888"],
+        "1004": ["Voucher  tidak dapat digunakan, silahkan kembali ke tempat Anda membeli. Info: 888", "Voucher  tidak dapat digunakan, silahkan kembali ke tempat Anda membeli. Info: 888"],
+        "1005": ["Pengisian ulang gagal, karena nomor Anda tidak bisa menggunakan voucher ini. Info: 888", "Pengisian ulang gagal, karena nomor Anda tidak bisa menggunakan voucher ini. Info: 888"],
+        "1005": ["Pengisian ulang gagal, karena nomor Anda tidak bisa menggunakan voucher ini. Info: 888", "Pengisian ulang gagal, karena nomor Anda tidak bisa menggunakan voucher ini. Info: 888"],
+        "1020": ["Maaf, pengisian ulang gagal. info: 888", "Maaf, pengisian ulang gagal. info: 888"],
+        "1100": ["Maaf,Anda telah berulangkali memasukkan PIN yang salah dan account Anda telah diblokir.Silakan hubungi 881 untuk informasi lebih lanjut", "Maaf,Anda telah berulangkali memasukkan PIN yang salah dan account Anda telah diblokir.Silakan hubungi 881 untuk informasi lebih lanjut"]
+	},
+    "error": {
+        "0": ["Pembelian Gagal", "Failure"],
+        "1": ["Pembelian Sukses", "Success"],
+        "701": ["Kesalahan konfigurasi", "Wrong configuration"],
+        "702": ["Kesalahan konfiguras", "Wrong configuration"],
+        "703": ["Kegagalan proses", "process failure"],
+        "704": ["Kegagalan proses", "process failure"],
+        "Roaming": ["Anda tidak dapat melakukan pembelian layanan ini karena belum memiliki layanan roaming. Mohon lakukan registrasi di Gallery Smartfren terdekat.Anda tidak dapat melakukan pembelian layanan ini karena belum memiliki layanan roaming. Mohon lakukan registrasi di Gallery Smartfren terdekat.", "You cannot purchase this service, please register roaming service in nearest Smartfren Gallery."],
+        "plan.{0}": ["Anda sudah memiliki paket yang sama, pastikan anda memiliki pulsa untuk otomatis perpanjangan di akhir masa paket ini", "You already have the same package, please ensure you have enough balance for automatic renewal at end of package expiry"],
+        "enough": ["Pulsa tidak mencukupi", "Insufficient Balance"],
+        "mencukupi": ["Pulsa tidak mencukupi", "Insufficient Balance"],
+        "Insufficient": ["Pulsa tidak mencukupi", "Insufficient Balance"],
+        "exclusive": ["Untuk membeli paket ini, mohon non aktifkan paket yang anda miliki terlebih dahulu", "In order to buy this package, please deactivate your current packages first"],
+        "progress": ["Mohon maaf transaksi gagal, Silakan tunggu dalam beberapa menit dan coba lagi", "Sorry transaction failed, please try again in a few minute"],
+        "busy": ["Pembelian paket gagal. Mohon maaf sistem sedang sibuk, silakan coba beberapa saat lagi", "Package subscription failed. The system is busy,please try to submit the order later"],
+        "tersedia": ["Pembelian paket gagal. Paket yang Anda pilih tidak tersedia untuk nomor Anda", "Package subscription failed. The selected package is not available for your number"],
+        "depends": ["Pembelian paket gagal. Paket hanya berlaku jika Anda sudah mempunyai paket Smart Plan bulanan", "Package subscription failed. Package only available after you have subscribed Monthly Smart Plan package"],
+        "Add-On": ["Pembelian paket gagal. AddOn hanya berlaku jika Anda sudah mempunyai paket Smart Plan bulanan", "Package subscription failed. AddOn only available after you have subscribed Monthly Smart Plan package"],
+        "Enroll": ["Pembelian paket gagal. Anda sudah memiliki paket internet unlimited", "Package subscription failed. You already have unlimited internet package"],
+        "Operasi": ["Mohon maaf transaksi gagal, silakan coba beberapa saat lagi", "Sorry transaction failed, please try again"],
+        "Care": ["Mohon maaf transaksi anda belum bisa diproses, untuk info hubungi customer care (888)", "Sorry, your transaction is not processed yet, please call customer care for info (888)"],
+        "BlackBerry": ["Pembelian paket gagal. Nomor yang dituju sudah berlangganan paket data lainnya, info hubungi customer care (888)", "Sorry, your destination number already purchased an internet service, please call customer care for info (888)"],
+        "terdaftar": ["Pembelian paket gagal. Nomor yang dituju tidak terdaftar", "Sorry, your destination number is not registered"]
+    },
+    "top_recommend": {
+        "1": ["Paket Smart Plan Bulanan 50rb", "Smart Plan Monthly 50K Package"],
+        "2": ["Internet 60 RB", "Internet 60 RB"]
+    },
+    "pack_promo": null,
+    "channel": {
+        "0": [
+            {
+                "name": "cc",
+                "title": ["Kartu Kredit", "Credit Card"],
+                "voucher": "25000.00;50000.00;60000.00;100000.00;150000.00;200000.00;300000.00;500000.00"
+            }
+        ],
+        "1": [
+            {
+                "name": "cc",
+                "title": ["Kartu Kredit", "Credit Card"],
+                "voucher": "25000.00;50000.00;60000.00;100000.00;150000.00;200000.00;300000.00;500000.00"
+            }
+        ]
+    },
+    "channel_new": {
+		"0" : {
+			"topup" :  [
+				{
+					"name": "simasvcc",
+					"icons": "https://custinfo.smartfren.com/api/index.php/api533/get_ad/sinarmas-logo.png",
+					"fields":["session","mdn"],
+					"action":"urlinframe",
+					"url":"https://custinfo.smartfren.com/promo/simas_vcc.php",
+					"title": ["Virtual Account Sinarmas", "Virtual Account Sinarmas"]
+				},
+				{
+					"name": "uangku_purchase",
+					"icons": "https://custinfo.smartfren.com/api/index.php/api533/get_ad/uangku-logo.png",
+					"fields":["session","mdn"],
+					"action":"urlinframe",
+					"url":"https://custinfo.smartfren.com/promo/simas_vcc.php",
+					"title": ["Uangku", "Uangku"],
+					"voucher": "10000.00;20000.00;50000.00;60000.00;100000.00;150000.00;200000.00;300000.00;500000.00"
+				}				
+			],
+			"auto" : [
+				{
+					"name": "simasvcc",
+					"icons": "https://custinfo.smartfren.com/api/index.php/api533/get_ad/visamaster.png",
+					"fields":["session"],
+					"action":"api",
+					"title": ["Topup Otomatis Kartu Kredit", "Auto Topup Credit Card"]
+				}
+			],
+			"purchase" : [
+				{
+					"name": "deductbalance",
+					"icons": "https://custinfo.smartfren.com/api/index.php/api533/get_ad/deductbalance.jpg",
+					"title": ["Potong Pulsa", "Deduct Balance"]
+				},
+				{
+					"name": "cc_purchase",
+					"icons": "https://custinfo.smartfren.com/api/index.php/api533/get_ad/visamaster.png",
+					"fields":["session","amount","packcode","packdesc"],
+					"title": ["Kartu Kredit", "Credit Card"],
+					"action":"urlinframe",
+					"url":"https://custinfo.smartfren.com/services/index.php/automatic/b7B02rgi5M01T8JWRK0P5OKtiUzYNoz7lGEDOhRhs63dtyocPH7EbZf2DcNW7ChcAZB9t8LjlergJ_5YW-3N0Q"
+				}
+			]
+		},
+		"1" : {
+			"topup" :  [
+				{
+					"name": "uangku_purchase",
+					"icons": "https://custinfo.smartfren.com/api/index.php/api533/get_ad/uangku-logo.png",
+					"fields":["session","mdn"],
+					"action":"urlinframe",
+					"url":"https://custinfo.smartfren.com/promo/simas_vcc.php",
+					"title": ["Uangku", "Uangku"],
+					"voucher": "10000.00;20000.00;50000.00;60000.00;100000.00;150000.00;200000.00;300000.00;500000.00"
+				}
+			],
+			"auto" : [
+			],
+			"purchase" : [
+				{
+					"name": "deductbalance",
+					"icons": "https://custinfo.smartfren.com/api/index.php/api533/get_ad/deductbalance.jpg",
+					"title": ["Potong Pulsa", "Deduct Balance"]
+				},
+				{
+					"name": "cc_purchase",
+					"icons": "https://custinfo.smartfren.com/api/index.php/api533/get_ad/visamaster.png",
+					"fields":["session","amount","packcode","packdesc"],
+					"title": ["Kartu Kredit", "Credit Card"],
+					"action":"urlinframe",
+					"url":"https://custinfo.smartfren.com/services/index.php/automatic/b7B02rgi5M01T8JWRK0P5OKtiUzYNoz7lGEDOhRhs63dtyocPH7EbZf2DcNW7ChcAZB9t8LjlergJ_5YW-3N0Q"
+				}
+			]
+		}
+    },    
+    "sms_notif": { 
+        "version": "7",
+        "data": [
+            {
+                "name": "NOTIF",
+                "action": 201,
+                "source": [
+                    "999",
+                    "+628881851351",
+                    "8881851351",
+                    "08881851351",
+                    "+628881851967",
+                    "8881851967",
+                    "08881851967",
+                    "6168",
+                    "3888",
+                    "881"
+                ],
+                "key": [
+                    "(?i).*silahkan isi ulang.*",
+                    "(?i).*please recharge.*",
+                    "(?i).*segera lakukan isi ulang.*",
+                    "(?i).*please pay.*",
+                    "(?i).*mohon lakukan pembayaran.*",
+                    "(?i).*please settle your payment.*",
+                    "(?i).*mohon segera lakukan pembayaran.*",
+                    "(?i).*please make payment.*",
+                    "(?i).*silahkan lakukan pembayaran.*",
+                    "(?i).*please pay your bill.*",
+                    "(?i).*will be expired on.*",
+                    "(?i).*anda akan berakhir pada.*",
+                    "(?i).*Rp.*",
+                    "(?i).*smartpoint anda.*"
+                ]
+            },
+            {
+                "name": "CLM",
+                "action": 202,
+                "source": [
+                    "7878",
+                    "08881851351",
+                    "08881851034"
+                ],
+                "key": [
+                    "(?i).*Kirim sms ke 123.*",
+                    "(?i).*Balas sms ini.*",
+                    "(?i).*isi ulang.*"
+                ]
+            },
+            {
+                "name": "KUOTA_INTERNET",
+                "action": 203,
+                "source": [
+                    "+628881678301",
+                    "8881678301",
+                    "08881678301",
+                    "123"
+                ],
+                "key": [
+                    "(?i).*internet anda.*habis.*",
+                    "(?i).*Internet Access.*exhausted.*"
+                ],
+                "resp": [
+                    "Your remaining Internet Access is almost exhausted. Please ensure you have internet quota to keep enjoy our service.",
+                    "Kuota Akses Internet Anda sudah hampir habis. Pastikan anda memiliki kuota internet untuk tetap menikmati layanan kami."
+                ]
+            },
+            {
+                "name": "KUOTA_INTERNET_MALAM",
+                "action": 204,
+                "source": [
+                    "+628881678301",
+                    "8881678301",
+                    "08881678301",
+                    "123"
+                ],
+                "key": [
+                    "(?i).*internet malam.*habis.*",
+                    "(?i).*midnight internet.*exhausted.*"
+                ],
+                "resp": [
+                    "Your remaining Midnight Internet Access is almost exhausted. Please ensure you have internet quota to keep enjoy our service.",
+                    "Kuota Akses Internet Malam Anda sudah hampir habis. Pastikan anda memiliki kuota internet untuk tetap menikmati layanan kami."
+                ]
+            },
+            {
+                "name": "Notification",
+                "action": 205,
+                "source": [
+                    "628881851351",
+                    "8881851351",
+                    "08881851351",
+                    "08881851034"
+                ],
+                "resp": [
+                    "Pulsa Anda hampir habis, silakan isi pulsa Anda disini",
+                    "Pulsa Anda hampir habis, silakan isi pulsa Anda disini"
+                ],
+                "key": [
+                    "(?i).*silakan isi pulsa.*"
+                ],
+                "button": {
+                    "buy": [["topup:", "topup", 0]
+                    ],
+                    "ok": 1
+                }
+            }						
+        ]
+    },
+    "dlg_notif": { 
+        "failure_sp_offer": [
+            {
+                "title": ["MySmartfren - Notification", "MySmartfren - Notification"],
+                "type": -1,
+                "content": ["Selamat, Anda mendapatkan Paket Internet Spesial", "Congratulation, you have got Special Internet Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close:"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close:"
+                        }
+                    ]
+                ]
+            }
+        ],
+        "andromax": [
+            {
+                "title": ["MySmartfren - Bonus", "MySmartfren - Bonus"],
+                "type": 1,
+                "content": ["Selamat, Anda mendapatkan Paket Internet Spesial", "Congratulation, you have got Special Internet Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ],
+        "motoz": [
+            {
+                "title": ["MySmartfren - Bonus", "MySmartfren - Bonus"],
+                "type": 1,
+                "content": ["Selamat, Anda mendapatkan Paket Internet Spesial", "Congratulation, you have got Special Internet Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+        ]
+                ]
+    }
+        ],
+        "spsip": [
+            {
+                "title": ["MySmartfren - SIP", "MySmartfren - SIP"],
+                "type": 3,
+                "content": ["Selamat, Anda mendapatkan bonus paket data", "Congratulation, you have got Special Data Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+}
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ],
+        "ajaib": [
+            {
+                "title": ["MySmartfren - GSM", "MySmartfren - GSM"],
+                "type": 2,
+                "content": ["Selamat, Anda mendapatkan bonus paket data", "Congratulation, you have got Special Data Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ],        
+        "nowplus": [
+            {
+                "title": ["MySmartfren - SP NOW+", "MySmartfren - SP NOW+"],
+                "type": 2,
+                "content": [
+                		"Selamat, Bonus Kuota sudah bisa Anda nikmati.",
+                		"Congratulation, Enjoy Your Internet Quota Bonus."],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ],        
+        "now": [
+            {
+                "title": ["MySmartfren - SP NOW", "MySmartfren - SP NOW"],
+                "type": 2,
+                "content": ["Selamat, Anda mendapatkan bonus paket data", "Congratulation, you have got Special Data Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ],        
+        "samsung": [
+            {
+                "title": ["MySmartfren - SP SAMSUNG", "MySmartfren - SP SAMSUNG"],
+                "type": 2,
+                "content": ["Selamat, Anda mendapatkan bonus paket data", "Congratulation, you have got Special Data Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ],
+        "nubia": [
+            {
+                "title": ["MySmartfren - SP NUBIA", "MySmartfren - SP NUBIA"],
+                "type": 2,
+                "content": ["Selamat, Anda mendapatkan bonus paket data", "Congratulation, you have got Special Data Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ],        
+        "bosku": [
+            {
+                "title": ["MySmartfren - SP BOSKU", "MySmartfren - SP BOSKU"],
+                "type": 2,
+                "content": ["Selamat, Anda mendapatkan bonus paket data", "Congratulation, you have got Special Data Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ],       
+		"regional": [
+            {
+                "title": ["MySmartfren - SP Regional", "MySmartfren - SP Regional"],
+                "type": 2,
+                "content": ["Selamat, Anda mendapatkan bonus paket data", "Congratulation, you have got Special Data Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ],
+		"regional2": [
+            {
+                "title": ["MySmartfren - SP Regional2", "MySmartfren - SP Regional2"],
+                "type": 2,
+                "content": ["Selamat, Anda mendapatkan bonus paket data", "Congratulation, you have got Special Data Plan"],
+                "quiz": [null, null],
+                "button": [
+                    [
+                        {
+                            "caption": "Ya",
+                            "action": "close"
+                        }
+                    ],
+                    [
+                        {
+                            "caption": "Yes",
+                            "action": "close"
+                        }
+                    ]
+                ]
+            }
+        ]        
+	}
+}
