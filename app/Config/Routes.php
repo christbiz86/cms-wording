@@ -76,6 +76,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/login','Login::index');
 $routes->post('/login','Login::submit');
 $routes->get('/dashboard','Dashboard::index');
+$routes->get('/publish','Dashboard::publish');
+$routes->post('/runPublish','Dashboard::runPublish');
 
 $routes->add('/wording/list_group/edit/(:segment)/(:segment)','Listgroup::edit');
 $routes->post('/wording/list_group/update/(:segment)/(:segment)','Listgroup::update');

@@ -9,7 +9,6 @@ class Login extends BaseController
 	public function submit(){
 		public function authenticate($username, $password) {
 			//return true;
-
 			$server = "10.0.0.122";   // jkt-dc02
 			$username = 'wireless\\'.$username;
 

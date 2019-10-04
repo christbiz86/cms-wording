@@ -26,6 +26,14 @@
 						</p>
 					</a>
 				</li>
+				<li class="nav-item">
+					<a href="<?=site_url('publish')?>" class="nav-link <?php if($menu=='publish'){ ?>active<?php } ?>">
+						<i class="nav-icon fas fa-edit"></i>
+						<p>
+							Publish to Server
+						</p>
+					</a>
+				</li>
 				<li class="nav-item has-treeview <?php if($menu=='wording'){ ?>menu-open<?php } ?>">
 					<a href="#" class="nav-link <?php if($menu=='wording'){ ?>active<?php } ?>">
 						<i class="nav-icon fas fa-copy"></i>
@@ -42,7 +50,6 @@
 							</a>
 						</li>
 					</ul>
-
 				</li>
 
 				<li class="nav-header">PARTITIONS</li>
