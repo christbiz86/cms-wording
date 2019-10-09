@@ -1,15 +1,18 @@
 <?php
 namespace App\Controllers;
 
-class Listsubgroup extends BaseController
-{
+class Listsubgroup extends Wording{
 
 	public function create(){
 		$object = $this->request->uri->getSegment(2);
-		$file = json_decode(file_get_contents('assets/packages.json'));
-		$list[$_POST['name']] = (object) $_POST;
-		unset($list[$_POST['name']]->name);
-
+		$file = $this->getJsonFile();
+		if($object == 'partitions'){
+			$list[$_POST['id']] = (object) $_POST;
+			unset($list[$_POST['id']]->id);
+		} else {
+			$list[$_POST['name']] = (object) $_POST;
+			unset($list[$_POST['name']]->name);
+		}
 		foreach ($file->$object as $key => $value) {
 			$list[$key] = $value;
 		}
@@ -18,16 +21,20 @@ class Listsubgroup extends BaseController
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents('assets/packages.json',json_encode($file));
-		return redirect()->to(site_url('/wording/'.$object));
+		file_put_contents($this->getValue(),json_encode($file));
+		return redirect()->to(site_url('/packages/'.$object));
 	}
 
 	public function update(){
 		$object = $this->request->uri->getSegment(2);
 		$id = $this->request->uri->getSegment(4);
-		$file = json_decode(file_get_contents('assets/packages.json'));
+		$file = $this->getJsonFile();
 		unset($file->$object->$id);
-		$list[$_POST['name']] = (object) $_POST;
+		if($object == 'partitions'){
+			$list[$_POST['id']] = (object) $_POST;
+		} else {
+			$list[$_POST['name']] = (object) $_POST;
+		}
 		foreach ($file->$object as $key => $value) {
 			$list[$key] = $value;
 		}
@@ -36,8 +43,8 @@ class Listsubgroup extends BaseController
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents('assets/packages.json',json_encode($file));
-		return redirect()->to(site_url('/wording/'.$object));
+		file_put_contents($this->getValue(),json_encode($file));
+		return redirect()->to(site_url('/packages/'.$object));
 	}
 
 }

@@ -54,10 +54,10 @@
 											} ?>
 										</td>
 										<td>
-											<a href="<?=site_url('wording/pack_calc/edit/'.$row)?>">
+											<a href="<?=site_url('packages/pack_calc/edit/'.$row)?>">
 												<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 											</a><br>
-											<a href="<?=site_url('wording/pack_calc/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
+											<a href="<?=site_url('packages/pack_calc/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
 												<button type="button" class="btn btn-block btn-danger btn-sm">Delete</button>
 											</a>
 										</td>
@@ -90,7 +90,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form role="form" method="post" action="<?=site_url('wording/pack_calc/add')?>">
+				<form role="form" method="post" action="<?=site_url('packages/pack_calc/add')?>">
 					<div class="card-body">
 						<div class="form-group">
 							<label for="name">Package Calculation ID (Letter and number only)</label>

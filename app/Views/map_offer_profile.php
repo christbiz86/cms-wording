@@ -71,10 +71,10 @@
 											} }
 											?></td>
 										<td>
-											<a href="<?=site_url('wording/map_offer_profile/edit/'.$row)?>">
+											<a href="<?=site_url('packages/map_offer_profile/edit/'.$row)?>">
 												<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 											</a><br>
-											<a href="<?=site_url('wording/map_offer_profile/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
+											<a href="<?=site_url('packages/map_offer_profile/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
 												<button type="button" class="btn btn-block btn-danger btn-sm">Delete</button>
 											</a>
 										</td>
@@ -107,7 +107,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form role="form" method="post" action="<?=site_url('wording/map_offer_profile/add')?>">
+				<form role="form" method="post" action="<?=site_url('packages/map_offer_profile/add')?>">
 					<div class="card-body">
 						<div class="form-group">
 							<label for="name">Code (Letter and number only)</label>

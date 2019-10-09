@@ -31,7 +31,7 @@
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form" method="post" action="<?=site_url('wording/packages/update/'.$id)?>">
+							<form role="form" method="post" action="<?=site_url('packages/packages/update/'.$id)?>">
 								<?php $file = json_decode(file_get_contents('assets/packages.json')); ?>
 								<div class="card-body">
 									<div class="form-check">
@@ -116,19 +116,46 @@
 									</div>
 									<div class="form-group">
 										<label for="type">Type</label>
-										<input type="text" class="form-control" id="type" name="type" value="<?=$object->type;?>">
+										<select name="type" class="select2" data-placeholder="Enter type"
+												style="width: 100%;">
+											<option value="<?=$object->type;?>"><?=$object->type;?></option>
+											<?php foreach($type as $data1 => $value1){ ?>
+												<?php if($object->type != $value1->name){ ?>
+													<option value="<?=$value1->name;?>"><?=$value1->name;?></option>
+												<?php } } ?>
+										</select>
 									</div>
 									<div class="form-group">
 										<label for="group">Group</label>
-										<input type="text" class="form-control" id="group" name="group" value="<?=$object->group;?>">
+										<select name="group" class="select2" data-placeholder="Enter group"
+												style="width: 100%;">
+											<option value="<?=$object->group;?>"><?=$object->group;?></option>
+											<?php foreach($groups as $data){ ?>
+												<?php if($object->group != $data){ ?>
+													<option value="<?=$data;?>"><?=$data;?></option>
+												<?php } } ?>
+										</select>
 									</div>
 									<div class="form-group">
 										<label for="sub_group">Sub Group</label>
-										<input type="text" class="form-control" id="sub_group" name="sub_group" value="<?=$object->sub_group;?>">
+										<select name="sub_group" class="select2" data-placeholder="Select a sub group"
+												style="width: 100%;">
+											<option value="<?=$object->sub_group;?>"><?=$object->sub_group;?></option>
+											<?php foreach($subgroup as $row => $value){ ?>
+												<?php if($row != $object->sub_group){ ?>
+												<option value="<?=$row;?>"><?=$row;?></option>
+											<?php } } ?>
+										</select>
 									</div>
 									<div class="form-group">
 										<label for="duration">Duration</label>
-										<input type="text" class="form-control" id="duration" name="duration" value="<?=$object->duration;?>">
+										<select name="duration" class="select2" data-placeholder="Select a duration"
+												style="width: 100%;">
+											<?php foreach($duration as $row1 => $value1){ ?>
+												<?php if($row1 != $object->duration){ ?>
+												<option value="<?=$row1;?>"><?=$row1;?></option>
+											<?php } } ?>
+										</select>
 									</div>
 									<div class="form-group">
 										<label for="purchaseby">Purchase By</label>

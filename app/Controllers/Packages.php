@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
-class Packages extends BaseController
-{
+class Packages extends Wording{
+
 	public function create(){
 		$object = $this->request->uri->getSegment(2);
-		$file = json_decode(file_get_contents('assets/packages.json'));
+		$file = $this->getJsonFile();
 		$list[$_POST['code']] = (object) $_POST;
 
 		//insert current packages
@@ -24,14 +24,14 @@ class Packages extends BaseController
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents('assets/packages.json',json_encode($file));
-		return redirect()->to(site_url('/wording/'.$object));
+		file_put_contents($this->getValue(),json_encode($file));
+		return redirect()->to(site_url('/packages/'.$object));
 	}
 
 	public function update(){
 		$object = $this->request->uri->getSegment(2);
 		$id = $this->request->uri->getSegment(4);
-		$file = json_decode(file_get_contents('assets/packages.json'));
+		$file = $this->getJsonFile();
 		unset($file->$object->$id);
 		$list[$_POST['code']] = (object) $_POST;
 
@@ -54,8 +54,8 @@ class Packages extends BaseController
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents('assets/packages.json',json_encode($file));
-		return redirect()->to(site_url('/wording/'.$object));
+		file_put_contents($this->getValue(),json_encode($file));
+		return redirect()->to(site_url('/packages/'.$object));
 	}
 
 }

@@ -87,10 +87,10 @@
 												}
 												?></td>
 											<td>
-												<a href="<?=site_url('wording/packages/edit/'.$row)?>">
+												<a href="<?=site_url('packages/packages/edit/'.$row)?>">
 													<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 												</a><br>
-												<a href="<?=site_url('wording/packages/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
+												<a href="<?=site_url('packages/packages/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
 													<button type="button" class="btn btn-block btn-danger btn-sm">Delete</button>
 												</a>
 											</td>
@@ -123,7 +123,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form role="form" method="post" action="<?=site_url('wording/packages/add')?>">
+				<form role="form" method="post" action="<?=site_url('packages/packages/add')?>">
 					<div class="card-body">
 						<div class="form-check">
 							<input type="checkbox" name="curr_packages" class="form-check-input" id="exampleCheck1">
@@ -203,19 +203,39 @@
 						</div>
 						<div class="form-group">
 							<label for="type">Type</label>
-							<input type="text" class="form-control" id="type" name="type" placeholder="Enter package type">
+							<select name="type" class="select2" data-placeholder="Enter type"
+									style="width: 100%;">
+								<?php foreach($type as $data1 => $value1){ ?>
+									<option value="<?=$value1->name;?>"><?=$value1->name;?></option>
+								<?php } ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="group">Group</label>
-							<input type="text" class="form-control" id="group" name="group" placeholder="Enter package group">
+							<select name="group" class="select2" data-placeholder="Enter group"
+									style="width: 100%;">
+								<?php foreach($groups as $data){ ?>
+									<option value="<?=$data;?>"><?=$data;?></option>
+								<?php } ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="sub_group">Sub Group</label>
-							<input type="text" class="form-control" id="sub_group" name="sub_group" placeholder="Enter package sub group">
+							<select name="sub_group" class="select2" data-placeholder="Select a sub group"
+									style="width: 100%;">
+								<?php foreach($subgroup as $row => $value){ ?>
+									<option value="<?=$row;?>"><?=$row;?></option>
+								<?php } ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="duration">Duration</label>
-							<input type="text" class="form-control" id="duration" name="duration" placeholder="Enter package duration">
+							<select name="duration" class="select2" data-placeholder="Select a duration"
+									style="width: 100%;">
+								<?php foreach($duration as $row1 => $value1){ ?>
+								<option value="<?=$row1;?>"><?=$row1;?></option>
+								<?php } ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="purchaseby">Purchase By</label>

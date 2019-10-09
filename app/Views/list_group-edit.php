@@ -31,7 +31,7 @@
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form" method="post" action="<?=site_url('wording/list_group/update/'.$id.'/'.$detail)?>">
+							<form role="form" method="post" action="<?=site_url('packages/list_group/update/'.$id.'/'.$detail)?>">
 								<div class="card-body">
 									<div class="form-group">
 										<label for="id">List Group ID</label>

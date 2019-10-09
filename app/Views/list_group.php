@@ -58,10 +58,10 @@
 											English : <?php echo ($value1->desc[1]);?>
 										</td>
 										<td>
-											<a href="<?=site_url('wording/list_group/edit/'.$row.'/'.$row1)?>">
+											<a href="<?=site_url('packages/list_group/edit/'.$row.'/'.$row1)?>">
 												<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 											</a><br>
-											<a href="<?=site_url('wording/list_group/delete/'.$row.'/'.$row1)?>" onclick="return confirm('Are you sure you want to delete this item?');">
+											<a href="<?=site_url('packages/list_group/delete/'.$row.'/'.$row1)?>" onclick="return confirm('Are you sure you want to delete this item?');">
 												<button type="button" class="btn btn-block btn-danger btn-sm">Delete</button>
 											</a>
 										</td>

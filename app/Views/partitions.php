@@ -2,6 +2,9 @@
 <html>
 <head>
 	<?php include('components/header.php') ?>
+	<!-- Select2 -->
+	<link rel="stylesheet" href="<?=site_url()?>assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="<?=site_url()?>assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -36,7 +39,7 @@
 								<tr>
 									<th>Partition ID</th>
 									<th>Name</th>
-									<th>Quota</th>
+									<th>Group</th>
 									<th>Type</th>
 									<th>Wording</th>
 									<th>Desc</th>
@@ -48,7 +51,7 @@
 									<tr>
 										<td><?php echo ($row);?></td>
 										<td><?=$value->name;?></td>
-										<td><?=$value->quota;?></td>
+										<td><?=$value->group;?></td>
 										<td><?=$value->type;?></td>
 										<td>
 											Indo : <?=$value->wording[0];?><br>
@@ -59,10 +62,10 @@
 											English : <?=$value->desc[1];?>
 										</td>
 										<td>
-											<a href="<?=site_url('wording/partitions/edit/'.$row)?>">
+											<a href="<?=site_url('packages/partitions/edit/'.$row)?>">
 												<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 											</a><br>
-											<a href="<?=site_url('wording/partitions/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
+											<a href="<?=site_url('packages/partitions/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
 												<button type="button" class="btn btn-block btn-danger btn-sm">Delete</button>
 											</a>
 										</td>
@@ -96,7 +99,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form role="form" method="post" action="<?=site_url('wording/partitions/add')?>">
+				<form role="form" method="post" action="<?=site_url('packages/partitions/add')?>">
 					<div class="form-check">
 						<input type="checkbox" name="special_partitions" class="form-check-input">
 						<label class="form-check-label" for="exampleCheck1"><b>Special Partitions</b></label>
@@ -115,16 +118,25 @@
 					</div>
 					<div class="card-body">
 						<div class="form-group">
+							<label for="name">Partition ID</label>
+							<input type="text" required class="form-control" id="id" name="id" placeholder="Enter id">
+						</div>
+						<div class="form-group">
 							<label for="name">Name</label>
 							<input type="text" required class="form-control" id="name" name="name" placeholder="Enter name">
 						</div>
-						<div class="form-group">
-							<label for="quota">Quota</label>
-							<input type="text" required class="form-control" id="quota" name="quota" placeholder="Enter quota">
-						</div>
+<!--						<div class="form-group">-->
+<!--							<label for="quota">Quota</label>-->
+<!--							<input type="text" required class="form-control" id="quota" name="quota" placeholder="Enter quota">-->
+<!--						</div>-->
 						<div class="form-group">
 							<label for="type">Type</label>
-							<input type="text" required class="form-control" id="type" name="type" placeholder="Enter type">
+							<select name="type" class="select2" data-placeholder="Enter type"
+									style="width: 100%;">
+								<?php foreach($type as $data1 => $value1){ ?>
+									<option value="<?=$value1->name;?>"><?=$value1->name;?></option>
+								<?php } ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="order">Order</label>
@@ -136,11 +148,21 @@
 						</div>
 						<div class="form-group">
 							<label for="sub_type">Sub Type</label>
-							<input type="text" required class="form-control" id="sub_type" name="sub_type" placeholder="Enter sub type">
+							<select name="sub_type" class="select2" data-placeholder="Enter sub type"
+									style="width: 100%;">
+								<?php foreach($subtype as $data2 => $value2){ ?>
+									<option value="<?=$value2->name;?>"><?=$value2->name;?></option>
+								<?php } ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="group">Group</label>
-							<input type="text" required class="form-control" id="group" name="group" placeholder="Enter group">
+							<select name="group" class="select2" data-placeholder="Enter group"
+									style="width: 100%;">
+								<?php foreach($groups as $data){ ?>
+									<option value="<?=$data;?>"><?=$data;?></option>
+								<?php } ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="wording">Wording (Indo)</label>
@@ -172,9 +194,13 @@
 	<!-- /.modal-dialog -->
 </div>
 
+<script src="<?php echo site_url('assets/plugins/select2/js/select2.full.min.js') ?>"></script>
 <!-- ./wrapper -->
 <script>
     $(function () {
+        $('.select2').select2({
+            theme: 'bootstrap4'
+        });
         $('#example1').DataTable({
             "paging": true,
             "lengthChange": true,

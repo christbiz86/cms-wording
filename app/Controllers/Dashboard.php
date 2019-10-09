@@ -1,6 +1,6 @@
 <?php namespace App\Controllers;
 
-use SFTP;
+use Net_SSH2;
 
 class Dashboard extends BaseController
 {
@@ -30,13 +30,11 @@ class Dashboard extends BaseController
 			];
 			return view('publish',$data);
 		} else {
-			$config['hostname'] = 'ssh.example.com';
-			$config['username'] = 'root';
-			$config['password'] = 'smartfren';
-			$sftp = new SFTP();
-			$sftp->connect($config);
-			$sftp->upload('assets/packages.json', '/home/packages.json', 'ascii', 0775);
-			$sftp->close();
+//			$file = $this->request->getFile('inputFile')->store('test_upload/', 'user_name.json');
+//			var_dump($file);
+
+
+
 		}
 	}
 

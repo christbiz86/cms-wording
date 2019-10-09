@@ -1,13 +1,11 @@
 <?php
 namespace App\Controllers;
 
-
-class Listgroup extends BaseController
-{
+class Listgroup extends Wording{
 
 	public function index(){
 		$object = $this->request->uri->getSegment(2);
-		$file = json_decode(file_get_contents('assets/packages.json'));
+		$file = $this->getJsonFile();
 		$data = [
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
@@ -23,7 +21,7 @@ class Listgroup extends BaseController
 		$object = $this->request->uri->getSegment(2);
 		$id = $this->request->uri->getSegment(4);
 		$detail = $this->request->uri->getSegment(5);
-		$file = json_decode(file_get_contents('assets/packages.json'));
+		$file = $this->getJsonFile();
 		$data = [
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
@@ -40,7 +38,7 @@ class Listgroup extends BaseController
 		$object = $this->request->uri->getSegment(2);
 		$id = $this->request->uri->getSegment(4);
 		$detail = $this->request->uri->getSegment(5);
-		$file = json_decode(file_get_contents('assets/packages.json'));
+		$file = $this->getJsonFile();
 		foreach ($file as $key_file => $entry) {
 			if($key_file == $object){
 				foreach ($entry as $key_item => $item) {
@@ -50,16 +48,8 @@ class Listgroup extends BaseController
 				}
 			}
 		}
-		file_put_contents('assets/packages.json',json_encode($file));
-		return redirect()->to(site_url('/wording/'.$object));
-	}
-
-	public function create(){
-
-	}
-
-	public function delete(){
-
+		file_put_contents($this->getValue(),json_encode($file));
+		return redirect()->to(site_url('/packages/'.$object));
 	}
 
 }

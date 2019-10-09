@@ -79,41 +79,61 @@ $routes->get('/dashboard','Dashboard::index');
 $routes->get('/publish','Dashboard::publish');
 $routes->post('/runPublish','Dashboard::runPublish');
 
-$routes->add('/wording/list_group/edit/(:segment)/(:segment)','Listgroup::edit');
-$routes->post('/wording/list_group/update/(:segment)/(:segment)','Listgroup::update');
-$routes->add('/wording/list_group','Listgroup::index');
+$routes->group('packages', function($routes){
+	$routes->add('(:segment)','Wording::getWording', ['as' => 'home_wording']);
+	$routes->post('(:segment)/add','Wording::create');
+	$routes->add('(:segment)/delete/(:segment)','Wording::delete');
+	$routes->add('(:segment)/edit/(:segment)','Wording::edit');
+	$routes->post('(:segment)/update/(:segment)','Wording::update');
 
-$routes->post('/wording/list_sub_group/add','Listsubgroup::create');
+	$routes->add('list_group/edit/(:segment)/(:segment)','Listgroup::edit');
+	$routes->post('list_group/update/(:segment)/(:segment)','Listgroup::update');
+	$routes->add('list_group','Listgroup::index');
 
-$routes->post('/wording/packages/add','Packages::create');
-$routes->post('/wording/packages/update/(:segment)','Packages::update');
+	$routes->post('list_sub_group/add','Listsubgroup::create');
 
-$routes->post('/wording/list_packages/add','Listduration::create');
-$routes->post('/wording/list_packages/update/(:segment)','Listduration::update');
+	$routes->post('packages/add','Packages::create');
+	$routes->post('packages/update/(:segment)','Packages::update');
 
-$routes->post('/wording/recommend_packages/add','Listduration::create');
-$routes->post('/wording/recommend_packages/update/(:segment)','Listduration::update');
+	$routes->post('list_packages/add','Listduration::create');
+	$routes->post('list_packages/update/(:segment)','Listduration::update');
 
-$routes->post('/wording/map_offer_profile/add','Listsubgroup::create');
-$routes->post('/wording/map_offer_profile/update/(:segment)','Listsubgroup::update');
+	$routes->post('recommend_packages/add','Listduration::create');
+	$routes->post('recommend_packages/update/(:segment)','Listduration::update');
 
-$routes->post('/wording/pack_calc/add','Listsubgroup::create');
-$routes->post('/wording/pack_calc/update/(:segment)','Listsubgroup::update');
+	$routes->post('map_offer_profile/add','Listsubgroup::create');
+	$routes->post('map_offer_profile/update/(:segment)','Listsubgroup::update');
 
-$routes->post('/wording/list_duration/add','Listduration::create');
-$routes->post('/wording/list_duration/update/(:segment)','Listduration::update');
+	$routes->post('pack_calc/add','Listsubgroup::create');
+	$routes->post('pack_calc/update/(:segment)','Listsubgroup::update');
 
-$routes->post('/wording/buy_note/add','Listduration::create');
-$routes->post('/wording/buy_note/update/(:segment)','Listduration::update');
+	$routes->post('partitions/add','Listsubgroup::create');
+	$routes->post('partitions/update/(:segment)','Listsubgroup::update');
 
-$routes->post('/wording/gift_note/add','Listduration::create');
-$routes->post('/wording/gift_note/update/(:segment)','Listduration::update');
+	$routes->post('list_duration/add','Listduration::create');
+	$routes->post('list_duration/update/(:segment)','Listduration::update');
 
-$routes->add('/wording/(:segment)','Wording::getWording', ['as' => 'home_wording']);
-$routes->post('/wording/(:segment)/add','Wording::create');
-$routes->add('/wording/(:segment)/delete/(:segment)','Wording::delete');
-$routes->add('/wording/(:segment)/edit/(:segment)','Wording::edit');
-$routes->post('/wording/(:segment)/update/(:segment)','Wording::update');
+	$routes->post('buy_note/add','Listduration::create');
+	$routes->post('buy_note/update/(:segment)','Listduration::update');
+
+	$routes->post('gift_note/add','Listduration::create');
+	$routes->post('gift_note/update/(:segment)','Listduration::update');
+});
+
+
+$routes->group('wording', function($routes) {
+	$routes->post('channel/add','Channel::create');
+	$routes->post('channel/update/(:segment)','Channel::update');
+
+	$routes->post('dlg_notif/add','Channel::create');
+	$routes->post('dlg_notif/update/(:segment)','Channel::update');
+
+	$routes->add('(:segment)', 'Words::getWording');
+	$routes->post('(:segment)/add', 'Words::create');
+	$routes->add('(:segment)/delete/(:segment)', 'Words::delete');
+	$routes->add('(:segment)/edit/(:segment)', 'Words::edit');
+	$routes->post('(:segment)/update/(:segment)', 'Words::update');
+});
 
 /**
  * --------------------------------------------------------------------

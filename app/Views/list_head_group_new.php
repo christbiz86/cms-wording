@@ -58,7 +58,7 @@
 											} ?>
 										</td>
 										<td>
-											<a href="<?=site_url('wording/list_head_group_new/edit/'.$row)?>">
+											<a href="<?=site_url('packages/list_head_group_new/edit/'.$row)?>">
 												<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 											</a>
 										</td>

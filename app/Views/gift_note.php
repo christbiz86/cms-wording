@@ -48,10 +48,10 @@
 											English : <?php echo ($value[1]);?>
 										</td>
 										<td>
-											<a href="<?=site_url('wording/gift_note/edit/'.$row)?>">
+											<a href="<?=site_url('packages/gift_note/edit/'.$row)?>">
 												<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 											</a><br>
-											<a href="<?=site_url('wording/gift_note/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
+											<a href="<?=site_url('packages/gift_note/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
 												<button type="button" class="btn btn-block btn-danger btn-sm">Delete</button>
 											</a>
 										</td>
@@ -84,7 +84,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form role="form" method="post" action="<?=site_url('wording/gift_note/add')?>">
+				<form role="form" method="post" action="<?=site_url('packages/gift_note/add')?>">
 					<div class="card-body">
 						<div class="form-group">
 							<label for="name">Name</label>

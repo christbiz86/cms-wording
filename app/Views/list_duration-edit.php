@@ -28,7 +28,7 @@
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form" method="post" action="<?=site_url('wording/list_duration/update/'.$id)?>">
+							<form role="form" method="post" action="<?=site_url('packages/list_duration/update/'.$id)?>">
 								<div class="card-body">
 									<div class="form-group">
 										<label for="name">Name</label>

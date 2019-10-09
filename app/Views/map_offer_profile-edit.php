@@ -31,7 +31,7 @@
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form" method="post" action="<?=site_url('wording/map_offer_profile/update/'.$id)?>">
+							<form role="form" method="post" action="<?=site_url('packages/map_offer_profile/update/'.$id)?>">
 								<div class="card-body">
 									<div class="form-group">
 										<label for="name">Code (Letter and number only)</label>

@@ -35,7 +35,7 @@
 									Type wrong text !!!
 								</div>
 							<?php } ?>
-							<form role="form" method="post" action="<?=site_url('runPublish')?>">
+							<form role="form" method="post" enctype="multipart/form-data" action="<?=site_url('runPublish')?>">
 								<div class="card-body">
 									<div class="form-group">
 										<label for="name">Please type or copy this text : "publish"</label>

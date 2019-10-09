@@ -1,12 +1,11 @@
 <?php
 namespace App\Controllers;
 
-class Listduration extends BaseController
-{
+class Listduration extends Wording{
 
 	public function create(){
 		$object = $this->request->uri->getSegment(2);
-		$file = json_decode(file_get_contents('assets/packages.json'));
+		$file = $this->getJsonFile();
 		$list[$_POST['name']] = $_POST['desc'];
 		foreach ($file->$object as $key => $value) {
 			$list[$key] = $value;
@@ -16,8 +15,8 @@ class Listduration extends BaseController
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents('assets/packages.json',json_encode($file));
-		return redirect()->to(site_url('/wording/'.$object));
+		file_put_contents($this->getValue(),json_encode($file));
+		return redirect()->to(site_url('/packages/'.$object));
 	}
 
 	public function update(){
@@ -34,8 +33,8 @@ class Listduration extends BaseController
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents('assets/packages.json',json_encode($file));
-		return redirect()->to(site_url('/wording/'.$object));
+		file_put_contents($this->getValue(),json_encode($file));
+		return redirect()->to(site_url('/packages/'.$object));
 	}
 
 }
