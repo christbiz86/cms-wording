@@ -129,15 +129,15 @@
 <!--							<label for="quota">Quota</label>-->
 <!--							<input type="text" required class="form-control" id="quota" name="quota" placeholder="Enter quota">-->
 <!--						</div>-->
-						<div class="form-group">
-							<label for="type">Type</label>
-							<select name="type" class="select2" data-placeholder="Enter type"
-									style="width: 100%;">
-								<?php foreach($type as $data1 => $value1){ ?>
-									<option value="<?=$value1->name;?>"><?=$value1->name;?></option>
-								<?php } ?>
-							</select>
-						</div>
+<!--						<div class="form-group">-->
+<!--							<label for="type">Type</label>-->
+<!--							<select name="type" class="select2" data-placeholder="Enter type"-->
+<!--									style="width: 100%;">-->
+<!--								--><?php //foreach($type as $data1 => $value1){ ?>
+<!--									<option value="--><?//=$value1->name;?><!--">--><?//=$value1->name;?><!--</option>-->
+<!--								--><?php //} ?>
+<!--							</select>-->
+<!--						</div>-->
 						<div class="form-group">
 							<label for="order">Order</label>
 							<input type="text" required class="form-control" id="order" name="order" placeholder="Enter order">
@@ -146,15 +146,15 @@
 							<label for="adjust_exp">Adjust Exp</label>
 							<input type="text" required class="form-control" id="adjust_exp" name="adjust_exp" placeholder="Enter adjust exp">
 						</div>
-						<div class="form-group">
-							<label for="sub_type">Sub Type</label>
-							<select name="sub_type" class="select2" data-placeholder="Enter sub type"
-									style="width: 100%;">
-								<?php foreach($subtype as $data2 => $value2){ ?>
-									<option value="<?=$value2->name;?>"><?=$value2->name;?></option>
-								<?php } ?>
-							</select>
-						</div>
+<!--						<div class="form-group">-->
+<!--							<label for="sub_type">Sub Type</label>-->
+<!--							<select name="sub_type" class="select2" data-placeholder="Enter sub type"-->
+<!--									style="width: 100%;">-->
+<!--								--><?php //foreach($subtype as $data2 => $value2){ ?>
+<!--									<option value="--><?//=$value2->name;?><!--">--><?//=$value2->name;?><!--</option>-->
+<!--								--><?php //} ?>
+<!--							</select>-->
+<!--						</div>-->
 						<div class="form-group">
 							<label for="group">Group</label>
 							<select name="group" class="select2" data-placeholder="Enter group"

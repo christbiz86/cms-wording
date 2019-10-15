@@ -100,7 +100,6 @@
 							<select name="desc[]" required class="select2" multiple="multiple" data-placeholder="Select packages"
 									style="width: 100%;">
 								<?php
-								$file = json_decode(file_get_contents('assets/packages.json'));
 								$head = $file->packages;
 								foreach($head as $heads => $heads_value){ ?>
 									<option value="<?=$heads;?>"><?=$heads;?></option>

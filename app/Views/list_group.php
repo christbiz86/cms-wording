@@ -45,7 +45,6 @@
 										<td><?php echo ($row);?></td>
 										<td><?php echo ($row1);?></td>
 										<td><?php
-											$file = json_decode(file_get_contents('assets/packages.json'));
 											$data = $file->list_head_group_new;
 											foreach($data as $data1 => $val_data){
 												if($val_data->id == $value1->list_head_group_new_id){

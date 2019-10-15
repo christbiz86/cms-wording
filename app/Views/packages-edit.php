@@ -32,7 +32,6 @@
 						<!-- /.card-header -->
 						<div class="card-body">
 							<form role="form" method="post" action="<?=site_url('packages/packages/update/'.$id)?>">
-								<?php $file = json_decode(file_get_contents('assets/packages.json')); ?>
 								<div class="card-body">
 									<div class="form-check">
 										<input
@@ -114,17 +113,17 @@
 											<?php } ?>
 										</select>
 									</div>
-									<div class="form-group">
-										<label for="type">Type</label>
-										<select name="type" class="select2" data-placeholder="Enter type"
-												style="width: 100%;">
-											<option value="<?=$object->type;?>"><?=$object->type;?></option>
-											<?php foreach($type as $data1 => $value1){ ?>
-												<?php if($object->type != $value1->name){ ?>
-													<option value="<?=$value1->name;?>"><?=$value1->name;?></option>
-												<?php } } ?>
-										</select>
-									</div>
+<!--									<div class="form-group">-->
+<!--										<label for="type">Type</label>-->
+<!--										<select name="type" class="select2" data-placeholder="Enter type"-->
+<!--												style="width: 100%;">-->
+<!--											<option value="--><?//=$object->type;?><!--">--><?//=$object->type;?><!--</option>-->
+<!--											--><?php //foreach($type as $data1 => $value1){ ?>
+<!--												--><?php //if($object->type != $value1->name){ ?>
+<!--													<option value="--><?//=$value1->name;?><!--">--><?//=$value1->name;?><!--</option>-->
+<!--												--><?php //} } ?>
+<!--										</select>-->
+<!--									</div>-->
 									<div class="form-group">
 										<label for="group">Group</label>
 										<select name="group" class="select2" data-placeholder="Enter group"

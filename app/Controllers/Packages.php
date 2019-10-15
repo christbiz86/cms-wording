@@ -24,7 +24,7 @@ class Packages extends Wording{
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($file));
+		$this->updateJsonFile(json_encode($file));
 		return redirect()->to(site_url('/packages/'.$object));
 	}
 
@@ -54,7 +54,7 @@ class Packages extends Wording{
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($file));
+		$this->updateJsonFile(json_encode($file));
 		return redirect()->to(site_url('/packages/'.$object));
 	}
 

@@ -168,18 +168,18 @@
 						<p>List Sub Group</p>
 					</a>
 				</li>
-				<li class="nav-item">
-					<a href="<?=site_url('packages/list_type')?>" class="nav-link <?php if($submenu=='list_type'){ ?>active<?php } ?>">
-						<i class="far fa-circle nav-icon"></i>
-						<p>List Type</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="<?=site_url('packages/list_sub_type')?>" class="nav-link <?php if($submenu=='list_sub_type'){ ?>active<?php } ?>">
-						<i class="far fa-circle nav-icon"></i>
-						<p>List Sub Type</p>
-					</a>
-				</li>
+<!--				<li class="nav-item">-->
+<!--					<a href="--><?//=site_url('packages/list_type')?><!--" class="nav-link --><?php //if($submenu=='list_type'){ ?><!--active--><?php //} ?><!--">-->
+<!--						<i class="far fa-circle nav-icon"></i>-->
+<!--						<p>List Type</p>-->
+<!--					</a>-->
+<!--				</li>-->
+<!--				<li class="nav-item">-->
+<!--					<a href="--><?//=site_url('packages/list_sub_type')?><!--" class="nav-link --><?php //if($submenu=='list_sub_type'){ ?><!--active--><?php //} ?><!--">-->
+<!--						<i class="far fa-circle nav-icon"></i>-->
+<!--						<p>List Sub Type</p>-->
+<!--					</a>-->
+<!--				</li>-->
 				<li class="nav-item">
 					<a href="<?=site_url('packages/list_head_group_new')?>" class="nav-link <?php if($submenu=='list_head_group_new'){ ?>active<?php } ?>">
 						<i class="far fa-circle nav-icon"></i>

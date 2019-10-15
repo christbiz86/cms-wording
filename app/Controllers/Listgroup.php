@@ -12,6 +12,7 @@ class Listgroup extends Wording{
 			'submenu'	=> $object,
 			'message'	=> '',
 			'object'	=> $file->$object,
+			'file'		=> $file,
 			'head'		=> $file->list_head_group_new
 		];
 		return view($object,$data);
@@ -48,7 +49,7 @@ class Listgroup extends Wording{
 				}
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($file));
+		$this->updateJsonFile(json_encode($file));
 		return redirect()->to(site_url('/packages/'.$object));
 	}
 

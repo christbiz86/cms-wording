@@ -3,7 +3,7 @@
 class Wording extends WordingAbstract {
 
 	protected function getValue() {
-		return "assets/packages.json";
+		return "packages.json";
 	}
 
 	public function getWording(){
@@ -21,34 +21,35 @@ class Wording extends WordingAbstract {
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
 			'message'	=> '',
-			'object'	=> $file->$object
+			'object'	=> $file->$object,
+			'file'		=> $file
 		];
 		if($object == 'packages'){
 			$data['curr_packages'] = $file->curr_packages;
 			$data['duration'] = $file->list_duration;
 			$data['groups'] = array_unique($categories);
 			$data['subgroup'] = $file->list_sub_group;
-			$data['type'] = $file->list_type;
+//			$data['type'] = $file->list_type;
 		} elseif($object == 'partitions'){
 			$data['curr_partitions'] = $file->curr_partitions;
 			$data['special_partitions'] = $file->special_partitions;
 			$data['showed_partitions'] = $file->showed_partitions;
 			$data['data_partitions'] = $file->data_partitions;
 			$data['groups'] = array_unique($categories);
-			$data['type'] = $file->list_type;
-			$data['subtype'] = $file->list_sub_type;
+//			$data['type'] = $file->list_type;
+//			$data['subtype'] = $file->list_sub_type;
 		}
 //		foreach ($file->$object as $key => $value) {
 //				$myDetails[$key] = $value;
 //		}
-//		var_dump($file->$object);
+//		var_dump($file);
 //		exit();
 		return view($object,$data);
 	}
 
 	public function create(){
 		$object = $this->request->uri->getSegment(2);
-		$file = json_decode(file_get_contents('assets/packages.json'));
+		$file = $this->getJsonFile();
 		foreach ($file->$object as $key => $value) {
 			$list[$key] = $value;
 		}
@@ -91,7 +92,8 @@ class Wording extends WordingAbstract {
 				$file->data_partitions = $curr;
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($file));
+		$this->updateJsonFile(json_encode($file));
+//		file_put_contents($this->getValue(),json_encode($file));
 		return redirect()->to(site_url('/packages/'.$object));
 	}
 
@@ -135,7 +137,7 @@ class Wording extends WordingAbstract {
 				}
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($file));
+		$this->updateJsonFile(json_encode($file));
 		return redirect()->to(site_url('/packages/'.$object));
 	}
 
@@ -155,6 +157,7 @@ class Wording extends WordingAbstract {
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
 			'id'		=> $id,
+			'file'		=> $file,
 			'object'	=> $file->$object->$id
 		];
 		if($object == 'packages'){
@@ -162,15 +165,15 @@ class Wording extends WordingAbstract {
 			$data['duration'] = $file->list_duration;
 			$data['subgroup'] = $file->list_sub_group;
 			$data['groups'] = array_unique($categories);
-			$data['type'] = $file->list_type;
+//			$data['type'] = $file->list_type;
 		} elseif($object == 'partitions'){
 			$data['curr_partitions'] = $file->curr_partitions;
 			$data['special_partitions'] = $file->special_partitions;
 			$data['showed_partitions'] = $file->showed_partitions;
 			$data['data_partitions'] = $file->data_partitions;
 			$data['groups'] = array_unique($categories);
-			$data['type'] = $file->list_type;
-			$data['subtype'] = $file->list_sub_type;
+//			$data['type'] = $file->list_type;
+//			$data['subtype'] = $file->list_sub_type;
 		}
 		return view($object.'-edit',$data);
 	}
@@ -233,8 +236,9 @@ class Wording extends WordingAbstract {
 				unset($file->data_partitions[$getId]);
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($file));
-		return redirect()->to(site_url('/wording/'.$object));
+
+		$this->updateJsonFile(json_encode($file));
+		return redirect()->to(site_url('/packages/'.$object));
 	}
 
 }

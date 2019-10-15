@@ -80,12 +80,6 @@ $routes->get('/publish','Dashboard::publish');
 $routes->post('/runPublish','Dashboard::runPublish');
 
 $routes->group('packages', function($routes){
-	$routes->add('(:segment)','Wording::getWording', ['as' => 'home_wording']);
-	$routes->post('(:segment)/add','Wording::create');
-	$routes->add('(:segment)/delete/(:segment)','Wording::delete');
-	$routes->add('(:segment)/edit/(:segment)','Wording::edit');
-	$routes->post('(:segment)/update/(:segment)','Wording::update');
-
 	$routes->add('list_group/edit/(:segment)/(:segment)','Listgroup::edit');
 	$routes->post('list_group/update/(:segment)/(:segment)','Listgroup::update');
 	$routes->add('list_group','Listgroup::index');
@@ -118,6 +112,12 @@ $routes->group('packages', function($routes){
 
 	$routes->post('gift_note/add','Listduration::create');
 	$routes->post('gift_note/update/(:segment)','Listduration::update');
+
+	$routes->add('(:segment)','Wording::getWording', ['as' => 'home_wording']);
+	$routes->post('(:segment)/add','Wording::create');
+	$routes->add('(:segment)/delete/(:segment)','Wording::delete');
+	$routes->add('(:segment)/edit/(:segment)','Wording::edit');
+	$routes->post('(:segment)/update/(:segment)','Wording::update');
 });
 
 

@@ -85,17 +85,17 @@
 										<label for="adjust_exp">Adjust Exp</label>
 										<input type="number" required class="form-control" id="adjust_exp" name="adjust_exp" value="<?=$object->adjust_exp;?>">
 									</div>
-									<div class="form-group">
-										<label for="sub_type">Sub Type</label>
-										<select name="sub_type" class="select2" data-placeholder="Enter sub type"
-												style="width: 100%;">
-												<option value="<?=$object->sub_type;?>"><?=$object->sub_type;?></option>
-											<?php foreach($subtype as $data2 => $value2){ ?>
-												<?php if($object->sub_type != $value2->name){ ?>
-												<option value="<?=$value2->name;?>"><?=$value2->name;?></option>
-											<?php } } ?>
-										</select>
-									</div>
+<!--									<div class="form-group">-->
+<!--										<label for="sub_type">Sub Type</label>-->
+<!--										<select name="sub_type" class="select2" data-placeholder="Enter sub type"-->
+<!--												style="width: 100%;">-->
+<!--												<option value="--><?//=$object->sub_type;?><!--">--><?//=$object->sub_type;?><!--</option>-->
+<!--											--><?php //foreach($subtype as $data2 => $value2){ ?>
+<!--												--><?php //if($object->sub_type != $value2->name){ ?>
+<!--												<option value="--><?//=$value2->name;?><!--">--><?//=$value2->name;?><!--</option>-->
+<!--											--><?php //} } ?>
+<!--										</select>-->
+<!--									</div>-->
 									<div class="form-group">
 										<label for="group">Group</label>
 										<select name="group" class="select2" data-placeholder="Enter group"

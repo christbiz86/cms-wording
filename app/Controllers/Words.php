@@ -5,7 +5,7 @@ namespace App\Controllers;
 class Words extends WordingAbstract{
 
 	protected function getValue() {
-		return "assets/wording.json";
+		return "wording.json";
 	}
 
 	public function getWording(){
@@ -38,15 +38,15 @@ class Words extends WordingAbstract{
 		$object = $this->request->uri->getSegment(2);
 		$file = $this->getJsonFile();
 		$list[$_POST['name']] = $_POST['desc'];
-		foreach ($this->getJsonFile()->$object as $key => $value) {
+		foreach ($file->$object as $key => $value) {
 			$list[$key] = $value;
 		}
-		foreach ($this->getJsonFile() as $key_file => $entry) {
+		foreach ($file as $key_file => $entry) {
 			if($key_file == $object){
-				$this->getJsonFile()->$object = ((object)$list);
+				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($this->getJsonFile()));
+		$this->updateJsonFile(json_encode($file));
 		return redirect()->to(site_url('/wording/'.$object));
 	}
 
@@ -59,7 +59,7 @@ class Words extends WordingAbstract{
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
 			'id'		=> $id,
-			'object'	=> $this->getJsonFile()->$object->$id
+			'object'	=> $file->$object->$id
 		];
 		return view($object.'-edit',$data);
 	}
@@ -68,17 +68,17 @@ class Words extends WordingAbstract{
 		$object = $this->request->uri->getSegment(2);
 		$id = $this->request->uri->getSegment(4);
 		$file = $this->getJsonFile();
-		unset($this->getJsonFile()->$object->$id);
+		unset($file->$object->$id);
 		$list[$_POST['name']] = $_POST['desc'];
-		foreach ($this->getJsonFile()->$object as $key => $value) {
+		foreach ($file->$object as $key => $value) {
 			$list[$key] = $value;
 		}
-		foreach ($this->getJsonFile() as $key_file => $entry) {
+		foreach ($file as $key_file => $entry) {
 			if($key_file == $object){
-				$this->getJsonFile()->$object = ((object)$list);
+				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($this->getJsonFile()));
+		$this->updateJsonFile(json_encode($file));
 		return redirect()->to(site_url('/wording/'.$object));
 	}
 
@@ -86,16 +86,16 @@ class Words extends WordingAbstract{
 		$object = $this->request->uri->getSegment(2);
 		$id = $this->request->uri->getSegment(4);
 		$file = $this->getJsonFile();
-		foreach ($this->getJsonFile() as $key_file => $entry) {
+		foreach ($file as $key_file => $entry) {
 			if($key_file == $object){
 				foreach ($entry as $key_item => $item) {
 					if($key_item == $id){
-						unset($this->getJsonFile()->$object->$key_item);
+						unset($file->$object->$key_item);
 					}
 				}
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($this->getJsonFile()));
+		$this->updateJsonFile(json_encode($file));
 		return redirect()->to(site_url('/wording/'.$object));
 	}
 

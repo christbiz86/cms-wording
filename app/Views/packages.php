@@ -39,9 +39,7 @@
 								<tr>
 									<th>Package ID</th>
 									<th>Name</th>
-									<th>Packs</th>
 									<th>Addon</th>
-									<th>Type</th>
 									<th>Price</th>
 									<th>Desc</th>
 									<th>Current Package</th>
@@ -54,16 +52,6 @@
 											<td><?php echo ($row);?></td>
 											<td><?php echo $value->name;?></td>
 											<td><?php
-												if(is_array($value->packs)){
-													$packs = count($value->packs);
-													for($x=0;$x<$packs;$x++){
-														echo "- ".$value->packs[$x]."<br>";
-													}
-												} else {
-													echo $value->packs;
-												}
-												?></td>
-											<td><?php
 												if(is_array($value->addon)){
 													$adds = count($value->addon);
 													for($a=0;$a<$adds;$a++){
@@ -73,7 +61,6 @@
 													echo $value->addon;
 												}
 												?></td>
-											<td><?php echo $value->type;?></td>
 											<td><?php echo $value->price;?></td>
 											<td>
 												Indo : <?php echo ($value->description[0]);?><br>
@@ -193,7 +180,6 @@
 							<select name="list_head_group_new" required class="select2" data-placeholder="Select a list head group new"
 									style="width: 100%;">
 								<?php
-								$file = json_decode(file_get_contents('assets/packages.json'));
 								$head = $file->list_head_group_new;
 								foreach($head as $heads => $heads_value){
 								?>
@@ -201,15 +187,15 @@
 								<?php } ?>
 							</select>
 						</div>
-						<div class="form-group">
-							<label for="type">Type</label>
-							<select name="type" class="select2" data-placeholder="Enter type"
-									style="width: 100%;">
-								<?php foreach($type as $data1 => $value1){ ?>
-									<option value="<?=$value1->name;?>"><?=$value1->name;?></option>
-								<?php } ?>
-							</select>
-						</div>
+<!--						<div class="form-group">-->
+<!--							<label for="type">Type</label>-->
+<!--							<select name="type" class="select2" data-placeholder="Enter type"-->
+<!--									style="width: 100%;">-->
+<!--								--><?php //foreach($type as $data1 => $value1){ ?>
+<!--									<option value="--><?//=$value1->name;?><!--">--><?//=$value1->name;?><!--</option>-->
+<!--								--><?php //} ?>
+<!--							</select>-->
+<!--						</div>-->
 						<div class="form-group">
 							<label for="group">Group</label>
 							<select name="group" class="select2" data-placeholder="Enter group"
@@ -321,7 +307,7 @@
             "info": true,
             "autoWidth": false,
             "columnDefs": [
-                { "orderable": false, "targets": 8 }
+                { "orderable": false, "targets": 6 }
             ]
         });
     });

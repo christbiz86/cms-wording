@@ -15,14 +15,14 @@ class Listduration extends Wording{
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($file));
+		$this->updateJsonFile(json_encode($file));
 		return redirect()->to(site_url('/packages/'.$object));
 	}
 
 	public function update(){
 		$object = $this->request->uri->getSegment(2);
 		$id = $this->request->uri->getSegment(4);
-		$file = json_decode(file_get_contents('assets/packages.json'));
+		$file = $this->getJsonFile();
 		unset($file->$object->$id);
 		$list[$_POST['name']] = $_POST['desc'];
 		foreach ($file->$object as $key => $value) {
@@ -33,7 +33,7 @@ class Listduration extends Wording{
 				$file->$object = ((object)$list);
 			}
 		}
-		file_put_contents($this->getValue(),json_encode($file));
+		$this->updateJsonFile(json_encode($file));
 		return redirect()->to(site_url('/packages/'.$object));
 	}
 
