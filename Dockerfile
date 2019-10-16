@@ -1,27 +1,52 @@
-FROM alpine:latest
+FROM 10.1.35.36:5000/devops/alpine_net:3.10
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update -y
-RUN apt-get upgrade -y
-RUN apt-get install -y apache2 
-RUN apt-get install -y php 
-RUN apt-get install -y php-dev 
-RUN apt-get install -y php-mysql 
-RUN apt-get install -y libapache2-mod-php 
-RUN apt-get install -y php-curl 
-RUN apt-get install -y php-json 
-RUN apt-get install -y php-common 
-RUN apt-get install -y php-mbstring 
-RUN apt-get install -y composer
-RUN curl -s "https://packagecloud.io/install/repositories/phalcon/stable/script.deb.sh" | /bin/bash
-RUN apt-get install -y software-properties-common
-RUN apt-get install -y php 7.2-phalcon
-COPY ./php.ini /etc/php/7.2/apache2/php.ini
-COPY ./slc.conf /etc/apache2/sites-available/slc.conf
-COPY ./apache2.conf /etc/apache2/apache2.conf
-RUN rm -rfv /etc/apache2/sites-enabled/*.conf
-RUN ln -s /etc/apache2/sites-available/slc.conf /etc/apache2/sites-enabled/slc.conf
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 
-CMD ["apachectl","-D","FOREGROUND"]
-RUN a2enmod rewrite
+RUN apk update && apk upgrade && apk add \
+	bash apache2 php7-apache2 curl ca-certificates openssl openssh git php7 php7-phar php7-json php7-iconv php7-openssl tzdata openntpd nano
+
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+
+RUN apk add \
+	php7-ftp \
+	php7-xdebug \
+	php7-mcrypt \
+	php7-mbstring \
+	php7-soap \
+	php7-gmp \
+	php7-pdo_odbc \
+	php7-dom \
+	php7-pdo \
+	php7-zip \
+	php7-mysqli \
+	php7-sqlite3 \
+	php7-pdo_pgsql \
+	php7-bcmath \
+	php7-gd \
+	php7-odbc \
+	php7-pdo_mysql \
+	php7-pdo_sqlite \
+	php7-gettext \
+	php7-xml \
+	php7-xmlreader \
+	php7-xmlwriter \
+	php7-tokenizer \
+	php7-xmlrpc \
+	php7-bz2 \
+	php7-pdo_dblib \
+	php7-curl \
+	php7-ctype \
+	php7-session \
+	php7-redis \
+	php7-exif \
+	php7-intl \
+	php7-fileinfo \
+	php7-ldap \
+	php7-apcu
+
+RUN apk add openrc --no-cache
+RUN echo "ServerName localhost" >> /etc/apache2/conf.d/default.conf
+RUN /etc/init.d/apache2 restart
+
+COPY / /var/www/localhost/htdocs/cmswording/
 EXPOSE 80
-EXPOSE 443
