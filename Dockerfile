@@ -5,8 +5,6 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 RUN apk update && apk upgrade && apk add \
 	bash apache2 php7-apache2 curl ca-certificates openssl openssh git php7 php7-phar php7-json php7-iconv php7-openssl tzdata openntpd nano
 
-RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-
 RUN apk add \
 	php7-ftp \
 	php7-xdebug \
@@ -46,7 +44,8 @@ RUN apk add \
 
 RUN apk add openrc --no-cache
 RUN echo "ServerName localhost" >> /etc/apache2/conf.d/default.conf
-RUN /etc/init.d/apache2 restart
+RUN /usr/sbin/httpd
+#RUN /etc/init.d/apache2 restart
 
 COPY / /var/www/localhost/htdocs/cmswording/
 EXPOSE 80
