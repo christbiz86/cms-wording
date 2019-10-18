@@ -37,6 +37,8 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require_once('application/libraries/Wordingabstract.php');
+
 /**
  * Application Controller Class
  *
