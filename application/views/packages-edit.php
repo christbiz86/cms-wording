@@ -63,12 +63,14 @@
 										<label>Packs</label>
 										<select name="packs[]" class="select2" multiple="multiple"
 												style="width: 100%;">
-											<?php foreach($file->packages as $data){ ?>
+											<?php
+											if(isset($object->packs)){
+											foreach($file->packages as $data){ ?>
 												<?php if(is_array($object->packs)){ ?>
 													<option value="<?=$data->code;?>" <?php if(in_array($data->code,$object->packs)){ echo "selected"; } ?>><?=$data->code;?></option>
 												<?php } else { ?>
 													<option value="<?=$object->packs;?>"><?=$object->packs;?></option>
-											<?php } } ?>
+											<?php } } } ?>
 										</select>
 									</div>
 									<div class="form-group">
@@ -79,10 +81,12 @@
 										<label>Addon</label>
 										<select name="addon[]" class="select2" multiple="multiple"
 												style="width: 100%;">
-											<option value="myplan">myplan</option>
-											<option value="superunl">superunl</option>
-											<option value="corp">corp</option>
-											<option value="smart">smart</option>
+											<?php foreach($object->addon as $adds){ ?>
+											<option value="<?=$adds;?>" selected><?=$adds;?></option>
+											<?php } ?>
+<!--											<option value="superunl">superunl</option>-->
+<!--											<option value="corp">corp</option>-->
+<!--											<option value="smart">smart</option>-->
 										</select>
 									</div>
 									<div class="form-group">
@@ -225,7 +229,8 @@
 <script>
     $(function () {
         $('.select2').select2({
-            theme: 'bootstrap4'
+            theme: 'bootstrap4',
+            tags: true
         })
     })
 </script>
