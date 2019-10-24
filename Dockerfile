@@ -45,8 +45,8 @@ RUN apk add \
 RUN apk add openrc --no-cache
 RUN echo "ServerName localhost" >> /etc/apache2/conf.d/default.conf
 RUN echo "LoadModule rewrite_module modules/mod_rewrite.so" >> /etc/apache2/httpd.conf
-RUN  sed -i "s|AllowOverride None|AllowOverride All |g" /etc/apache2/httpd.conf
-RUN exec /usr/sbin/httpd
+RUN sed -i "s|AllowOverride None|AllowOverride All |g" /etc/apache2/httpd.conf
+RUN /usr/sbin/httpd
 #RUN /etc/init.d/apache2 restart
 
 #/etc/apache2/httpd.conf AllowOverride All

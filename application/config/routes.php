@@ -53,6 +53,8 @@ $route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['publish'] = 'Dashboard/publish';
+
 $route['packages/packages/add'] = 'Wordingpackages/create';
 $route['packages/packages/update/(:any)'] = 'Wordingpackages/update';
 
@@ -91,15 +93,11 @@ $route['packages/(:any)/edit/(:any)'] = 'packages/edit/$1';
 $route['packages/(:any)/update/(:any)'] = 'packages/update/$1';
 $route['packages/(:any)/delete/(:any)'] = 'packages/delete/$1';
 
-
-
 //$routes->post('channel/add','Channel::create');
 //$routes->post('channel/update/(:segment)','Channel::update');
 //
 //$routes->post('dlg_notif/add','Channel::create');
 //$routes->post('dlg_notif/update/(:segment)','Channel::update');
-
-
 
 $route['wording/(:any)'] = 'wording/getWording/$1';
 $route['wording/(:any)/add'] = 'wording/create/$1';

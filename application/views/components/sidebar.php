@@ -34,86 +34,36 @@
 						</p>
 					</a>
 				</li>
-				<li class="nav-item has-treeview <?php if($menu=='wording'){ ?>menu-open<?php } ?>">
-					<a href="#" class="nav-link <?php if($menu=='wording'){ ?>active<?php } ?>">
-						<i class="nav-icon fas fa-copy"></i>
-						<p>
-							Wording
-							<i class="fas fa-angle-left right"></i>
-						</p>
+				<li class="nav-header">PACKAGES</li>
+				<li class="nav-item">
+					<a href="<?=site_url('packages/curr_packages')?>" class="nav-link <?php if($submenu=='curr_packages'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Current Packages</p>
 					</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?=site_url('packages/map_offer_profile')?>" class="nav-link <?php if($submenu=='map_offer_profile'){ ?>active<?php } ?>">
-								<i class="far fa-circle nav-icon"></i>
-								<p>MAP Offer Profile</p>
-							</a>
-						</li>
-					</ul>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?=site_url('wording/words')?>" class="nav-link <?php if($submenu=='words'){ ?>active<?php } ?>">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Words</p>
-							</a>
-						</li>
-					</ul>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?=site_url('wording/error_code')?>" class="nav-link <?php if($submenu=='error_code'){ ?>active<?php } ?>">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Error Code</p>
-							</a>
-						</li>
-					</ul>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?=site_url('wording/error')?>" class="nav-link <?php if($submenu=='error'){ ?>active<?php } ?>">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Error</p>
-							</a>
-						</li>
-					</ul>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?=site_url('wording/top_recommend')?>" class="nav-link <?php if($submenu=='top_recommend'){ ?>active<?php } ?>">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Top Recommend</p>
-							</a>
-						</li>
-					</ul>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?=site_url('wording/channel')?>" class="nav-link <?php if($submenu=='channel'){ ?>active<?php } ?>">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Channel</p>
-							</a>
-						</li>
-					</ul>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?=site_url('wording/channel_new')?>" class="nav-link <?php if($submenu=='channel_new'){ ?>active<?php } ?>">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Channel New</p>
-							</a>
-						</li>
-					</ul>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?=site_url('wording/sms_notif')?>" class="nav-link <?php if($submenu=='sms_notif'){ ?>active<?php } ?>">
-								<i class="far fa-circle nav-icon"></i>
-								<p>SMS Notif</p>
-							</a>
-						</li>
-					</ul>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?=site_url('wording/dlg_notif')?>" class="nav-link <?php if($submenu=='dlg_notif'){ ?>active<?php } ?>">
-								<i class="far fa-circle nav-icon"></i>
-								<p>DLG Notif</p>
-							</a>
-						</li>
-					</ul>
+				</li>
+				<li class="nav-item">
+					<a href="<?=site_url('packages/packages')?>" class="nav-link <?php if($submenu=='packages'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Packages</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?=site_url('packages/list_packages')?>" class="nav-link <?php if($submenu=='list_packages'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>List Packages</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?=site_url('packages/recommend_packages')?>" class="nav-link <?php if($submenu=='recommend_packages'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Recommend Packages</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?=site_url('packages/pack_calc')?>" class="nav-link <?php if($submenu=='pack_calc'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Package Calculation</p>
+					</a>
 				</li>
 
 				<li class="nav-header">PARTITIONS</li>
@@ -201,36 +151,61 @@
 					</a>
 				</li>
 
-				<li class="nav-header">PACKAGES</li>
+				<li class="nav-header">WORDING</li>
 				<li class="nav-item">
-					<a href="<?=site_url('packages/curr_packages')?>" class="nav-link <?php if($submenu=='curr_packages'){ ?>active<?php } ?>">
+					<a href="<?=site_url('packages/map_offer_profile')?>" class="nav-link <?php if($submenu=='map_offer_profile'){ ?>active<?php } ?>">
 						<i class="far fa-circle nav-icon"></i>
-						<p>Current Packages</p>
+						<p>MAP Offer Profile</p>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?=site_url('packages/packages')?>" class="nav-link <?php if($submenu=='packages'){ ?>active<?php } ?>">
+					<a href="<?=site_url('wording/words')?>" class="nav-link <?php if($submenu=='words'){ ?>active<?php } ?>">
 						<i class="far fa-circle nav-icon"></i>
-						<p>Packages</p>
+						<p>Words</p>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?=site_url('packages/list_packages')?>" class="nav-link <?php if($submenu=='list_packages'){ ?>active<?php } ?>">
+					<a href="<?=site_url('wording/error_code')?>" class="nav-link <?php if($submenu=='error_code'){ ?>active<?php } ?>">
 						<i class="far fa-circle nav-icon"></i>
-						<p>List Packages</p>
+						<p>Error Code</p>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?=site_url('packages/recommend_packages')?>" class="nav-link <?php if($submenu=='recommend_packages'){ ?>active<?php } ?>">
+					<a href="<?=site_url('wording/error')?>" class="nav-link <?php if($submenu=='error'){ ?>active<?php } ?>">
 						<i class="far fa-circle nav-icon"></i>
-						<p>Recommend Packages</p>
+						<p>Error</p>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?=site_url('packages/pack_calc')?>" class="nav-link <?php if($submenu=='pack_calc'){ ?>active<?php } ?>">
+					<a href="<?=site_url('wording/top_recommend')?>" class="nav-link <?php if($submenu=='top_recommend'){ ?>active<?php } ?>">
 						<i class="far fa-circle nav-icon"></i>
-						<p>Package Calculation</p>
+						<p>Top Recommend</p>
 					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?=site_url('wording/channel')?>" class="nav-link <?php if($submenu=='channel'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Channel</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?=site_url('wording/channel_new')?>" class="nav-link <?php if($submenu=='channel_new'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>Channel New</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?=site_url('wording/sms_notif')?>" class="nav-link <?php if($submenu=='sms_notif'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>SMS Notif</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?=site_url('wording/dlg_notif')?>" class="nav-link <?php if($submenu=='dlg_notif'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>DLG Notif</p>
+					</a>
+				</li>
 				</li>
 			</ul>
 		</nav>

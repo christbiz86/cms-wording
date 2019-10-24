@@ -187,15 +187,6 @@
 								<?php } ?>
 							</select>
 						</div>
-<!--						<div class="form-group">-->
-<!--							<label for="type">Type</label>-->
-<!--							<select name="type" class="select2" data-placeholder="Enter type"-->
-<!--									style="width: 100%;">-->
-<!--								--><?php //foreach($type as $data1 => $value1){ ?>
-<!--									<option value="--><?//=$value1->name;?><!--">--><?//=$value1->name;?><!--</option>-->
-<!--								--><?php //} ?>
-<!--							</select>-->
-<!--						</div>-->
 						<div class="form-group">
 							<label for="group">Group</label>
 							<select name="group" class="select2" data-placeholder="Enter group"

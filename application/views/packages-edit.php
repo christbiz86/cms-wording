@@ -113,17 +113,6 @@
 											<?php } ?>
 										</select>
 									</div>
-<!--									<div class="form-group">-->
-<!--										<label for="type">Type</label>-->
-<!--										<select name="type" class="select2" data-placeholder="Enter type"-->
-<!--												style="width: 100%;">-->
-<!--											<option value="--><?//=$object->type;?><!--">--><?//=$object->type;?><!--</option>-->
-<!--											--><?php //foreach($type as $data1 => $value1){ ?>
-<!--												--><?php //if($object->type != $value1->name){ ?>
-<!--													<option value="--><?//=$value1->name;?><!--">--><?//=$value1->name;?><!--</option>-->
-<!--												--><?php //} } ?>
-<!--										</select>-->
-<!--									</div>-->
 									<div class="form-group">
 										<label for="group">Group</label>
 										<select name="group" class="select2" data-placeholder="Enter group"
@@ -170,31 +159,31 @@
 									</div>
 									<div class="form-group">
 										<label for="data">Limits Data</label>
-										<input type="text" class="form-control" id="limits" name="limits[data]" value="<?=$object->limits->data;?>">
+										<input type="text" class="form-control" id="limits" name="limits[data]" value="<?php if(isset($object->limits)){ echo $object->limits->data;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="data_night">Limits Data Night</label>
-										<input type="text" class="form-control" id="limits" name="limits[data_night]" value="<?=$object->limits->data_night;?>">
+										<input type="text" class="form-control" id="limits" name="limits[data_night]" value="<?php if(isset($object->limits)){ echo $object->limits->data_night;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="down_speed">Limits Down Speed</label>
-										<input type="text" class="form-control" id="limits" name="limits[down_speed]" value="<?=$object->limits->down_speed;?>">
+										<input type="text" class="form-control" id="limits" name="limits[down_speed]" value="<?php if(isset($object->limits)){ echo $object->limits->down_speed;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="up_speed">Limits Up Speed</label>
-										<input type="text" class="form-control" id="limits" name="limits[up_speed]" value="<?=$object->limits->up_speed;?>">
+										<input type="text" class="form-control" id="limits" name="limits[up_speed]" value="<?php if(isset($object->limits)){ echo $object->limits->up_speed;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="fup">Limits FUP</label>
-										<input type="text" class="form-control" id="fup" name="limits[fup]" value="<?=$object->limits->fup;?>">
+										<input type="text" class="form-control" id="fup" name="limits[fup]" value="<?php if(isset($object->limits)){ echo $object->limits->fup;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="minute">Limits Minute</label>
-										<input type="text" class="form-control" id="limits" name="limits[minute]" value="<?=$object->limits->minute;?>">
+										<input type="text" class="form-control" id="limits" name="limits[minute]" value="<?php if(isset($object->limits)){ echo $object->limits->minute;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="sms">Limits SMS</label>
-										<input type="text" class="form-control" id="limits" name="limits[sms]" value="<?=$object->limits->sms;?>">
+										<input type="text" class="form-control" id="limits" name="limits[sms]" value="<?php if(isset($object->limits)){ echo $object->limits->sms;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="wording">Wording (Indo)</label>
