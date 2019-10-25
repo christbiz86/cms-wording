@@ -93,6 +93,10 @@ $route['packages/(:any)/edit/(:any)'] = 'packages/edit/$1';
 $route['packages/(:any)/update/(:any)'] = 'packages/update/$1';
 $route['packages/(:any)/delete/(:any)'] = 'packages/delete/$1';
 
+
+
+$route['wording/channel_new/edit/(:any)/(:any)/(:any)'] = 'channel_new/edit/$1/$2/$3';
+$route['wording/channel_new/update/(:any)/(:any)/(:any)'] = 'channel_new/update/$1/$2/$3';
 //$routes->post('channel/add','Channel::create');
 //$routes->post('channel/update/(:segment)','Channel::update');
 //
