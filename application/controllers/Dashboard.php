@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller{
 			echo "Unable to write the packages.json file";
 		}
 		$fp1 = fopen($this->url."wording.json", 'w');
-		$result1 = fwrite($fp, $wording[0]->packages_content);
+		$result1 = fwrite($fp1, $wording[0]->packages_content);
 		fclose($fp1);
 		if ($result1) {
 			echo "Data Written to wording.json file";
