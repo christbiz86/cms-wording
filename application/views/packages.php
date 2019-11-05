@@ -153,10 +153,34 @@
 							<label>Addon</label>
 							<select name="addon[]" class="select2" multiple="multiple" data-placeholder="Select a addon"
 									style="width: 100%;">
-									<option value="myplan">myplan</option>
-									<option value="superunl">superunl</option>
-									<option value="corp">corp</option>
-									<option value="smart">smart</option>
+								<option value="4gunl">4gunl</option>
+								<option value="bundling">bundling</option>
+								<option value="bundlingmyplan">bundlingmyplan</option>
+								<option value="chat">chat</option>
+								<option value="corp">corp</option>
+								<option value="evo">evo</option>
+								<option value="game">game</option>
+								<option value="hooq">hooq</option>
+								<option value="ic">ic</option>
+								<option value="im">im</option>
+								<option value="iphone">iphone</option>
+								<option value="ir">ir</option>
+								<option value="mu">mu</option>
+								<option value="myplan">myplan</option>
+								<option value="mysfios">mysfios</option>
+								<option value="other">other</option>
+								<option value="promovol">promovol</option>
+								<option value="puas">puas</option>
+								<option value="smart">smart</option>
+								<option value="spec">spec</option>
+								<option value="spsip">spsip</option>
+								<option value="superunl">superunl</option>
+								<option value="univ">univ</option>
+								<option value="unl">unl</option>
+								<option value="vid">vid</option>
+								<option value="viu">viu</option>
+								<option value="vol">vol</option>
+								<option value="volte">volte</option>
 							</select>
 						</div>
 						<div class="form-group">

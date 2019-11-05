@@ -41,7 +41,7 @@ class Packages extends Wordingabstract {
 //		foreach ($file->$object as $key => $value) {
 //				$myDetails[$key] = $value;
 //		}
-//		var_dump($file);
+//		var_dump($file->$object);
 //		exit();
 		return $this->load->view($object,$data);
 	}
@@ -148,7 +148,7 @@ class Packages extends Wordingabstract {
 		$id = $this->uri->segment(4);
 		$file = $this->getJsonFile();
 		if($object == 'list_head_group_new'){
-			exit();
+			unset($file->$object->$id);
 		} elseif($object == 'packages'){
 //			delete current packages if exist
 			$getId = array_search($id,$file->curr_packages);
@@ -181,6 +181,23 @@ class Packages extends Wordingabstract {
 						unset($file->$object->$key_item);
 					}
 				}
+			}
+		}
+		$this->updateJsonFile(json_encode($file));
+		return redirect(site_url('/packages/'.$object));
+	}
+
+	public function create(){
+		$object = $this->uri->segment(2);
+		$list[$_POST['name']] = (object) $_POST;
+		$file = $this->getJsonFile();
+		unset($list[$_POST['name']]->name);
+		foreach ($file->$object as $key => $value) {
+			$list[$key] = $value;
+		}
+		foreach ($file as $key_file => $entry) {
+			if($key_file == $object){
+				$file->$object = ((object)($list));
 			}
 		}
 		$this->updateJsonFile(json_encode($file));

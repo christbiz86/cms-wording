@@ -133,7 +133,7 @@
 				<li class="nav-item">
 					<a href="<?=site_url('packages/list_head_group_new')?>" class="nav-link <?php if($submenu=='list_head_group_new'){ ?>active<?php } ?>">
 						<i class="far fa-circle nav-icon"></i>
-						<p>List Head Group New</p>
+						<p>Category</p>
 					</a>
 				</li>
 

@@ -48,8 +48,10 @@
 											$data = $file->list_head_group_new;
 											if(isset($value1->list_head_group_new_id)){
 												foreach($data as $data1 => $val_data){
-													if($val_data->id == $value1->list_head_group_new_id){
-														echo $data1;
+													if(isset($val_data->id)){
+														if($val_data->id == $value1->list_head_group_new_id){
+															echo $data1;
+														}
 													}
 												}
 											}

@@ -47,7 +47,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/conf.d/default.conf
 RUN echo "LoadModule rewrite_module modules/mod_rewrite.so" >> /etc/apache2/httpd.conf
 RUN echo '10 * * * * /usr/bin/wget --spider "http://localhost/cmswording/publish" >/dev/null 2>&1' >> /etc/crontabs/root
 RUN sed -i "s|AllowOverride None|AllowOverride All |g" /etc/apache2/httpd.conf
-RUN sed -i "s|assets/|/var/www/localhost/htdocs/cmswording/assets/|g" /var/www/localhost/htdocs/cmswording/controllers/Dashboard.php
+RUN sed -i "s|assets/|/var/www/localhost/htdocs/cmswording/assets/|g" /var/www/cmswording/application/controllers/Dashboard.php
 RUN chown apache:apache -r /var/www/localhost/htdocs/cmswording/assets
 RUN /usr/sbin/httpd
 #RUN /etc/init.d/apache2 restart

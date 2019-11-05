@@ -45,7 +45,7 @@
 									</div>
 									<div class="form-group">
 										<label for="promo">Promo</label>
-										<input type="text" class="form-control" id="promo" name="promo" value="<?=$object->promo;?>">
+										<input type="text" class="form-control" id="promo" name="promo" value="<?php if(isset($object->promo)){ echo $object->promo;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="name">Name</label>

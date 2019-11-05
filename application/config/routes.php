@@ -59,10 +59,12 @@ $route['packages/packages/add'] = 'Wordingpackages/create';
 $route['packages/packages/update/(:any)'] = 'Wordingpackages/update';
 
 $route['packages/list_group'] = 'listgroup/index';
+$route['packages/list_group/add'] = 'listgroup/create';
 $route['packages/list_group/edit/(:any)/(:any)'] = 'listgroup/edit';
 $route['packages/list_group/update/(:any)/(:any)'] = 'listgroup/update';
 
 $route['packages/list_sub_group/add'] = 'listsubgroup/create';
+$route['packages/list_sub_group/update/(:any)'] = 'listsubgroup/update/$1';
 
 $route['packages/partitions/add'] = 'listsubgroup/create';
 $route['packages/partitions/update/(:any)'] = 'listsubgroup/update/$1';
@@ -89,6 +91,7 @@ $route['packages/recommend_packages/add'] = 'listduration/create';
 $route['packages/recommend_packages/update/(:any)'] = 'listduration/update/$1';
 
 $route['packages/(:any)'] = 'packages/getWording/$1';
+$route['packages/(:any)/add'] = 'packages/create';
 $route['packages/(:any)/edit/(:any)'] = 'packages/edit/$1';
 $route['packages/(:any)/update/(:any)'] = 'packages/update/$1';
 $route['packages/(:any)/delete/(:any)'] = 'packages/delete/$1';
