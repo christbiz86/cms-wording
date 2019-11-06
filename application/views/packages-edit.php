@@ -163,7 +163,7 @@
 									</div>
 									<div class="form-group">
 										<label for="price">Price</label>
-										<input type="text" class="form-control" id="price" name="price" value="<?=$object->price;?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="price" name="price" value="<?=$object->price;?>">
 									</div>
 									<div class="form-group">
 										<label for="data">Limits Data</label>

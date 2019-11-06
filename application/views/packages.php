@@ -255,7 +255,7 @@
 						</div>
 						<div class="form-group">
 							<label for="price">Price</label>
-							<input type="text" class="form-control" id="price" name="price" placeholder="Enter package price">
+							<input type="text" pattern="[0-9-]+" class="form-control" id="price" name="price" placeholder="Enter package price">
 						</div>
 						<div class="form-group">
 							<label for="limits">Limits Data</label>
