@@ -52,19 +52,21 @@
 											<td><?php echo ($row);?></td>
 											<td><?php echo $value->name;?></td>
 											<td><?php
-												if(is_array($value->addon)){
-													$adds = count($value->addon);
-													for($a=0;$a<$adds;$a++){
-														echo "- ".$value->addon[$a]."<br>";
+												if(isset($value->addon)) {
+													if (is_array($value->addon)) {
+														$adds = count($value->addon);
+														for ($a = 0; $a < $adds; $a++) {
+															echo "- " . $value->addon[$a] . "<br>";
+														}
+													} else {
+														echo $value->addon;
 													}
-												} else {
-													echo $value->addon;
 												}
 												?></td>
 											<td><?php echo $value->price;?></td>
 											<td>
-												Indo : <?php echo ($value->description[0]);?><br>
-												English : <?php echo ($value->description[1]);?>
+												Indo : <?php if(isset($value->description)){ echo ($value->description[0]); }?><br>
+												English : <?php if(isset($value->description)){ echo ($value->description[1]); }?><br>
 											</td>
 											<td><?php
 												if(in_array($row,$curr_packages)){
