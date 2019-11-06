@@ -35,7 +35,7 @@ class Channel_new extends Wordingabstract{
 		unset($file->$object->$id->$id1[$id2]);
 		$file->$object->$id->$id1 = $list;
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/wording/'.$object));
+		redirect(site_url('/wording/'.$object));
 	}
 
 }

@@ -32,7 +32,7 @@ class Wording extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/wording/'.$object));
+		redirect(site_url('/wording/'.$object));
 	}
 
 	public function edit(){
@@ -64,7 +64,7 @@ class Wording extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/wording/'.$object));
+		redirect(site_url('/wording/'.$object));
 	}
 
 	public function delete(){
@@ -81,7 +81,7 @@ class Wording extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/wording/'.$object));
+		redirect(site_url('/wording/'.$object));
 	}
 
 }

@@ -25,7 +25,7 @@ class Listsubgroup extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 	public function update($id){
@@ -46,7 +46,7 @@ class Listsubgroup extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 }

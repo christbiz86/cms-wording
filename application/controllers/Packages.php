@@ -141,7 +141,7 @@ class Packages extends Wordingabstract {
 		}
 
 		$this->Packages_model->updateJsonFile($this->getValue(),json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 	public function delete($object){
@@ -184,7 +184,7 @@ class Packages extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 	public function create(){
@@ -201,7 +201,7 @@ class Packages extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 }

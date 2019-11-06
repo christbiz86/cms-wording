@@ -34,7 +34,7 @@ class Listgroup extends Wordingabstract {
 		unset($list->$name->$type->type);
 		$file->$object = (object) array_merge((array)$file->$object,(array) $list);
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 	public function edit(){
@@ -93,6 +93,8 @@ class Listgroup extends Wordingabstract {
 			unset($file->$object->$id->$detail);
 			$file->$object = (object) array_merge((array)$file->$object,(array) $list);
 		}
+		$this->updateJsonFile(json_encode($file));
+		redirect(site_url('/packages/'.$object));
 	}
 
 	public function delete(){
@@ -109,7 +111,7 @@ class Listgroup extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 }

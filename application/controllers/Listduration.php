@@ -19,7 +19,7 @@ class Listduration extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 	public function update($id){
@@ -36,7 +36,7 @@ class Listduration extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 }

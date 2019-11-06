@@ -20,7 +20,7 @@ class Channel extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/wording/'.$object));
+		redirect(site_url('/wording/'.$object));
 	}
 
 	public function update(){
@@ -39,7 +39,7 @@ class Channel extends Wordingabstract {
 		}
 		unset($file->$object->$id[0]->id);
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/wording/'.$object));
+		redirect(site_url('/wording/'.$object));
 	}
 
 }

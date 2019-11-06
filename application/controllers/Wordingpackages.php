@@ -27,7 +27,7 @@ class Wordingpackages extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 	public function update(){
@@ -57,7 +57,7 @@ class Wordingpackages extends Wordingabstract {
 			}
 		}
 		$this->updateJsonFile(json_encode($file));
-		return redirect(site_url('/packages/'.$object));
+		redirect(site_url('/packages/'.$object));
 	}
 
 }
