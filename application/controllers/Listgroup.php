@@ -21,6 +21,22 @@ class Listgroup extends Wordingabstract {
 		return $this->load->view($object,$data);
 	}
 
+	public function create(){
+		$object = $this->uri->segment(2);
+		$list[$_POST['name']] = (object) $_POST;
+		$file = $this->getJsonFile();
+		$type[$_POST['type']] = ((object) $_POST);
+		$list[$_POST['name']] = (object)$type;
+		$list = (object)$list;
+		$name = $_POST['name'];
+		$type = $_POST['type'];
+		unset($list->$name->$type->name);
+		unset($list->$name->$type->type);
+		$file->$object = (object) array_merge((array)$file->$object,(array) $list);
+		$this->updateJsonFile(json_encode($file));
+		return redirect(site_url('/packages/'.$object));
+	}
+
 	public function edit(){
 		$object = $this->uri->segment(2);
 		$id = $this->uri->segment(4);
@@ -77,37 +93,23 @@ class Listgroup extends Wordingabstract {
 			unset($file->$object->$id->$detail);
 			$file->$object = (object) array_merge((array)$file->$object,(array) $list);
 		}
+	}
 
-
-//		foreach($file->$object as $row => $value){
-//			if($row == $_POST['name']){
-//				foreach($file->$object->$row as $row1 => $value1){
-//					if($row1 == $_POST['type']){
-//						unset($file->$object->$row->$row1);
-//					}
-//				}
-//			}
-//		}
-
-
-
-//		$file->$object = (object) $_POST;
-
-//		unset($file->$object);
-//		$file->$object = $_POST;
-
-//		foreach ($file as $key_file => $entry) {
-//			if($key_file == $object){
-//				foreach ($entry as $key_item => $item) {
-//					if($key_item == $id){
-//						$file->$object->$key_item->$detail = $_POST;
-//					}
-//				}
-//			}
-//		}
-//		$this->updateJsonFile(json_encode($file));
-//		return redirect(site_url('/packages/'.$object));
-//		var_dump($file->$object);
+	public function delete(){
+		$object = $this->uri->segment(2);
+		$id = $this->uri->segment(4);
+		$file = $this->getJsonFile();
+		foreach ($file as $key_file => $entry) {
+			if($key_file == $object){
+				foreach ($entry as $key_item => $item) {
+					if($key_item == $id){
+						unset($file->$object->$key_item);
+					}
+				}
+			}
+		}
+		$this->updateJsonFile(json_encode($file));
+		return redirect(site_url('/packages/'.$object));
 	}
 
 }

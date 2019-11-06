@@ -28,6 +28,9 @@
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+								Add - List Group
+							</button><br><br>
 							<table id="example1" class="table table-bordered table-striped">
 								<thead>
 								<tr>
@@ -87,6 +90,88 @@
 	<!-- /.control-sidebar -->
 </div>
 
+<div class="modal fade" id="modal-default">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Add - Packages</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form role="form" method="post" action="<?=site_url('packages/list_group/add')?>">
+					<div class="card-body">
+						<div class="form-group">
+							<label for="name">List Group Name</label>
+							<input type="text" required class="form-control" id="name" name="name" placeholder="Enter list group name">
+						</div>
+						<div class="form-group">
+							<label for="type">List Group Type</label>
+							<select name="type" class="form-control">
+								<option value="4gunl">4gunl</option>
+								<option value="bundling">bundling</option>
+								<option value="bundlingmyplan">bundlingmyplan</option>
+								<option value="chat">chat</option>
+								<option value="corp">corp</option>
+								<option value="evo">evo</option>
+								<option value="game">game</option>
+								<option value="hooq">hooq</option>
+								<option value="ic">ic</option>
+								<option value="im">im</option>
+								<option value="iphone">iphone</option>
+								<option value="ir">ir</option>
+								<option value="mu">mu</option>
+								<option value="myplan">myplan</option>
+								<option value="mysfios">mysfios</option>
+								<option value="other">other</option>
+								<option value="promovol">promovol</option>
+								<option value="puas">puas</option>
+								<option value="smart">smart</option>
+								<option value="spec">spec</option>
+								<option value="spsip">spsip</option>
+								<option value="superunl">superunl</option>
+								<option value="univ">univ</option>
+								<option value="unl">unl</option>
+								<option value="vid">vid</option>
+								<option value="viu">viu</option>
+								<option value="vol">vol</option>
+								<option value="volte">volte</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="id">List Group ID</label>
+							<input type="text" required class="form-control" id="id" name="id" placeholder="Enter list group ID">
+						</div>
+						<div class="form-group">
+							<label>List Head Group New</label>
+							<select name="list_head_group_new_id" class="form-control">
+								<?php foreach($head as $key_head => $value_head){ ?>
+									<option value="<?=$value_head->id;?>"><?=$value_head->id;?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="desc">Desc (Indo)</label>
+							<input type="text" required class="form-control" id="desc" name="desc[]" placeholder="Enter desc indo">
+						</div>
+						<div class="form-group">
+							<label for="desc">Desc (English)</label>
+							<input type="text" required class="form-control" id="desc" name="desc[]" placeholder="Enter desc english">
+						</div>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
 
 <!-- ./wrapper -->
 <script>
