@@ -14,10 +14,10 @@ class Wordingpackages extends Wordingabstract {
 		//insert current packages
 		if($_POST['curr_packages'] == 'on'){
 			$curr = $file->curr_packages;
-			$curr[] = $_POST['code'];
+			$curr[] = $_POST['id'];
 			$file->curr_packages = $curr;
 		}
-		unset($list[$_POST['code']]->curr_packages);
+		unset($list[$_POST['id']]->curr_packages);
 		foreach ($file->$object as $key => $value) {
 			$list[$key] = $value;
 		}
@@ -40,13 +40,13 @@ class Wordingpackages extends Wordingabstract {
 		//update current packages
 		if($_POST['curr_packages'] == 'on'){
 			$curr = $file->curr_packages;
-			$curr[] = $_POST['code'];
+			$curr[] = $_POST['id'];
 			$file->curr_packages = $curr;
 		} else {
 			$getId = array_search($id,$file->curr_packages);
 			unset($file->curr_packages[$getId]);
 		}
-		unset($list[$_POST['code']]->curr_packages);
+		unset($list[$_POST['id']]->curr_packages);
 
 		foreach ($file->$object as $key => $value) {
 			$list[$key] = $value;

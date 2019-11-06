@@ -119,8 +119,13 @@
 							<label class="form-check-label" for="exampleCheck1"><b>Current Packages</b></label>
 						</div>
 						<div class="form-group">
-							<label for="code">Code (Letter and number only)</label>
-							<input type="text" required class="form-control" pattern="[a-zA-Z0-9-]+" id="code" name="code" placeholder="Enter package code">
+							<label for="id">Package ID</label>
+							<input type="text" required class="form-control" id="id" name="id" placeholder="Enter package id">
+						</div>
+						<div class="form-group">
+							<label for="code">Package Code</label>
+<!--							<input type="text" required class="form-control" pattern="[a-zA-Z0-9-]+" id="code" name="code" placeholder="Enter package code">-->
+							<input type="text" required class="form-control" id="code" name="code" placeholder="Enter package code">
 						</div>
 						<div class="form-group">
 							<label for="promo">Promo</label>
