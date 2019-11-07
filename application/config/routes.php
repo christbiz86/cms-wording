@@ -54,6 +54,11 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['publish'] = 'Dashboard/publish';
+$route['list_group_type'] = 'Listgrouptype/index';
+$route['list_group_type/add'] = 'Listgrouptype/create';
+$route['list_group_type/edit/(:any)'] = 'Listgrouptype/edit';
+$route['list_group_type/update/(:any)'] = 'Listgrouptype/update';
+$route['list_group_type/delete/(:any)'] = 'Listgrouptype/delete';
 
 $route['packages/packages/add'] = 'Wordingpackages/create';
 $route['packages/packages/update/(:any)'] = 'Wordingpackages/update';

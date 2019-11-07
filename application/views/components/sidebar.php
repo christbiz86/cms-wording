@@ -113,6 +113,12 @@
 					</a>
 				</li>
 				<li class="nav-item">
+					<a href="<?=site_url('list_group_type')?>" class="nav-link <?php if($submenu=='list_group_type'){ ?>active<?php } ?>">
+						<i class="far fa-circle nav-icon"></i>
+						<p>List Group Type</p>
+					</a>
+				</li>
+				<li class="nav-item">
 					<a href="<?=site_url('packages/list_sub_group')?>" class="nav-link <?php if($submenu=='list_sub_group'){ ?>active<?php } ?>">
 						<i class="far fa-circle nav-icon"></i>
 						<p>List Sub Group</p>
