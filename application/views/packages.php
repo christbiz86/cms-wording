@@ -160,34 +160,9 @@
 							<label>Addon</label>
 							<select name="addon[]" class="select2" multiple="multiple" data-placeholder="Select a addon"
 									style="width: 100%;">
-								<option value="4gunl">4gunl</option>
-								<option value="bundling">bundling</option>
-								<option value="bundlingmyplan">bundlingmyplan</option>
-								<option value="chat">chat</option>
-								<option value="corp">corp</option>
-								<option value="evo">evo</option>
-								<option value="game">game</option>
-								<option value="hooq">hooq</option>
-								<option value="ic">ic</option>
-								<option value="im">im</option>
-								<option value="iphone">iphone</option>
-								<option value="ir">ir</option>
-								<option value="mu">mu</option>
-								<option value="myplan">myplan</option>
-								<option value="mysfios">mysfios</option>
-								<option value="other">other</option>
-								<option value="promovol">promovol</option>
-								<option value="puas">puas</option>
-								<option value="smart">smart</option>
-								<option value="spec">spec</option>
-								<option value="spsip">spsip</option>
-								<option value="superunl">superunl</option>
-								<option value="univ">univ</option>
-								<option value="unl">unl</option>
-								<option value="vid">vid</option>
-								<option value="viu">viu</option>
-								<option value="vol">vol</option>
-								<option value="volte">volte</option>
+								<?php foreach($addon as $addons){ ?>
+									<option value="<?=$addons->addon_title?>"><?=$addons->addon_title?></option>
+								<?php } ?>
 							</select>
 						</div>
 						<div class="form-group">
@@ -204,7 +179,7 @@
 						</div>
 						<div class="form-group">
 							<label for="quota">Quota</label>
-							<input type="text" class="form-control" id="quota" name="quota" placeholder="Enter package quota">
+							<input type="text" pattern="[0-9-]+" class="form-control" id="quota" name="quota" placeholder="Enter package quota">
 						</div>
 						<div class="form-group">
 							<label for="list_head_group_new">List Head Group New</label>
@@ -259,30 +234,30 @@
 						</div>
 						<div class="form-group">
 							<label for="limits">Limits Data</label>
-							<input type="text" class="form-control" id="limits" name="limits[data]" placeholder="Enter limits data">
+							<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[data]" placeholder="Enter limits data">
 						</div>
 						<div class="form-group">
 							<label for="limits">Limits Data Night</label>
-							<input type="text" class="form-control" id="limits" name="limits[data_night]" placeholder="Enter limits data night">
+							<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[data_night]" placeholder="Enter limits data night">
 						</div>
 						<div class="form-group">
 							<label for="limits">Limits Down Speed</label>
-							<input type="text" class="form-control" id="limits" name="limits[down_speed]" placeholder="Enter limits down speed">
+							<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[down_speed]" placeholder="Enter limits down speed">
 						</div>
 						<div class="form-group">
 							<label for="limits">Limits Up Speed</label>
-							<input type="text" class="form-control" id="limits" name="limits[up_speed]" placeholder="Enter limits up speed">
+							<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[up_speed]" placeholder="Enter limits up speed">
 						</div>
 						<div class="form-group">
 							<label for="limits">Limits FUP</label>
-							<input type="text" class="form-control" id="limits" name="limits[fup]" placeholder="Enter limits FUP">
+							<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[fup]" placeholder="Enter limits FUP">
 						</div>
 						<div class="form-group">
 							<label for="limits">Limits Minute</label>
-							<input type="text" class="form-control" id="limits" name="limits[minute]" placeholder="Enter limits minute">
+							<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[minute]" placeholder="Enter limits minute">
 						</div><div class="form-group">
 							<label for="limits">Limits SMS</label>
-							<input type="text" class="form-control" id="limits" name="limits[sms]" placeholder="Enter limits sms">
+							<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[sms]" placeholder="Enter limits sms">
 						</div>
 						<div class="form-group">
 							<label for="wording">Wording (Indo)</label>

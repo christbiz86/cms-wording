@@ -16,8 +16,9 @@ class Listgroup extends Wordingabstract {
 			'message'	=> '',
 			'object'	=> $file->$object,
 			'file'		=> $file,
-			'head'		=> $file->list_head_group_new
+			'head'		=> $file->list_head_group_new,
 		];
+		$data['addon'] = $this->Addon_model->getContent();
 		return $this->load->view($object,$data);
 	}
 
@@ -51,6 +52,7 @@ class Listgroup extends Wordingabstract {
 			'object'	=> $file->$object->$id->$detail,
 			'head'		=> $file->list_head_group_new
 		];
+		$data['addon'] = $this->Addon_model->getContent();
 		return $this->load->view($object.'-edit',$data);
 	}
 

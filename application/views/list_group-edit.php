@@ -40,34 +40,9 @@
 									<div class="form-group">
 										<label for="type">List Group Type</label>
 										<select name="type" class="form-control">
-											<option value="4gunl" <?php if($detail=='4gunl'){ echo "selected"; } ?>>4gunl</option>
-											<option value="bundling" <?php if($detail=='bundling'){ echo "selected"; } ?>>bundling</option>
-											<option value="bundlingmyplan" <?php if($detail=='bundlingmyplan'){ echo "selected"; } ?>>bundlingmyplan</option>
-											<option value="chat" <?php if($detail=='chat'){ echo "selected"; } ?>>chat</option>
-											<option value="corp" <?php if($detail=='corp'){ echo "selected"; } ?>>corp</option>
-											<option value="evo" <?php if($detail=='evo'){ echo "selected"; } ?>>evo</option>
-											<option value="game" <?php if($detail=='game'){ echo "selected"; } ?>>game</option>
-											<option value="hooq" <?php if($detail=='hooq'){ echo "selected"; } ?>>hooq</option>
-											<option value="ic" <?php if($detail=='ic'){ echo "selected"; } ?>>ic</option>
-											<option value="im" <?php if($detail=='im'){ echo "selected"; } ?>>im</option>
-											<option value="iphone" <?php if($detail=='iphone'){ echo "selected"; } ?>>iphone</option>
-											<option value="ir" <?php if($detail=='ir'){ echo "selected"; } ?>>ir</option>
-											<option value="mu" <?php if($detail=='mu'){ echo "selected"; } ?>>mu</option>
-											<option value="myplan" <?php if($detail=='myplan'){ echo "selected"; } ?>>myplan</option>
-											<option value="mysfios" <?php if($detail=='mysfios'){ echo "selected"; } ?>>mysfios</option>
-											<option value="other" <?php if($detail=='other'){ echo "selected"; } ?>>other</option>
-											<option value="promovol" <?php if($detail=='promovol'){ echo "selected"; } ?>>promovol</option>
-											<option value="puas" <?php if($detail=='puas'){ echo "selected"; } ?>>puas</option>
-											<option value="smart" <?php if($detail=='smart'){ echo "selected"; } ?>>smart</option>
-											<option value="spec" <?php if($detail=='spec'){ echo "selected"; } ?>>spec</option>
-											<option value="spsip" <?php if($detail=='spsip'){ echo "selected"; } ?>>spsip</option>
-											<option value="superunl" <?php if($detail=='superunl'){ echo "selected"; } ?>>superunl</option>
-											<option value="univ" <?php if($detail=='univ'){ echo "selected"; } ?>>univ</option>
-											<option value="unl" <?php if($detail=='unl'){ echo "selected"; } ?>>unl</option>
-											<option value="vid" <?php if($detail=='vid'){ echo "selected"; } ?>>vid</option>
-											<option value="viu" <?php if($detail=='viu'){ echo "selected"; } ?>>viu</option>
-											<option value="vol" <?php if($detail=='vol'){ echo "selected"; } ?>>vol</option>
-											<option value="volte" <?php if($detail=='volte'){ echo "selected"; } ?>>volte</option>
+											<?php foreach($addon as $addons){ ?>
+												<option value="<?=$addons->addon_title?>" <?php if($detail==$addons->addon_title){ echo "selected"; } ?>><?=$addons->addon_title?></option>
+											<?php } ?>
 										</select>
 									</div>
 									<div class="form-group">

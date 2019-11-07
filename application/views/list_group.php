@@ -94,7 +94,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title">Add - Packages</h4>
+				<h4 class="modal-title">Add - List Group</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -109,34 +109,9 @@
 						<div class="form-group">
 							<label for="type">List Group Type</label>
 							<select name="type" class="form-control">
-								<option value="4gunl">4gunl</option>
-								<option value="bundling">bundling</option>
-								<option value="bundlingmyplan">bundlingmyplan</option>
-								<option value="chat">chat</option>
-								<option value="corp">corp</option>
-								<option value="evo">evo</option>
-								<option value="game">game</option>
-								<option value="hooq">hooq</option>
-								<option value="ic">ic</option>
-								<option value="im">im</option>
-								<option value="iphone">iphone</option>
-								<option value="ir">ir</option>
-								<option value="mu">mu</option>
-								<option value="myplan">myplan</option>
-								<option value="mysfios">mysfios</option>
-								<option value="other">other</option>
-								<option value="promovol">promovol</option>
-								<option value="puas">puas</option>
-								<option value="smart">smart</option>
-								<option value="spec">spec</option>
-								<option value="spsip">spsip</option>
-								<option value="superunl">superunl</option>
-								<option value="univ">univ</option>
-								<option value="unl">unl</option>
-								<option value="vid">vid</option>
-								<option value="viu">viu</option>
-								<option value="vol">vol</option>
-								<option value="volte">volte</option>
+								<?php foreach($addon as $addons){ ?>
+									<option value="<?=$addons->addon_title?>"><?=$addons->addon_title?></option>
+								<?php } ?>
 							</select>
 						</div>
 						<div class="form-group">
@@ -147,7 +122,7 @@
 							<label>List Head Group New</label>
 							<select name="list_head_group_new_id" class="form-control">
 								<?php foreach($head as $key_head => $value_head){ ?>
-									<option value="<?=$value_head->id;?>"><?=$value_head->id;?></option>
+									<option value="<?=$value_head->id;?>"><?=$key_head;?></option>
 								<?php } ?>
 							</select>
 						</div>

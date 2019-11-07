@@ -28,6 +28,7 @@ class Packages extends Wordingabstract {
 			$data['duration'] = $file->list_duration;
 			$data['groups'] = array_unique($categories);
 			$data['subgroup'] = $file->list_sub_group;
+			$data['addon'] = $this->Addon_model->getContent();
 //			$data['type'] = $file->list_type;
 		} elseif($object == 'partitions'){
 			$data['curr_partitions'] = $file->curr_partitions;
@@ -69,6 +70,7 @@ class Packages extends Wordingabstract {
 			$data['duration'] = $file->list_duration;
 			$data['subgroup'] = $file->list_sub_group;
 			$data['groups'] = array_unique($categories);
+			$data['addon'] = $this->Addon_model->getContent();
 //			$data['type'] = $file->list_type;
 		} elseif($object == 'partitions'){
 			$data['curr_partitions'] = $file->curr_partitions;

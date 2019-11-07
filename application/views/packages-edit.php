@@ -85,12 +85,11 @@
 										<label>Addon</label>
 										<select name="addon[]" class="select2" multiple="multiple"
 												style="width: 100%;">
-											<?php foreach($object->addon as $adds){ ?>
-											<option value="<?=$adds;?>" selected><?=$adds;?></option>
-											<?php } ?>
-<!--											<option value="superunl">superunl</option>-->
-<!--											<option value="corp">corp</option>-->
-<!--											<option value="smart">smart</option>-->
+											<?php foreach($object->addon as $adds){
+												foreach($addon as $addons){
+												?>
+												<option value="<?=$addons->addon_title?>" <?php if($adds==$addons->addon_title){ echo "selected"; } ?>><?=$addons->addon_title?></option>
+											<?php } } ?>
 										</select>
 									</div>
 									<div class="form-group">
@@ -107,7 +106,7 @@
 									</div>
 									<div class="form-group">
 										<label for="quota">Quota</label>
-										<input type="text" class="form-control" id="quota" name="quota" value="<?=$object->quota;?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="quota" name="quota" value="<?=$object->quota;?>">
 									</div>
 									<div class="form-group">
 										<label for="list_head_group_new">List Head Group New</label>
@@ -167,31 +166,31 @@
 									</div>
 									<div class="form-group">
 										<label for="data">Limits Data</label>
-										<input type="text" class="form-control" id="limits" name="limits[data]" value="<?php if(isset($object->limits)){ echo $object->limits->data;} ?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[data]" value="<?php if(isset($object->limits)){ echo $object->limits->data;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="data_night">Limits Data Night</label>
-										<input type="text" class="form-control" id="limits" name="limits[data_night]" value="<?php if(isset($object->limits)){ echo $object->limits->data_night;} ?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[data_night]" value="<?php if(isset($object->limits)){ echo $object->limits->data_night;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="down_speed">Limits Down Speed</label>
-										<input type="text" class="form-control" id="limits" name="limits[down_speed]" value="<?php if(isset($object->limits)){ echo $object->limits->down_speed;} ?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[down_speed]" value="<?php if(isset($object->limits)){ echo $object->limits->down_speed;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="up_speed">Limits Up Speed</label>
-										<input type="text" class="form-control" id="limits" name="limits[up_speed]" value="<?php if(isset($object->limits)){ echo $object->limits->up_speed;} ?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[up_speed]" value="<?php if(isset($object->limits)){ echo $object->limits->up_speed;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="fup">Limits FUP</label>
-										<input type="text" class="form-control" id="fup" name="limits[fup]" value="<?php if(isset($object->limits)){ echo $object->limits->fup;} ?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="fup" name="limits[fup]" value="<?php if(isset($object->limits)){ echo $object->limits->fup;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="minute">Limits Minute</label>
-										<input type="text" class="form-control" id="limits" name="limits[minute]" value="<?php if(isset($object->limits)){ echo $object->limits->minute;} ?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[minute]" value="<?php if(isset($object->limits)){ echo $object->limits->minute;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="sms">Limits SMS</label>
-										<input type="text" class="form-control" id="limits" name="limits[sms]" value="<?php if(isset($object->limits)){ echo $object->limits->sms;} ?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="limits" name="limits[sms]" value="<?php if(isset($object->limits)){ echo $object->limits->sms;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="wording">Wording (Indo)</label>
@@ -203,11 +202,11 @@
 									</div>
 									<div class="form-group">
 										<label for="description">Description (Indo)</label>
-										<input type="text" required class="form-control" id="description" name="description[]" value="<?=$object->description[0];?>">
+										<input type="text" required class="form-control" id="description" name="description[]" value="<?=htmlentities($object->description[0]);?>">
 									</div>
 									<div class="form-group">
 										<label for="description">Description (English)</label>
-										<input type="text" required class="form-control" id="description" name="description[]" value="<?=$object->description[1];?>">
+										<input type="text" required class="form-control" id="description" name="description[]" value="<?=htmlentities($object->description[1]);?>">
 									</div>
 								</div>
 								<div class="modal-footer justify-content-between">
