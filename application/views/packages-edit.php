@@ -109,7 +109,7 @@
 										<input type="text" pattern="[0-9-]+" class="form-control" id="quota" name="quota" value="<?=$object->quota;?>">
 									</div>
 									<div class="form-group">
-										<label for="list_head_group_new">List Head Group New</label>
+										<label for="list_head_group_new">Category</label>
 										<select name="list_head_group_new" required class="select2" data-value="<?=$object->list_head_group_new;?>"
 												style="width: 100%;">
 											<?php
@@ -118,6 +118,17 @@
 												?>
 												<option value="<?=$heads;?>"><?=$heads;?></option>
 											<?php } ?>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="group">Type</label>
+										<select name="type" class="select2" data-placeholder="Enter type"
+												style="width: 100%;">
+											<option value="<?=$object->type;?>"><?=$object->type;?></option>
+											<?php foreach($groups as $data){ ?>
+												<?php if($object->type != $data){ ?>
+													<option value="<?=$data;?>"><?=$data;?></option>
+												<?php } } ?>
 										</select>
 									</div>
 									<div class="form-group">

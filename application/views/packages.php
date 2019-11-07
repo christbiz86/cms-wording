@@ -182,7 +182,7 @@
 							<input type="text" pattern="[0-9-]+" class="form-control" id="quota" name="quota" placeholder="Enter package quota">
 						</div>
 						<div class="form-group">
-							<label for="list_head_group_new">List Head Group New</label>
+							<label for="list_head_group_new">Category</label>
 							<select name="list_head_group_new" required class="select2" data-placeholder="Select a list head group new"
 									style="width: 100%;">
 								<?php
@@ -190,6 +190,15 @@
 								foreach($head as $heads => $heads_value){
 								?>
 								<option value="<?=$heads;?>"><?=$heads;?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="group">Type</label>
+							<select name="type" class="select2" data-placeholder="Enter type"
+									style="width: 100%;">
+								<?php foreach($groups as $data){ ?>
+									<option value="<?=$data;?>"><?=$data;?></option>
 								<?php } ?>
 							</select>
 						</div>
