@@ -27,15 +27,19 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Edit Wording - List Head Group New</h3>
+							<h3 class="card-title">Edit Wording - Category</h3>
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
 							<form role="form" method="post" action="<?=site_url('packages/list_head_group_new/update/'.$id)?>">
 								<div class="card-body">
 									<div class="form-group">
+										<label for="name">Category Name</label>
+										<input type="text" required class="form-control" id="name" name="name" value="<?=$id;?>">
+									</div>
+									<div class="form-group">
 										<label for="id">List Head Group ID</label>
-										<input type="text" required class="form-control" id="id" name="id" value="<?=$object->id;?>">
+										<input type="text" required class="form-control" pattern="[0-9-]+" id="id" name="id" value="<?=$object->id;?>">
 									</div>
 									<div class="form-group">
 										<label for="bg">Background (Indo)</label>

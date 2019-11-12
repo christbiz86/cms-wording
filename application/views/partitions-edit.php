@@ -72,7 +72,11 @@
 									</div>
 									<div class="form-group">
 										<label for="adjust_exp">Adjust Exp</label>
-										<input type="number" required class="form-control" id="adjust_exp" name="adjust_exp" value="<?=$object->adjust_exp;?>">
+										<input type="number" required class="form-control" id="adjust_exp" name="adjust_exp" value="<?php if(isset($object->adjust_exp)){ echo $object->adjust_exp;} ?>">
+									</div>
+									<div class="form-group">
+										<label for="sub_type">Sub Type</label>
+										<input type="text" required class="form-control" id="sub_type" name="sub_type" value="<?php if(isset($object->sub_type)){ echo $object->sub_type;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="group">Group</label>

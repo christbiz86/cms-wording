@@ -34,7 +34,7 @@
 							<table id="example1" class="table table-bordered table-striped">
 								<thead>
 								<tr>
-									<th>No</th>
+									<th>List Group ID</th>
 									<th>List Group Type</th>
 									<th>Action</th>
 								</tr>

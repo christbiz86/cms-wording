@@ -92,8 +92,8 @@
 				<form role="form" method="post" action="<?=site_url('packages/list_packages/add')?>">
 					<div class="card-body">
 						<div class="form-group">
-							<label for="name">Code (Letter and number only)</label>
-							<input type="text" required class="form-control" pattern="[a-zA-Z0-9-]+" id="name" name="name" placeholder="Enter package code">
+							<label for="name">Code</label>
+							<input type="text" required class="form-control" id="name" name="name" placeholder="Enter package code">
 						</div>
 						<div class="form-group">
 							<label for="content">Content</label>

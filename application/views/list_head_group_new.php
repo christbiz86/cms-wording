@@ -94,7 +94,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title">Add - Packages</h4>
+				<h4 class="modal-title">Add - Category</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -103,12 +103,12 @@
 				<form role="form" method="post" action="<?=site_url('packages/list_head_group_new/add')?>">
 					<div class="card-body">
 						<div class="form-group">
-							<label for="name">Category Name (Letter and number only)</label>
-							<input type="text" required class="form-control" pattern="[a-zA-z0-9-]+" id="name" name="name" placeholder="Enter category name">
+							<label for="name">Category Name</label>
+							<input type="text" required class="form-control" id="name" name="name" placeholder="Enter category name">
 						</div>
 						<div class="form-group">
 							<label for="id">Category ID</label>
-							<input type="text" class="form-control" id="id" name="id" placeholder="Enter category id">
+							<input type="text" class="form-control" id="id" pattern="[0-9-]+" name="id" placeholder="Enter category id">
 						</div>
 						<div class="form-group">
 							<label for="bg">Background (Indo)</label>

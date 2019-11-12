@@ -106,6 +106,12 @@ $route['packages/(:any)/delete/(:any)'] = 'packages/delete/$1';
 
 $route['wording/channel_new/edit/(:any)/(:any)/(:any)'] = 'channel_new/edit/$1/$2/$3';
 $route['wording/channel_new/update/(:any)/(:any)/(:any)'] = 'channel_new/update/$1/$2/$3';
+
+$route['wording/channel/add'] = 'channel/create';
+$route['wording/channel/update/(:any)'] = 'channel/update/$1';
+
+$route['wording/dlg_notif/add'] = 'channel/create';
+$route['wording/dlg_notif/update/(:any)'] = 'channel/update/$1';
 //$routes->post('channel/add','Channel::create');
 //$routes->post('channel/update/(:segment)','Channel::update');
 //

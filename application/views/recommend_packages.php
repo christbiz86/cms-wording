@@ -92,9 +92,9 @@
 				<form role="form" method="post" action="<?=site_url('packages/recommend_packages/add')?>">
 					<div class="card-body">
 						<div class="form-group">
-							<label for="name">Code (Letter and number only)</label>
-							<input type="text" required class="form-control" pattern="[a-zA-Z0-9-]+" id="name" name="name" placeholder="Enter package code">
+							<label for="name">Code</label>
 						</div>
+						<input type="text" required class="form-control" id="name" name="name" placeholder="Enter package code">
 						<div class="form-group">
 							<label for="content">Content</label>
 							<select name="desc[]" required class="select2" multiple="multiple" data-placeholder="Select packages"

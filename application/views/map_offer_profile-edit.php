@@ -34,8 +34,8 @@
 							<form role="form" method="post" action="<?=site_url('packages/map_offer_profile/update/'.$id)?>">
 								<div class="card-body">
 									<div class="form-group">
-										<label for="name">Code (Letter and number only)</label>
-										<input type="text" required class="form-control" pattern="[a-zA-Z0-9-]+" id="name" name="name" value="<?=$id;?>">
+										<label for="name">Code</label>
+										<input type="text" required class="form-control" id="name" name="name" value="<?=$id;?>">
 									</div>
 									<div class="form-group">
 										<label for="offer">Offer</label>

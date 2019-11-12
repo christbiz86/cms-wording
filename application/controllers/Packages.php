@@ -49,7 +49,7 @@ class Packages extends Wordingabstract {
 
 	public function edit($object){
 		$categories = array();
-		$id = $this->uri->segment(4);
+		$id = urldecode($this->uri->segment(4));
 		$file = $this->getJsonFile();
 		$list = $file->list_group;
 		foreach ($list as $row => $value){

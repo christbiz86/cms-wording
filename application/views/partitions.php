@@ -132,6 +132,10 @@
 							<input type="text" required class="form-control" id="adjust_exp" name="adjust_exp" placeholder="Enter adjust exp">
 						</div>
 						<div class="form-group">
+							<label for="sub_type">Sub Type</label>
+							<input type="text" required class="form-control" id="sub_type" name="sub_type" placeholder="Enter sub type">
+						</div>
+						<div class="form-group">
 							<label for="group">Group</label>
 							<select name="group" class="select2" data-placeholder="Enter group"
 									style="width: 100%;">

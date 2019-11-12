@@ -45,7 +45,7 @@
 									</div>
 									<div class="form-group">
 										<label for="code">Package Code</label>
-										<input type="text" required class="form-control" id="code" name="code" value="<?=$object->code;?>">
+										<input type="text" required class="form-control" id="code" name="code" value="<?php if(isset($object->code)){ echo $object->code; }?>">
 									</div>
 									<div class="form-group">
 										<label for="promo">Promo</label>
@@ -53,15 +53,15 @@
 									</div>
 									<div class="form-group">
 										<label for="name">Name</label>
-										<input type="text" required class="form-control" id="name" name="name" value="<?=$object->name;?>">
+										<input type="text" required class="form-control" id="name" name="name" value="<?php if(isset($object->name)){ echo $object->name;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="auto">Auto</label>
-										<input type="text" class="form-control" id="auto" name="auto" value="<?=$object->auto;?>">
+										<input type="text" class="form-control" id="auto" name="auto" value="<?php if(isset($object->auto)){ echo $object->auto;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="info">Info</label>
-										<input type="text" class="form-control" id="info" name="info" value="<?=$object->info;?>">
+										<input type="text" class="form-control" id="info" name="info" value="<?php if(isset($object->info)){ echo $object->info;} ?>">
 									</div>
 									<div class="form-group">
 										<label>Packs</label>
@@ -79,38 +79,40 @@
 									</div>
 									<div class="form-group">
 										<label for="buy">Buy</label>
-										<input type="text" class="form-control" id="buy" name="buy" value="<?=$object->buy;?>">
+										<input type="text" class="form-control" id="buy" name="buy" value="<?php if(isset($object->buy)){ echo $object->buy;} ?>">
 									</div>
 									<div class="form-group">
 										<label>Addon</label>
 										<select name="addon[]" class="select2" multiple="multiple"
 												style="width: 100%;">
-											<?php foreach($object->addon as $adds){
+											<?php
+											if(isset($object->addon)){
+												foreach($object->addon as $adds){
 												foreach($addon as $addons){
 												?>
 												<option value="<?=$addons->addon_title?>" <?php if($adds==$addons->addon_title){ echo "selected"; } ?>><?=$addons->addon_title?></option>
-											<?php } } ?>
+											<?php } } } ?>
 										</select>
 									</div>
 									<div class="form-group">
 										<label for="offinfo">Offinfo</label>
-										<input type="text" class="form-control" id="offinfo" name="offinfo" value="<?=$object->offinfo;?>">
+										<input type="text" class="form-control" id="offinfo" name="offinfo" value="<?php if(isset($object->offinfo)){ echo $object->offinfo;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="offcode">Offcode</label>
-										<input type="text" class="form-control" id="offcode" name="offcode" value="<?=$object->offcode;?>">
+										<input type="text" class="form-control" id="offcode" name="offcode" value="<?php if(isset($object->offcode)){ echo $object->offcode;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="quota_div">Quotadiv</label>
-										<input type="text" class="form-control" id="quota_div" name="quota_div" value="<?=$object->quota_div;?>">
+										<input type="text" class="form-control" id="quota_div" name="quota_div" value="<?php if(isset($object->quota_div)){ echo $object->quota_div;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="quota">Quota</label>
-										<input type="text" pattern="[0-9-]+" class="form-control" id="quota" name="quota" value="<?=$object->quota;?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="quota" name="quota" value="<?php if(isset($object->quota)){ echo $object->quota;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="list_head_group_new">Category</label>
-										<select name="list_head_group_new" required class="select2" data-value="<?=$object->list_head_group_new;?>"
+										<select name="list_head_group_new" required class="select2" data-value="<?php if(isset($object->list_head_group_new)){ echo $object->list_head_group_new;} ?>"
 												style="width: 100%;">
 											<?php
 											$head = $file->list_head_group_new;
@@ -124,7 +126,7 @@
 										<label for="group">Type</label>
 										<select name="type" class="select2" data-placeholder="Enter type"
 												style="width: 100%;">
-											<option value="<?=$object->type;?>"><?=$object->type;?></option>
+											<?php if(isset($object->type)){ ?><option value="<?=$object->type;?>"><?=$object->type;?></option><?php } ?>
 											<?php foreach($groups as $data){ ?>
 												<?php if($object->type != $data){ ?>
 													<option value="<?=$data;?>"><?=$data;?></option>
@@ -135,7 +137,7 @@
 										<label for="group">Group</label>
 										<select name="group" class="select2" data-placeholder="Enter group"
 												style="width: 100%;">
-											<option value="<?=$object->group;?>"><?=$object->group;?></option>
+											<?php if(isset($object->group)){ ?><option value="<?=$object->group;?>"><?=$object->group;?></option><?php } ?>
 											<?php foreach($groups as $data){ ?>
 												<?php if($object->group != $data){ ?>
 													<option value="<?=$data;?>"><?=$data;?></option>
@@ -146,7 +148,7 @@
 										<label for="sub_group">Sub Group</label>
 										<select name="sub_group" class="select2" data-placeholder="Select a sub group"
 												style="width: 100%;">
-											<option value="<?=$object->sub_group;?>"><?=$object->sub_group;?></option>
+											<?php if(isset($object->sub_group)){ ?><option value="<?=$object->sub_group;?>"><?=$object->sub_group;?></option><?php } ?>
 											<?php foreach($subgroup as $row => $value){ ?>
 												<?php if($row != $object->sub_group){ ?>
 												<option value="<?=$row;?>"><?=$row;?></option>
@@ -173,7 +175,7 @@
 									</div>
 									<div class="form-group">
 										<label for="price">Price</label>
-										<input type="text" pattern="[0-9-]+" class="form-control" id="price" name="price" value="<?=$object->price;?>">
+										<input type="text" pattern="[0-9-]+" class="form-control" id="price" name="price" value="<?php if(isset($object->price)){ echo $object->price;} ?>">
 									</div>
 									<div class="form-group">
 										<label for="data">Limits Data</label>
@@ -205,19 +207,19 @@
 									</div>
 									<div class="form-group">
 										<label for="wording">Wording (Indo)</label>
-										<input type="text" required class="form-control" id="wording" name="wording[]" value="<?=$object->wording[0];?>">
+										<input type="text" required class="form-control" id="wording" name="wording[]" value="<?php if(isset($object->wording)){ echo $object->wording[0];} ?>">
 									</div>
 									<div class="form-group">
 										<label for="wording">Wording (English)</label>
-										<input type="text" required class="form-control" id="wording" name="wording[]" value="<?=$object->wording[1];?>">
+										<input type="text" required class="form-control" id="wording" name="wording[]" value="<?php if(isset($object->wording)){ echo $object->wording[1];} ?>">
 									</div>
 									<div class="form-group">
 										<label for="description">Description (Indo)</label>
-										<input type="text" required class="form-control" id="description" name="description[]" value="<?=htmlentities($object->description[0]);?>">
+										<input type="text" required class="form-control" id="description" name="description[]" value="<?php if(isset($object->description)){ echo htmlentities($object->description[0]);} ?>">
 									</div>
 									<div class="form-group">
 										<label for="description">Description (English)</label>
-										<input type="text" required class="form-control" id="description" name="description[]" value="<?=htmlentities($object->description[1]);?>">
+										<input type="text" required class="form-control" id="description" name="description[]" value="<?php if(isset($object->description)){ echo htmlentities($object->description[1]);} ?>">
 									</div>
 								</div>
 								<div class="modal-footer justify-content-between">
