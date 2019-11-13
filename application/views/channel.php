@@ -44,16 +44,15 @@
 								<tbody>
 								<?php
 								foreach($object as $row => $value){
-									foreach($value as $value1){
 									?>
 									<tr>
 										<td><?php echo $row;?></td>
-										<td><?php echo $value1->name;?></td>
+										<td><?php echo $value[0]->name;?></td>
 										<td>
-											Indo : <?php echo $value1->title[0];?><br>
-											English : <?php echo $value1->title[1];?>
+											Indo : <?php echo $value[0]->title[0];?><br>
+											English : <?php echo $value[0]->title[1];?>
 										</td>
-										<td><?php echo $value1->voucher;?></td>
+										<td><?php echo $value[0]->voucher;?></td>
 										<td>
 											<a href="<?=site_url('wording/channel/edit/'.$row)?>">
 												<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
@@ -63,7 +62,7 @@
 											</a>
 										</td>
 									</tr>
-								<?php } } ?>
+								<?php } ?>
 								</tbody>
 							</table>
 						</div>

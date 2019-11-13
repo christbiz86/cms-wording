@@ -39,9 +39,13 @@ class Wordingpackages extends Wordingabstract {
 
 		//update current packages
 		if($_POST['curr_packages'] == 'on'){
+			$data_curr = array();
 			$curr = $file->curr_packages;
-			$curr[] = $_POST['id'];
-			$file->curr_packages = $curr;
+			foreach($curr as $curr_key => $curr_value){
+				$data_curr[$curr_key] = $curr_value;
+			}
+			$data_curr[] = $_POST['id'];
+			$file->curr_packages = (object)$data_curr;
 		} else {
 			$getId = array_search($id,$file->curr_packages);
 			unset($file->curr_packages[$getId]);

@@ -29,6 +29,7 @@ class Channel extends Wordingabstract {
 		$file = $this->getJsonFile();
 		unset($file->$object->$id);
 		$list[$_POST['id']] = array((object) $_POST);
+		unset($list[$_POST['id']][0]->id);
 		foreach ($file->$object as $key => $value) {
 			$list[$key] = $value;
 		}
@@ -37,7 +38,6 @@ class Channel extends Wordingabstract {
 				$file->$object = ((object)$list);
 			}
 		}
-		unset($file->$object->$id[0]->id);
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/wording/'.$object));
 	}

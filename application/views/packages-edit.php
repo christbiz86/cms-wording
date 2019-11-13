@@ -35,7 +35,17 @@
 								<div class="card-body">
 									<div class="form-check">
 										<input
-											<?php if(in_array($id,$curr_packages)){ echo "checked"; } ?>
+											<?php
+											$arr = array();
+											foreach($curr_packages as $row_curr){
+												if($row_curr == $id){
+													$arr[] = $id;
+												}
+											}
+											if(in_array($id,$arr)){
+												echo "checked";
+											}
+											?>
 											type="checkbox" name="curr_packages" class="form-check-input" id="exampleCheck1">
 										<label class="form-check-label" for="exampleCheck1"><b>Current Packages</b></label>
 									</div>

@@ -69,7 +69,13 @@
 												English : <?php if(isset($value->description)){ echo ($value->description[1]); }?><br>
 											</td>
 											<td><?php
-												if(in_array($row,$curr_packages)){
+												$arr = array();
+												foreach($curr_packages as $row_curr){
+													if($row_curr == $row){
+														$arr[] = $row;
+													}
+												}
+												if(in_array($row,$arr)){
 													echo "YES";
 												} else {
 													echo "NO";

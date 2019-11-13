@@ -135,7 +135,7 @@
             "info": true,
             "autoWidth": false,
             "columnDefs": [
-                { "orderable": false, "targets": 7 }
+                { "orderable": false, "targets": 2 }
             ]
         });
     });

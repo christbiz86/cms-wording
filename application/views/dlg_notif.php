@@ -44,18 +44,17 @@
 								<tbody>
 								<?php
 								foreach($object as $row => $value){
-									foreach($value as $value1){
 										?>
 										<tr>
 											<td><?php echo $row;?></td>
-											<td><?php echo $value1->type;?></td>
+											<td><?php echo $value[0]->type;?></td>
 											<td>
-												Indo : <?php echo $value1->title[0];?><br>
-												English : <?php echo $value1->title[1];?>
+												Indo : <?php echo $value[0]->title[0];?><br>
+												English : <?php echo $value[0]->title[1];?>
 											</td>
 											<td>
-												Indo : <?php echo $value1->content[0];?><br>
-												English : <?php echo $value1->content[1];?>
+												Indo : <?php echo $value[0]->content[0];?><br>
+												English : <?php echo $value[0]->content[1];?>
 											</td>
 											<td>
 												<a href="<?=site_url('wording/dlg_notif/edit/'.$row)?>">
@@ -66,7 +65,7 @@
 												</a>
 											</td>
 										</tr>
-									<?php } } ?>
+									<?php } ?>
 								</tbody>
 							</table>
 						</div>

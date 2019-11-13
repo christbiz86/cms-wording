@@ -35,7 +35,7 @@
 								<thead>
 								<tr>
 									<th>List Group Name</th>
-									<th>List Group ID</th>
+									<th>List Group Type</th>
 									<th>List Head Group New ID</th>
 									<th>Desc</th>
 									<th>Action</th>
