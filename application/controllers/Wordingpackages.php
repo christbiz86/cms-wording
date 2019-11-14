@@ -38,7 +38,7 @@ class Wordingpackages extends Wordingabstract {
 		$list[$_POST['code']] = (object) $_POST;
 
 		//update current packages
-		if($_POST['curr_packages'] == 'on'){
+		if(isset($_POST['curr_packages'])){
 			$data_curr = array();
 			$curr = $file->curr_packages;
 			foreach($curr as $curr_key => $curr_value){
@@ -47,8 +47,11 @@ class Wordingpackages extends Wordingabstract {
 			$data_curr[] = $_POST['id'];
 			$file->curr_packages = (object)$data_curr;
 		} else {
-			$getId = array_search($id,$file->curr_packages);
-			unset($file->curr_packages[$getId]);
+			foreach($file->curr_packages as $key_curr => $currs){
+				if($currs == $id){
+					unset($file->curr_packages->$key_curr);
+				}
+			}
 		}
 		unset($list[$_POST['id']]->curr_packages);
 
@@ -62,6 +65,23 @@ class Wordingpackages extends Wordingabstract {
 		}
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/packages/'.$object));
+	}
+
+	public function view(){
+		$categories = array();
+		$file = $this->getJsonFile();
+		$object = $this->uri->segment(2);
+		$id = $this->uri->segment(4);
+		$data = [
+			'title'		=> 'Wording List',
+			'menu'		=> 'wording',
+			'submenu'	=> $object,
+			'object'	=> $file->$object->$id,
+			'file'		=> $file,
+			'id'		=> $id,
+			'curr_packages'	=> $file->curr_packages
+		];
+		return $this->load->view($object.'-view',$data);
 	}
 
 }

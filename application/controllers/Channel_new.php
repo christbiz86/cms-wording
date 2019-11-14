@@ -12,6 +12,7 @@ class Channel_new extends Wordingabstract{
 		$id1 = $this->uri->segment(5);
 		$id2 = $this->uri->segment(6);
 		$file = $this->getJsonFile();
+		$row = $file->$object->$id->$id1;
 		$data = [
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
@@ -19,7 +20,7 @@ class Channel_new extends Wordingabstract{
 			'id'		=> $id,
 			'id1'		=> $id1,
 			'id2'		=> $id2,
-			'object'	=> $file->$object->$id->$id1[$id2]
+			'object'	=> $row[$id2]
 		];
 		return $this->load->view($object.'-edit',$data);
 	}

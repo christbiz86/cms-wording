@@ -61,6 +61,7 @@ $route['list_group_type/update/(:any)'] = 'Listgrouptype/update';
 $route['list_group_type/delete/(:any)'] = 'Listgrouptype/delete';
 
 $route['packages/packages/add'] = 'Wordingpackages/create';
+$route['packages/packages/view/(:any)'] = 'Wordingpackages/view/$1';
 $route['packages/packages/update/(:any)'] = 'Wordingpackages/update';
 
 $route['packages/list_group'] = 'listgroup/index';

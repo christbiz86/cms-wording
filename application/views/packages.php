@@ -65,8 +65,8 @@
 												?></td>
 											<td><?php echo $value->price;?></td>
 											<td>
-												Indo : <?php if(isset($value->description)){ echo ($value->description[0]); }?><br>
-												English : <?php if(isset($value->description)){ echo ($value->description[1]); }?><br>
+												Indo : <?php if(isset($value->description[0])){ echo ($value->description[0]); }?><br>
+												English : <?php if(isset($value->description[1])){ echo ($value->description[1]); }?><br>
 											</td>
 											<td><?php
 												$arr = array();
@@ -82,6 +82,9 @@
 												}
 												?></td>
 											<td>
+												<a href="<?=site_url('packages/packages/view/'.$row)?>">
+													<button type="button" class="btn btn-block btn-info btn-sm">View</button>
+												</a><br>
 												<a href="<?=site_url('packages/packages/edit/'.$row)?>">
 													<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 												</a><br>
