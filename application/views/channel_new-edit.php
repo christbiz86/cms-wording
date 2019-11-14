@@ -34,7 +34,7 @@
 							<form role="form" method="post" action="<?=site_url('wording/channel_new/update/'.$id.'/'.$id1.'/'.$id2)?>">
 								<div class="card-body">
 									<div class="form-group">
-										<label for="id">Channel Group</label>
+										<label for="id">Type</label>
 										<select name="id" class="select2" data-placeholder="Select channel group"
 												style="width: 100%;">
 											<option value="topup" <?php if($id1=='topup'){ echo 'selected'; } ?>>topup</option>

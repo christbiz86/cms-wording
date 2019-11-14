@@ -106,6 +106,7 @@ $route['packages/(:any)/delete/(:any)'] = 'packages/delete/$1';
 
 $route['wording/channel_new/edit/(:any)/(:any)/(:any)'] = 'channel_new/edit/$1/$2/$3';
 $route['wording/channel_new/update/(:any)/(:any)/(:any)'] = 'channel_new/update/$1/$2/$3';
+$route['wording/channel_new/add'] = 'channel_new/create';
 
 $route['wording/channel/add'] = 'channel/create';
 $route['wording/channel/update/(:any)'] = 'channel/update/$1';

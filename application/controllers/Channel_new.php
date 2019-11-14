@@ -24,6 +24,25 @@ class Channel_new extends Wordingabstract{
 		return $this->load->view($object.'-edit',$data);
 	}
 
+	public function create(){
+		$object = $this->uri->segment(2);
+		$file = $this->getJsonFile();
+		$id = $_POST['id'];
+		$list[$id][] = ((object) $_POST);
+		unset($list[$id][0]->id);
+
+		$data = array($file->$object);
+		$x = 0;
+		foreach($data as $data1){
+			if($x == 0){
+				$file->$object->$x = (object) array_merge((array)$data1->$x,$list);
+			}
+			$x++;
+		};
+		$this->updateJsonFile(json_encode($file));
+		redirect(site_url('/wording/'.$object));
+	}
+
 	public function update(){
 		$object = $this->uri->segment(2);
 		$id = $this->uri->segment(4);

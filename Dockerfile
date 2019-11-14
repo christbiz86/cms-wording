@@ -54,6 +54,7 @@ RUN /usr/sbin/httpd
 
 #/etc/apache2/httpd.conf AllowOverride All
 
+
 COPY / /var/www/localhost/htdocs/cmswording/
 EXPOSE 80
 EXPOSE 3306

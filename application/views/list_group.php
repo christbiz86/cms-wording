@@ -67,7 +67,7 @@
 											<a href="<?=site_url('packages/list_group/edit/'.$row.'/'.$row1)?>">
 												<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 											</a><br>
-											<a href="<?=site_url('packages/list_group/delete/'.$row.'/'.$row1)?>" onclick="return confirm('Are you sure you want to delete this item?');">
+											<a href="<?=site_url('packages/list_group/delete/'.$row.'/'.$row1)?>" onclick="return confirm('Are you sure you want to delete all this item with same ID <?php echo $row; ?> ?');">
 												<button type="button" class="btn btn-block btn-danger btn-sm">Delete</button>
 											</a>
 										</td>
