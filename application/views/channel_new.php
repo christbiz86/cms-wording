@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Select2 -->
+	<link rel="stylesheet" href="<?=site_url()?>assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="<?=site_url()?>assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 	<?php include('components/header.php') ?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -118,8 +121,13 @@
 						</div>
 						<div class="form-group">
 							<label for="fields">Fields</label>
-							<select name="fields" multiple="multiple" class="select2multi" data-placeholder="Select fields"
+							<select name="fields[]" multiple="multiple" class="select2multi" data-placeholder="Select fields"
 									style="width: 100%;">
+								<?php if(isset($object->fields)){
+									foreach($object->fields as $data){
+										?>
+										<option value="<?=$data;?>" selected><?=$data;?></option>
+									<?php } } ?>
 							</select>
 						</div>
 						<div class="form-group">
@@ -157,6 +165,7 @@
 </div>
 
 <!-- ./wrapper -->
+<script src="<?php echo site_url('assets/plugins/select2/js/select2.full.min.js') ?>"></script>
 <script>
     $(function () {
         $('#example1').DataTable({
@@ -169,6 +178,10 @@
             // "columnDefs": [
             //     { "orderable": false, "targets": 2 }
             // ]
+        });
+        $('.select2multi').select2({
+            theme: 'bootstrap4',
+            tags: true
         });
     });
 </script>

@@ -12,10 +12,14 @@ class Wordingpackages extends Wordingabstract {
 		$list[$_POST['code']] = (object) $_POST;
 
 		//insert current packages
-		if($_POST['curr_packages'] == 'on'){
+		if(isset($_POST['curr_packages'])) {
+			$data_curr = array();
 			$curr = $file->curr_packages;
-			$curr[] = $_POST['id'];
-			$file->curr_packages = $curr;
+			foreach ($curr as $curr_key => $curr_value) {
+				$data_curr[$curr_key] = $curr_value;
+			}
+			$data_curr[] = $_POST['id'];
+			$file->curr_packages = (object)$data_curr;
 		}
 		unset($list[$_POST['id']]->curr_packages);
 		foreach ($file->$object as $key => $value) {
