@@ -48,7 +48,10 @@ class Wordingpackages extends Wordingabstract {
 			foreach($curr as $curr_key => $curr_value){
 				$data_curr[$curr_key] = $curr_value;
 			}
-			$data_curr[] = $_POST['id'];
+			$getId = array_search($_POST['id'],$data_curr);
+			if(!isset($getId)){
+				$data_curr[] = $_POST['id'];
+			}
 			$file->curr_packages = (object)$data_curr;
 		} else {
 			foreach($file->curr_packages as $key_curr => $currs){

@@ -86,7 +86,10 @@
 													<option value="<?=$data->code;?>" <?php if(in_array($data->code,$object->packs)){ echo "selected"; } ?>><?=$data->code;?></option>
 												<?php } else { ?>
 													<option value="<?=$object->packs;?>"><?=$object->packs;?></option>
-											<?php } } } ?>
+											<?php } } } else {
+												foreach($file->packages as $data){ ?>
+											<option value="<?=$data->code;?>"><?=$data->code;?></option>
+											<?php } } ?>
 										</select>
 									</div>
 									<div class="form-group">
@@ -103,7 +106,11 @@
 												foreach($addon as $addons){
 												?>
 												<option value="<?=$addons->addon_title?>" <?php if($adds==$addons->addon_title){ echo "selected"; } ?>><?=$addons->addon_title?></option>
-											<?php } } } ?>
+											<?php } } } else {
+												foreach($addon as $addons){ ?>
+													<option value="<?=$addons->addon_title?>"><?=$addons->addon_title?></option>
+												<?php }
+											} ?>
 										</select>
 									</div>
 									<div class="form-group">
