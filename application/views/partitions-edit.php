@@ -34,22 +34,62 @@
 							<form role="form" method="post" action="<?=site_url('packages/partitions/update/'.$id)?>">
 								<div class="form-check">
 									<input
-										<?php if(in_array($id,$special_partitions)){ echo "checked"; } ?>
+										<?php
+										$arr1 = array();
+										foreach($special_partitions as $spc){
+											if($spc == $id){
+												$arr1[] = $id;
+											}
+										}
+										if(in_array($id,$arr1)){
+											echo "checked";
+										}
+										?>
 										type="checkbox" name="special_partitions" class="form-check-input">
 									<label class="form-check-label"><b>Special Partitions</b></label>
 								</div>
 								<div class="form-check">
-									<input type="checkbox" <?php if(in_array($id,$curr_partitions)){ echo "checked"; } ?>
+									<input type="checkbox" <?php
+									$arr2 = array();
+									foreach($curr_partitions as $curr){
+										if($curr == $id){
+											$arr2[] = $id;
+										}
+									}
+									if(in_array($id,$arr2)){
+										echo "checked";
+									}
+									?>
 										   name="curr_partitions" class="form-check-input">
 									<label class="form-check-label"><b>Current Partitions</b></label>
 								</div>
 								<div class="form-check">
-									<input type="checkbox" <?php if(in_array($id,$showed_partitions)){ echo "checked"; } ?>
+									<input type="checkbox" <?php
+									$arr3 = array();
+									foreach($showed_partitions as $show){
+										if($show == $id){
+											$arr3[] = $id;
+										}
+									}
+									if(in_array($id,$arr3)){
+										echo "checked";
+									}
+									?>
 										   name="showed_partitions" class="form-check-input">
 									<label class="form-check-label"><b>Showed Partitions</b></label>
 								</div>
 								<div class="form-check">
-									<input <?php if(in_array($id,$data_partitions)){ echo "checked"; } ?>
+									<input <?php
+									$arr4 = array();
+									foreach($data_partitions as $parts){
+										if($parts == $id){
+											$arr4[] = $id;
+										}
+									}
+									if(in_array($id,$arr4)){
+										echo "checked";
+									}
+									?>
 										type="checkbox" name="data_partitions" class="form-check-input">
 									<label class="form-check-label"><b>Data Partitions</b></label>
 								</div>
