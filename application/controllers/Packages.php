@@ -153,9 +153,10 @@ class Packages extends Wordingabstract {
 			unset($file->$object->$id);
 		} elseif($object == 'packages'){
 //			delete current packages if exist
-			$getId = array_search($id,$file->curr_packages);
-			if($getId){
-				unset($file->curr_packages[$getId]);
+			foreach($file->curr_packages as $row => $value){
+				if($value == $id){
+					unset($file->curr_packages->$row);
+				}
 			}
 		} elseif($object == 'partitions'){
 //			delete other partitions relation if exist

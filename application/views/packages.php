@@ -154,7 +154,7 @@
 						</div>
 						<div class="form-group">
 							<label>Packs</label>
-							<select name="packs[]" class="select2" multiple="multiple" data-placeholder="Select a packs"
+							<select name="packs[]" class="select2tags" multiple="multiple" data-placeholder="Select a packs"
 									style="width: 100%;">
 								<?php foreach($object as $data){ ?>
 								<option value="<?=$data->code;?>"><?=$data->code;?></option>
@@ -167,11 +167,32 @@
 						</div>
 						<div class="form-group">
 							<label>Addon</label>
-							<select name="addon[]" class="select2" multiple="multiple" data-placeholder="Select a addon"
+							<select name="addon[]" class="select2tags" multiple="multiple" data-placeholder="Select a addon"
 									style="width: 100%;">
 								<?php foreach($addon as $addons){ ?>
 									<option value="<?=$addons->addon_title?>"><?=$addons->addon_title?></option>
 								<?php } ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="unit_sms">Unit SMS</label>
+							<select name="unit_sms[]" class="select2tags" multiple="multiple"
+									style="width: 100%;">
+								<option></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="unit_voice">Unit Voice</label>
+							<select name="unit_voice[]" class="select2tags" multiple="multiple"
+									style="width: 100%;">
+								<option></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="unit_data">Unit Data</label>
+							<select name="unit_data[]" class="select2tags" multiple="multiple"
+									style="width: 100%;">
+								<option></option>
 							</select>
 						</div>
 						<div class="form-group">
@@ -240,7 +261,7 @@
 						</div>
 						<div class="form-group">
 							<label for="purchaseby">Purchase By</label>
-							<select name="purchaseby[]" class="select2" multiple="multiple" data-placeholder="Select a purchase by"
+							<select name="purchaseby[]" class="select2tags" multiple="multiple" data-placeholder="Select a purchase by"
 									style="width: 100%;">
 								<option value="deductbalance">Deduct Balance</option>
 								<option value="cc_purchase">CC Purchase</option>
@@ -311,8 +332,12 @@
 <!-- ./wrapper -->
 <script>
     $(function () {
+        $('.select2tags').select2({
+            theme: 'bootstrap4',
+            tags: true
+        });
         $('.select2').select2({
-            theme: 'bootstrap4'
+            theme: 'bootstrap4',
         });
         $('#example1').DataTable({
             "paging": true,

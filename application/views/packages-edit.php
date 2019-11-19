@@ -114,6 +114,39 @@
 										</select>
 									</div>
 									<div class="form-group">
+										<label for="unit_sms">Unit SMS</label>
+										<select name="unit_sms[]" class="select2" multiple="multiple"
+												style="width: 100%;">
+											<?php
+											if(isset($object->unit_sms)){
+												foreach($object->unit_sms as $datas1){ ?>
+													<option selected value="<?=$datas1;?>"><?=$datas1;?></option>
+												<?php } } ?>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="unit_voice">Unit Voice</label>
+										<select name="unit_voice[]" class="select2" multiple="multiple"
+												style="width: 100%;">
+											<?php
+											if(isset($object->unit_voice)){
+												foreach($object->unit_voice as $datas2){ ?>
+													<option selected value="<?=$datas2;?>"><?=$datas2;?></option>
+												<?php } } ?>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="unit_data">Unit Data</label>
+										<select name="unit_data[]" class="select2" multiple="multiple"
+												style="width: 100%;">
+											<?php
+											if(isset($object->unit_data)){
+												foreach($object->unit_data as $datas3){ ?>
+													<option selected value="<?=$datas3;?>"><?=$datas3;?></option>
+												<?php } } ?>
+										</select>
+									</div>
+									<div class="form-group">
 										<label for="offinfo">Offinfo</label>
 										<input type="text" class="form-control" id="offinfo" name="offinfo" value="<?php if(isset($object->offinfo)){ echo $object->offinfo;} ?>">
 									</div>
