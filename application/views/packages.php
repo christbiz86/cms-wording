@@ -228,25 +228,31 @@
 							<label for="unit_sms">Unit SMS</label>
 							<select name="unit_sms[]" class="select2tags" multiple="multiple"
 									style="width: 100%;">
-								<option></option>
+								<?php for($a=1;$a<=18;$a++){ ?>
+									<option value="SMS<?=$a;?>">SMS<?=$a;?></option>
+								<?php } ?>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="unit_voice">Unit Voice</label>
 							<select name="unit_voice[]" class="select2tags" multiple="multiple"
 									style="width: 100%;">
-								<option></option>
+								<?php for($b=1;$b<=18;$b++){ ?>
+									<option value="VOICE<?=$b;?>">VOICE<?=$b;?></option>
+								<?php } ?>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="unit_data">Unit Data</label>
 							<select name="unit_data[]" class="select2tags" multiple="multiple"
 									style="width: 100%;">
-								<option></option>
+								<?php for($c=1;$c<=18;$c++){ ?>
+									<option value="DATA<?=$c;?>">DATA<?=$c;?></option>
+								<?php } ?>
 							</select>
 						</div>
 						<div id="unitdetail" <?php if($object->group != 'myplan'){ ?>style="display: none;" <?php } ?>>
-							<input type="button" onclick="location.href=<?php echo site_url('packages/unitdetail/'.$id);?>" value="Unit Detail" />
+							<a href="<?php echo site_url('packages/unitdetail/');?>"><input type="button" value="Unit Detail" /></a>
 						</div>
 						<div class="form-group">
 							<label for="offinfo">Offinfo</label>

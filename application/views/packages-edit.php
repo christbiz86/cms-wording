@@ -216,6 +216,9 @@
 												foreach($object->unit_voice as $datas2){ ?>
 													<option selected value="<?=$datas2;?>"><?=$datas2;?></option>
 												<?php } } ?>
+											<?php for($b=1;$b<=18;$b++){ ?>
+												<option value="VOICE<?=$b;?>">VOICE<?=$b;?></option>
+											<?php } ?>
 										</select>
 									</div>
 									<div class="form-group">
@@ -227,10 +230,13 @@
 												foreach($object->unit_data as $datas3){ ?>
 													<option selected value="<?=$datas3;?>"><?=$datas3;?></option>
 												<?php } } ?>
+											<?php for($c=1;$c<=18;$c++){ ?>
+												<option value="DATA<?=$c;?>">DATA<?=$c;?></option>
+											<?php } ?>
 										</select>
 									</div>
 									<div id="unitdetail" <?php if($object->group != 'myplan'){ ?>style="display: none;" <?php } ?>>
-										<input type="button" onclick="location.href=<?php echo site_url('packages/unitdetail/'.$id);?>" value="Unit Detail" />
+										<a href="<?php echo site_url('packages/unitdetail/'.$id);?>"><input type="button" value="Unit Detail" /></a>
 									</div>
 									<div class="form-group">
 										<label for="offinfo">Offinfo</label>

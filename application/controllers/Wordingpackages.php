@@ -116,4 +116,8 @@ class Wordingpackages extends Wordingabstract {
 		return $this->load->view($object.'-view',$data);
 	}
 
+	public function unitdetail($id=null){
+		var_dump("aefaefaef");
+	}
+
 }
