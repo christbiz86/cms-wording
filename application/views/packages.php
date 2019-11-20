@@ -144,6 +144,56 @@
 							<label for="name">Name</label>
 							<input type="text" required class="form-control" id="name" name="name" placeholder="Enter package name">
 						</div>
+						<div class="card-header">
+							<h3 class="card-title">Fake Partitions (Fill with partition ID and amount)</h3>
+						</div>
+						<div class="card-body">
+							<div class="row">
+								<div>
+									<select name="fakeid[]"
+											style="width: 100%;">
+										<option> --- </option>
+										<?php foreach($special_partitions as $spec => $spec_value){ ?>
+											<option value="<?=$spec;?>"><?=$spec;?></option>
+										<?php } ?>
+									</select>
+								</div>
+								<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								<div>
+									<input type="text" name="fakeamount[]" class="form-control" placeholder="Fake partitions amount">
+								</div>
+							</div>
+							<div class="row">
+								<div>
+									<select name="fakeid[]"
+											style="width: 100%;">
+										<option> --- </option>
+										<?php foreach($special_partitions as $spec => $spec_value){ ?>
+											<option value="<?=$spec;?>"><?=$spec;?></option>
+										<?php } ?>
+									</select>
+								</div>
+								<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								<div>
+									<input type="text" name="fakeamount[]" class="form-control" placeholder="Fake partitions amount">
+								</div>
+							</div>
+							<div class="row">
+								<div>
+									<select name="fakeid[]"
+											style="width: 100%;">
+										<option value=""> --- </option>
+										<?php foreach($special_partitions as $spec => $spec_value){ ?>
+											<option value="<?=$spec;?>"><?=$spec;?></option>
+										<?php } ?>
+									</select>
+								</div>
+								<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								<div>
+									<input type="text" name="fakeamount[]" class="form-control" placeholder="Fake partitions amount">
+								</div>
+							</div>
+						</div>
 						<div class="form-group">
 							<label for="auto">Auto</label>
 							<input type="text" class="form-control" id="auto" name="auto" placeholder="Enter package auto">
@@ -194,6 +244,9 @@
 									style="width: 100%;">
 								<option></option>
 							</select>
+						</div>
+						<div id="unitdetail" <?php if($object->group != 'myplan'){ ?>style="display: none;" <?php } ?>>
+							<input type="button" onclick="location.href=<?php echo site_url('packages/unitdetail/'.$id);?>" value="Unit Detail" />
 						</div>
 						<div class="form-group">
 							<label for="offinfo">Offinfo</label>
@@ -336,6 +389,13 @@
             theme: 'bootstrap4',
             tags: true
         });
+        $('#groupSelect').change(function () {
+            if(($(this).val()) == 'myplan'){
+                $('#unitdetail').show();
+            } else {
+                $('#unitdetail').hide();
+            }
+        })
         $('.select2').select2({
             theme: 'bootstrap4',
         });

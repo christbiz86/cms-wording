@@ -67,6 +67,86 @@
 										<label for="name">Name</label>
 										<input type="text" required class="form-control" id="name" name="name" value="<?php if(isset($object->name)){ echo $object->name;} ?>">
 									</div>
+									<div class="card-header">
+										<h3 class="card-title">Fake Partitions (Fill with partition ID and amount)</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div>
+												<select name="fakeid[]"
+														style="width: 100%;">
+													<?php if(isset($object->special_partitions[0])){ ?>
+													<option value="<?=$object->special_partitions[0][0];?>"><?=$object->special_partitions[0][0];?></option>
+													<?php } else { ?>
+													<option> --- </option>
+														<?php foreach($special_partitions as $spec => $spec_value){ ?>
+															<option value="<?=$spec;?>"><?=$spec;?></option>
+														<?php } ?>
+													<?php } ?>
+												</select>
+											</div>
+											<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+											<div>
+												<input type="text" name="fakeamount[]" class="form-control"
+												   <?php if(isset($object->special_partitions[0])){ ?>
+													value="<?=$object->special_partitions[0][1];?>"
+													<?php } else { ?>
+												   placeholder="Fake partitions amount"
+													<?php } ?>
+												>
+											</div>
+										</div>
+										<div class="row">
+											<div>
+												<select name="fakeid[]"
+														style="width: 100%;">
+													<?php if(isset($object->special_partitions[1])){ ?>
+														<option value="<?=$object->special_partitions[1][0];?>"><?=$object->special_partitions[1][0];?></option>
+													<?php } else { ?>
+														<option> --- </option>
+														<?php foreach($special_partitions as $spec => $spec_value){ ?>
+															<option value="<?=$spec;?>"><?=$spec;?></option>
+														<?php } ?>
+													<?php } ?>
+												</select>
+											</div>
+											<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+											<div>
+												<input type="text" name="fakeamount[]" class="form-control"
+													<?php if(isset($object->special_partitions[1])){ ?>
+														value="<?=$object->special_partitions[1][1];?>"
+													<?php } else { ?>
+														placeholder="Fake partitions amount"
+													<?php } ?>
+												>
+											</div>
+										</div>
+										<div class="row">
+											<div>
+												<select name="fakeid[]"
+														style="width: 100%;">
+													<?php if(isset($object->special_partitions[2])){ ?>
+														<option value="<?=$object->special_partitions[2][0];?>"><?=$object->special_partitions[2][0];?></option>
+													<?php } else { ?>
+														<option> --- </option>
+														<?php foreach($special_partitions as $spec => $spec_value){ ?>
+															<option value="<?=$spec;?>"><?=$spec;?></option>
+														<?php } ?>
+													<?php } ?>
+												</select>
+											</div>
+											<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+											<div>
+												<input type="text" name="fakeamount[]" class="form-control"
+													<?php if(isset($object->special_partitions[2])){ ?>
+														value="<?=$object->special_partitions[2][1];?>"
+													<?php } else { ?>
+														placeholder="Fake partitions amount"
+													<?php } ?>
+												>
+											</div>
+										</div>
+									</div>
 									<div class="form-group">
 										<label for="auto">Auto</label>
 										<input type="text" class="form-control" id="auto" name="auto" value="<?php if(isset($object->auto)){ echo $object->auto;} ?>">
@@ -122,6 +202,9 @@
 												foreach($object->unit_sms as $datas1){ ?>
 													<option selected value="<?=$datas1;?>"><?=$datas1;?></option>
 												<?php } } ?>
+												<?php for($a=1;$a<=18;$a++){ ?>
+												<option value="SMS<?=$a;?>">SMS<?=$a;?></option>
+												<?php } ?>
 										</select>
 									</div>
 									<div class="form-group">
@@ -146,6 +229,9 @@
 												<?php } } ?>
 										</select>
 									</div>
+									<div id="unitdetail" <?php if($object->group != 'myplan'){ ?>style="display: none;" <?php } ?>>
+										<input type="button" onclick="location.href=<?php echo site_url('packages/unitdetail/'.$id);?>" value="Unit Detail" />
+									</div>
 									<div class="form-group">
 										<label for="offinfo">Offinfo</label>
 										<input type="text" class="form-control" id="offinfo" name="offinfo" value="<?php if(isset($object->offinfo)){ echo $object->offinfo;} ?>">
@@ -164,14 +250,17 @@
 									</div>
 									<div class="form-group">
 										<label for="list_head_group_new">Category</label>
-										<select name="list_head_group_new" required class="select2" data-value="<?php if(isset($object->list_head_group_new)){ echo $object->list_head_group_new;} ?>"
+										<select name="list_head_group_new" required class="select2"
 												style="width: 100%;">
-											<?php
+											<?php if(isset($object->list_head_group_new)){ ?>
+												<option value="<?=$object->list_head_group_new;?>"><?=$object->list_head_group_new;?></option>
+											<?php }
 											$head = $file->list_head_group_new;
 											foreach($head as $heads => $heads_value){
+												if($object->list_head_group_new != $heads){
 												?>
 												<option value="<?=$heads;?>"><?=$heads;?></option>
-											<?php } ?>
+											<?php } } ?>
 										</select>
 									</div>
 									<div class="form-group">
@@ -187,7 +276,7 @@
 									</div>
 									<div class="form-group">
 										<label for="group">Group</label>
-										<select name="group" class="select2" data-placeholder="Enter group"
+										<select name="group" class="select2" id="groupSelect" data-placeholder="Enter group"
 												style="width: 100%;">
 											<?php if(isset($object->group)){ ?><option value="<?=$object->group;?>"><?=$object->group;?></option><?php } ?>
 											<?php foreach($groups as $data){ ?>
@@ -300,6 +389,14 @@
             theme: 'bootstrap4',
             tags: true
         })
+    })
+
+	$('#groupSelect').change(function () {
+		if(($(this).val()) == 'myplan'){
+			$('#unitdetail').show();
+		} else {
+            $('#unitdetail').hide();
+		}
     })
 </script>
 

@@ -22,4 +22,22 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	public function testing(){
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, "http://my.smartfren.com/mysmartfren/api/partnerpay/client_posonline.php?id=P0001");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_POST, true);
+
+		$data = array(
+			'mdn' => '08881111122',
+			'amount' => '50000'
+		);
+
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		$output = curl_exec($ch);
+		curl_close($ch);
+		echo $output;
+	}
+	
 }

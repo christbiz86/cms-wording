@@ -67,7 +67,7 @@
 												<a href="<?=site_url('wording/channel_new/edit/'.$row.'/'.$row1.'/'.$row2)?>">
 													<button type="button" class="btn btn-block btn-warning btn-sm">Edit</button>
 												</a><br>
-												<a href="<?=site_url('wording/channel_new/delete/'.$row)?>" onclick="return confirm('Are you sure you want to delete this item?');">
+												<a href="<?=site_url('wording/channel_new/delete/'.$row.'/'.$row1.'/'.$row2)?>" onclick="return confirm('Are you sure you want to delete this item?');">
 													<button type="button" class="btn btn-block btn-danger btn-sm">Delete</button>
 												</a>
 											</td>
@@ -102,6 +102,10 @@
 			<div class="modal-body">
 				<form role="form" method="post" action="<?=site_url('wording/channel_new/add')?>">
 					<div class="card-body">
+						<div class="form-group">
+							<label for="name">ID</label>
+							<input type="text" required class="form-control" id="id" name="id" placeholder="Channel new ID">
+						</div>
 						<div class="form-group">
 							<label for="id">Channel Group</label>
 							<select name="id" class="select2" data-placeholder="Select channel group"

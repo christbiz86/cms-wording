@@ -122,13 +122,10 @@
 									</div>
 									<div class="form-group">
 										<label for="list_head_group_new">Category</label>
-										<select name="list_head_group_new" required class="select2" disabled data-value="<?php if(isset($object->list_head_group_new)){ echo $object->list_head_group_new;} ?>"
+										<select name="list_head_group_new" required class="select2" disabled
 												style="width: 100%;">
-											<?php
-											$head = $file->list_head_group_new;
-											foreach($head as $heads => $heads_value){
-												?>
-												<option value="<?=$heads;?>"><?=$heads;?></option>
+											<?php if(isset($object->list_head_group_new)){ ?>
+											<option value="<?=$object->list_head_group_new;?>"><?=$object->list_head_group_new;?></option>
 											<?php } ?>
 										</select>
 									</div>

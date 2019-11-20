@@ -71,6 +71,7 @@ class Packages extends Wordingabstract {
 			$data['subgroup'] = $file->list_sub_group;
 			$data['groups'] = array_unique($categories);
 			$data['addon'] = $this->Addon_model->getContent();
+			$data['special_partitions'] = $file->partitions;
 //			$data['type'] = $file->list_type;
 		} elseif($object == 'partitions'){
 			$data['curr_partitions'] = $file->curr_partitions;
@@ -155,7 +156,7 @@ class Packages extends Wordingabstract {
 //			delete current packages if exist
 			foreach($file->curr_packages as $row => $value){
 				if($value == $id){
-					unset($file->curr_packages->$row);
+					unset($file->curr_packages[$row]);
 				}
 			}
 		} elseif($object == 'partitions'){

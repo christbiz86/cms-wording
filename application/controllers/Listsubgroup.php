@@ -106,10 +106,10 @@ class Listsubgroup extends Wordingabstract {
 			unset($data_parts[$show_data_parts]);
 		}
 
-		$file->special_partitions = (object)$data_spc;
-		$file->curr_partitions = (object)$data_currs;
-		$file->showed_partitions = (object)$data_show;
-		$file->data_partitions = (object)$data_parts;
+		$file->special_partitions = $data_spc;
+		$file->curr_partitions = $data_currs;
+		$file->showed_partitions = $data_show;
+		$file->data_partitions = $data_parts;
 		$this->updateJsonFile(json_encode($file));
 	}
 

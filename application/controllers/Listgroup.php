@@ -23,17 +23,26 @@ class Listgroup extends Wordingabstract {
 	}
 
 	public function create(){
+		$list_name = array();
 		$object = $this->uri->segment(2);
-		$list[$_POST['name']] = (object) $_POST;
 		$file = $this->getJsonFile();
-		$type[$_POST['type']] = ((object) $_POST);
-		$list[$_POST['name']] = (object)$type;
-		$list = (object)$list;
+
 		$name = $_POST['name'];
 		$type = $_POST['type'];
-		unset($list->$name->$type->name);
-		unset($list->$name->$type->type);
-		$file->$object = (object) array_merge((array)$file->$object,(array) $list);
+
+		foreach($file->$object as $data => $value){
+			$list_name[] = $data;
+		}
+		if(in_array($name,$list_name)){
+			$list[$_POST['type']] = (object)$_POST;
+			unset($list[$type]->name);
+			unset($list[$type]->type);
+			$file->$object->$name = (object) array_merge((array)$file->$object->$name,$list);
+		} else {
+			$list[$type] = (object)$_POST;
+			$list1[$name] =  (object)$list;
+			$file->$object = (object) array_merge((array)$file->$object,$list1);
+		}
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/packages/'.$object));
 	}
@@ -102,12 +111,13 @@ class Listgroup extends Wordingabstract {
 	public function delete(){
 		$object = $this->uri->segment(2);
 		$id = $this->uri->segment(4);
+		$type = $this->uri->segment(5);
 		$file = $this->getJsonFile();
 		foreach ($file as $key_file => $entry) {
 			if($key_file == $object){
 				foreach ($entry as $key_item => $item) {
 					if($key_item == $id){
-						unset($file->$object->$key_item);
+						unset($file->$object->$key_item->$type);
 					}
 				}
 			}
