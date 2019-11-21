@@ -251,9 +251,9 @@
 								<?php } ?>
 							</select>
 						</div>
-						<div id="unitdetail" <?php if($object->group != 'myplan'){ ?>style="display: none;" <?php } ?>>
-							<a href="<?php echo site_url('packages/unitdetail/');?>"><input type="button" value="Unit Detail" /></a>
-						</div>
+<!--						<div id="unitdetail">-->
+<!--							<a href="--><?php //echo site_url('packages/unitdetail/add');?><!--"><input type="button" value="Unit Detail" /></a>-->
+<!--						</div>-->
 						<div class="form-group">
 							<label for="offinfo">Offinfo</label>
 							<input type="text" class="form-control" id="offinfo" name="offinfo" placeholder="Enter package offinfo">
@@ -293,7 +293,7 @@
 						</div>
 						<div class="form-group">
 							<label for="group">Group</label>
-							<select name="group" class="select2" data-placeholder="Enter group"
+							<select name="group" class="select2" id="groupSelect" data-placeholder="Enter group"
 									style="width: 100%;">
 								<?php foreach($groups as $data){ ?>
 									<option value="<?=$data;?>"><?=$data;?></option>

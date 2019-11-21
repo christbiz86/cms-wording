@@ -116,8 +116,56 @@ class Wordingpackages extends Wordingabstract {
 		return $this->load->view($object.'-view',$data);
 	}
 
-	public function unitdetail($id=null){
-		var_dump("aefaefaef");
+	public function unitdetail($id){
+		$file = $this->getJsonFile();
+		$object = 'packages';
+		$var = get_object_vars($file->$object);
+		$data = [
+			'title'		=> 'Wording List',
+			'menu'		=> 'wording',
+			'submenu'	=> $object
+		];
+		if($id=='add'){
+			return $this->load->view('unitdetail-add',$data);
+		} else {
+			if(isset($var[$id]->units)){
+				$data['object'] = $var[$id]->units;
+				$data['id'] = $id;
+			} else {
+				$data['object'] = '';
+			}
+			return $this->load->view('unitdetail-view',$data);
+		}
+	}
+
+	public function unitdetailupdate($id){
+		$list = array();
+		$res = array();
+		$unit_lang = array();
+		$x = 0;
+		$file = $this->getJsonFile();
+		$object = 'packages';
+		$var = get_object_vars($file->$object);
+		$jml = count($_POST['type']);
+		for($a=0;$a<$jml;$a++){
+			$unit_lang[$a][] = $_POST['unit_ind'][$a];
+			$unit_lang[$a][] = $_POST['unit_eng'][$a];
+			$list[$x]['type'] = $_POST['type'][$a];
+			$list[$x]['val'] = $_POST['val'][$a];
+			$list[$x]['default'] = $_POST['default'][$a];
+			$list[$x]['unit'] = $unit_lang[$a];
+			$x++;
+		}
+		$res['total'] = (int)$_POST['total'];
+		$res['item'] = json_decode(json_encode($list), FALSE);
+		foreach($file->packages as $key => $value){
+			if($key == $id){
+				unset($file->packages->$key->units);
+				$file->packages->$key->units = (object)$res;
+			}
+		}
+		$this->updateJsonFile(json_encode($file));
+		redirect(site_url('/packages/'.$object));
 	}
 
 }
