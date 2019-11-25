@@ -65,6 +65,86 @@
 										<label for="name">Name</label>
 										<input type="text" required class="form-control" disabled value="<?php if(isset($object->name)){ echo $object->name;} ?>">
 									</div>
+									<div class="card-header">
+										<h3 class="card-title">Fake Partitions (Fill with partition ID and amount)</h3>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div>
+												<select disabled name="fakeid[]"
+														style="width: 100%;">
+													<?php if(isset($object->special_partitions[0])){ ?>
+														<option value="<?=$object->special_partitions[0][0];?>"><?=$object->special_partitions[0][0];?></option>
+													<?php } else { ?>
+														<option> --- </option>
+														<?php foreach($special_partitions as $spec => $spec_value){ ?>
+															<option value="<?=$spec;?>"><?=$spec;?></option>
+														<?php } ?>
+													<?php } ?>
+												</select>
+											</div>
+											<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+											<div>
+												<input type="text" disabled name="fakeamount[]" class="form-control"
+													<?php if(isset($object->special_partitions[0])){ ?>
+														value="<?=$object->special_partitions[0][1];?>"
+													<?php } else { ?>
+														placeholder="Fake partitions amount"
+													<?php } ?>
+												>
+											</div>
+										</div>
+										<div class="row">
+											<div>
+												<select disabled name="fakeid[]"
+														style="width: 100%;">
+													<?php if(isset($object->special_partitions[1])){ ?>
+														<option value="<?=$object->special_partitions[1][0];?>"><?=$object->special_partitions[1][0];?></option>
+													<?php } else { ?>
+														<option> --- </option>
+														<?php foreach($special_partitions as $spec => $spec_value){ ?>
+															<option value="<?=$spec;?>"><?=$spec;?></option>
+														<?php } ?>
+													<?php } ?>
+												</select>
+											</div>
+											<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+											<div>
+												<input type="text" disabled name="fakeamount[]" class="form-control"
+													<?php if(isset($object->special_partitions[1])){ ?>
+														value="<?=$object->special_partitions[1][1];?>"
+													<?php } else { ?>
+														placeholder="Fake partitions amount"
+													<?php } ?>
+												>
+											</div>
+										</div>
+										<div class="row">
+											<div>
+												<select disabled name="fakeid[]"
+														style="width: 100%;">
+													<?php if(isset($object->special_partitions[2])){ ?>
+														<option value="<?=$object->special_partitions[2][0];?>"><?=$object->special_partitions[2][0];?></option>
+													<?php } else { ?>
+														<option> --- </option>
+														<?php foreach($special_partitions as $spec => $spec_value){ ?>
+															<option value="<?=$spec;?>"><?=$spec;?></option>
+														<?php } ?>
+													<?php } ?>
+												</select>
+											</div>
+											<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+											<div>
+												<input disabled type="text" name="fakeamount[]" class="form-control"
+													<?php if(isset($object->special_partitions[2])){ ?>
+														value="<?=$object->special_partitions[2][1];?>"
+													<?php } else { ?>
+														placeholder="Fake partitions amount"
+													<?php } ?>
+												>
+											</div>
+										</div>
+									</div>
 									<div class="form-group">
 										<label for="auto">Auto</label>
 										<input type="text" class="form-control" disabled value="<?php if(isset($object->auto)){ echo $object->auto;} ?>">

@@ -390,18 +390,19 @@
 <script src="<?php echo site_url('assets/plugins/select2/js/select2.full.min.js') ?>"></script>
 <!-- ./wrapper -->
 <script>
+    $('#groupSelect').change(function () {
+        if(($(this).val()) == 'myplan'){
+            $('#unitdetail').show();
+        } else {
+            $('#unitdetail').hide();
+        }
+    });
+
     $(function () {
         $('.select2tags').select2({
             theme: 'bootstrap4',
             tags: true
         });
-        $('#groupSelect').change(function () {
-            if(($(this).val()) == 'myplan'){
-                $('#unitdetail').show();
-            } else {
-                $('#unitdetail').hide();
-            }
-        })
         $('.select2').select2({
             theme: 'bootstrap4',
         });

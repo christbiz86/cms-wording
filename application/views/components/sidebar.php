@@ -26,14 +26,14 @@
 						</p>
 					</a>
 				</li>
-				<li class="nav-item">
-					<a href="<?=site_url('publish')?>" class="nav-link <?php if($menu=='publish'){ ?>active<?php } ?>">
-						<i class="nav-icon fas fa-edit"></i>
-						<p>
-							Publish to Server
-						</p>
-					</a>
-				</li>
+<!--				<li class="nav-item">-->
+<!--					<a href="--><?//=site_url('publish')?><!--" class="nav-link --><?php //if($menu=='publish'){ ?><!--active--><?php //} ?><!--">-->
+<!--						<i class="nav-icon fas fa-edit"></i>-->
+<!--						<p>-->
+<!--							Publish to Server-->
+<!--						</p>-->
+<!--					</a>-->
+<!--				</li>-->
 				<li class="nav-header">PACKAGES</li>
 				<li class="nav-item">
 					<a href="<?=site_url('packages/curr_packages')?>" class="nav-link <?php if($submenu=='curr_packages'){ ?>active<?php } ?>">

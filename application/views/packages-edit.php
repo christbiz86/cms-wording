@@ -395,7 +395,7 @@
             theme: 'bootstrap4',
             tags: true
         })
-    })
+    });
 
 	$('#groupSelect').change(function () {
 		if(($(this).val()) == 'myplan'){
