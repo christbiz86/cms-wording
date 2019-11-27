@@ -204,7 +204,7 @@
 						</div>
 						<div class="form-group">
 							<label>Packs</label>
-							<select name="packs[]" class="select2tags" multiple="multiple" data-placeholder="Select a packs"
+							<select name="packs[]" class="select2" multiple="multiple" data-placeholder="Select a packs"
 									style="width: 100%;">
 								<?php foreach($object as $data){ ?>
 								<option value="<?=$data->code;?>"><?=$data->code;?></option>
@@ -216,11 +216,11 @@
 							<input type="text" class="form-control" id="buy" name="buy" placeholder="Enter package buy">
 						</div>
 						<div class="form-group">
-							<label>Addon</label>
-							<select name="addon[]" class="select2tags" multiple="multiple" data-placeholder="Select a addon"
+							<label>Addon </label>
+							<select name="addon[]" class="select2" multiple="multiple" data-placeholder="Select a addon"
 									style="width: 100%;">
 								<?php foreach($addon as $addons){ ?>
-									<option value="<?=$addons->addon_title?>"><?=$addons->addon_title?></option>
+									<option value="<?php echo $addons->addon_title; ?>"><?php echo $addons->addon_title; ?></option>
 								<?php } ?>
 							</select>
 						</div>
@@ -320,7 +320,7 @@
 						</div>
 						<div class="form-group">
 							<label for="purchaseby">Purchase By</label>
-							<select name="purchaseby[]" class="select2tags" multiple="multiple" data-placeholder="Select a purchase by"
+							<select name="purchaseby[]" class="select2" multiple="multiple" data-placeholder="Select a purchase by"
 									style="width: 100%;">
 								<option value="deductbalance">Deduct Balance</option>
 								<option value="cc_purchase">CC Purchase</option>

@@ -36,7 +36,7 @@
 									<div class="card-body">
 										<div class="form-group">
 											<label for="total">Total</label>
-											<input type="text" required class="form-control" id="total" name="total" value="<?=$object->total;?>">
+											<input type="text" required class="form-control" id="total" name="total" value="<?php if(isset($object->total)){ echo $object->total; } ?>">
 										</div>
 										<div class="form-group">
 											<label for="total">Item :</label>
@@ -49,7 +49,9 @@
 														<td>Unit Indonesia</td>
 														<td>Unit English</td>
 													</tr>
-													<?php foreach($object->item as $row){ ?>
+													<?php
+													if(isset($object->item)){
+													foreach($object->item as $row){ ?>
 													<tr>
 														<td><input type="text" id="type[]" name="type[]" value="<?=$row->type;?>"></td>
 														<td><input type="text" id="val[]" name="val[]" value="<?=$row->val;?>"></td>
@@ -57,8 +59,17 @@
 														<td><input type="text" id="unit_ind[]" name="unit_ind[]" value="<?=$row->unit[0];?>"></td>
 														<td><input type="text" id="unit_eng[]" name="unit_eng[]" value="<?=$row->unit[1];?>"></td>
 													</tr>
-													<?php } ?>
-
+													<?php } } else {
+														for($a=1;$a<=3;$a++){
+														?>
+														<tr>
+															<td><input type="text" id="type[]" name="type[]"></td>
+															<td><input type="text" id="val[]" name="val[]"></td>
+															<td><input type="text" id="default[]" name="default[]"></td>
+															<td><input type="text" id="unit_ind[]" name="unit_ind[]"></td>
+															<td><input type="text" id="unit_eng[]" name="unit_eng[]"></td>
+														</tr>
+													<?php } } ?>
 												</table>
 
 											</div>

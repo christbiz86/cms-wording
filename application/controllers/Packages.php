@@ -148,10 +148,10 @@ class Packages extends Wordingabstract {
 	}
 
 	public function delete($object){
-		$id = $this->uri->segment(4);
+		$getId = $this->uri->segment(4);
 		$file = $this->getJsonFile();
 		if($object == 'list_head_group_new'){
-			unset($file->$object->$id);
+			unset($file->$object->$getId);
 		} elseif($object == 'packages'){
 //			delete current packages if exist
 			foreach($file->curr_packages as $row => $value){
@@ -161,27 +161,27 @@ class Packages extends Wordingabstract {
 			}
 		} elseif($object == 'partitions'){
 //			delete other partitions relation if exist
-			$getSpcPartitions = array_search($id,$file->special_partitions);
+			$getSpcPartitions = array_search($getId,$file->special_partitions);
 			if($getSpcPartitions){
-				unset($file->special_partitions[$getId]);
+				unset($file->special_partitions[$getSpcPartitions]);
 			}
-			$getCurrPartitions = array_search($id,$file->curr_partitions);
+			$getCurrPartitions = array_search($getId,$file->curr_partitions);
 			if($getCurrPartitions){
-				unset($file->curr_partitions[$getId]);
+				unset($file->curr_partitions[$getCurrPartitions]);
 			}
-			$getShowPartitions = array_search($id,$file->showed_partitions);
+			$getShowPartitions = array_search($getId,$file->showed_partitions);
 			if($getShowPartitions){
-				unset($file->showed_partitions[$getId]);
+				unset($file->showed_partitions[$getShowPartitions]);
 			}
-			$getDataPartitions = array_search($id,$file->data_partitions);
+			$getDataPartitions = array_search($getId,$file->data_partitions);
 			if($getDataPartitions){
-				unset($file->data_partitions[$getId]);
+				unset($file->data_partitions[$getDataPartitions]);
 			}
 		}
 		foreach ($file as $key_file => $entry) {
 			if($key_file == $object){
 				foreach ($entry as $key_item => $item) {
-					if($key_item == $id){
+					if($key_item == $getId){
 						unset($file->$object->$key_item);
 					}
 				}

@@ -111,6 +111,7 @@ class Wordingpackages extends Wordingabstract {
 			'object'	=> $file->$object->$id,
 			'file'		=> $file,
 			'id'		=> $id,
+			'duration'		=> $file->list_duration,
 			'curr_packages'	=> $file->curr_packages
 		];
 		return $this->load->view($object.'-view',$data);
@@ -123,7 +124,8 @@ class Wordingpackages extends Wordingabstract {
 		$data = [
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
-			'submenu'	=> $object
+			'submenu'	=> $object,
+			'id'		=> $id
 		];
 		if($id=='add'){
 			return $this->load->view('unitdetail-add',$data);
@@ -145,7 +147,6 @@ class Wordingpackages extends Wordingabstract {
 		$x = 0;
 		$file = $this->getJsonFile();
 		$object = 'packages';
-		$var = get_object_vars($file->$object);
 		$jml = count($_POST['type']);
 		for($a=0;$a<$jml;$a++){
 			$unit_lang[$a][] = $_POST['unit_ind'][$a];
@@ -164,6 +165,7 @@ class Wordingpackages extends Wordingabstract {
 				$file->packages->$key->units = (object)$res;
 			}
 		}
+		$file->packages->$id->group = 'myplan';
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/packages/'.$object));
 	}
