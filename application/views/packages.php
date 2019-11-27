@@ -50,7 +50,7 @@
 								<?php foreach($object as $row => $value){ ?>
 										<tr>
 											<td><?php echo ($row);?></td>
-											<td><?php echo $value->name;?></td>
+											<td><?php if(isset($value->name)){ echo $value->name; }?></td>
 											<td><?php
 												if(isset($value->addon)) {
 													if (is_array($value->addon)) {
@@ -63,7 +63,7 @@
 													}
 												}
 												?></td>
-											<td><?php echo $value->price;?></td>
+											<td><?php if(isset($value->price)){ echo $value->price; }?></td>
 											<td>
 												Indo : <?php if(isset($value->description[0])){ echo ($value->description[0]); }?><br>
 												English : <?php if(isset($value->description[1])){ echo ($value->description[1]); }?><br>
