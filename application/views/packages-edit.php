@@ -264,6 +264,7 @@
 										<label for="list_head_group_new">Category</label>
 										<select name="list_head_group_new" required class="select2"
 												style="width: 100%;">
+											<option> --- </option>
 											<?php if(isset($object->list_head_group_new)){ ?>
 												<option value="<?=$object->list_head_group_new;?>"><?=$object->list_head_group_new;?></option>
 											<?php }

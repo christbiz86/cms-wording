@@ -276,6 +276,7 @@
 							<label for="list_head_group_new">Category</label>
 							<select name="list_head_group_new" required class="select2" data-placeholder="Select a list head group new"
 									style="width: 100%;">
+								<option> --- </option>
 								<?php
 								$head = $file->list_head_group_new;
 								foreach($head as $heads => $heads_value){
