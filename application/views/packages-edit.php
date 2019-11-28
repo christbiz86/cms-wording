@@ -77,12 +77,14 @@
 														style="width: 100%;">
 													<?php if(isset($object->special_partitions[0])){ ?>
 													<option value="<?=$object->special_partitions[0][0];?>"><?=$object->special_partitions[0][0];?></option>
-													<?php } else { ?>
-													<option> --- </option>
-														<?php foreach($special_partitions as $spec => $spec_value){ ?>
-															<option value="<?=$spec;?>"><?=$spec;?></option>
-														<?php } ?>
 													<?php } ?>
+													<option> --- </option>
+													<?php
+													foreach($special_partitions as $spec => $spec_value){
+														if($spec != $object->special_partitions[0][0]){
+														?>
+														<option value="<?=$spec;?>"><?=$spec;?></option>
+													<?php } } ?>
 												</select>
 											</div>
 											<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
@@ -100,14 +102,16 @@
 											<div>
 												<select name="fakeid[]"
 														style="width: 100%;">
+													<option> --- </option>
 													<?php if(isset($object->special_partitions[1])){ ?>
 														<option value="<?=$object->special_partitions[1][0];?>"><?=$object->special_partitions[1][0];?></option>
-													<?php } else { ?>
-														<option> --- </option>
-														<?php foreach($special_partitions as $spec => $spec_value){ ?>
-															<option value="<?=$spec;?>"><?=$spec;?></option>
-														<?php } ?>
 													<?php } ?>
+													<option> --- </option>
+													<?php
+													foreach($special_partitions as $spec => $spec_value){
+													if($spec != $object->special_partitions[1][0]){ ?>
+														<option value="<?=$spec;?>"><?=$spec;?></option>
+													<?php } } ?>
 												</select>
 											</div>
 											<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
@@ -125,14 +129,16 @@
 											<div>
 												<select name="fakeid[]"
 														style="width: 100%;">
+													<option> --- </option>
 													<?php if(isset($object->special_partitions[2])){ ?>
 														<option value="<?=$object->special_partitions[2][0];?>"><?=$object->special_partitions[2][0];?></option>
-													<?php } else { ?>
-														<option> --- </option>
-														<?php foreach($special_partitions as $spec => $spec_value){ ?>
-															<option value="<?=$spec;?>"><?=$spec;?></option>
-														<?php } ?>
 													<?php } ?>
+													<option> --- </option>
+													<?php
+													foreach($special_partitions as $spec => $spec_value){
+													if($spec != $object->special_partitions[2][0]){ ?>
+														<option value="<?=$spec;?>"><?=$spec;?></option>
+													<?php } } ?>
 												</select>
 											</div>
 											<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
@@ -235,7 +241,7 @@
 											<?php } ?>
 										</select>
 									</div>
-									<div id="unitdetail" <?php if($object->group != 'myplan'){ ?>style="display: none;" <?php } ?>>
+									<div id="unitdetail" <?php if(isset($object->group) && ($object->group != 'myplan')){ ?>style="display: none;" <?php } ?>>
 										<a href="<?php echo site_url('packages/unitdetail/'.$id);?>"><input type="button" value="Unit Detail" /></a>
 									</div>
 									<div class="form-group">

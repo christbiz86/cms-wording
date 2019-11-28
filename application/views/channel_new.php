@@ -108,7 +108,7 @@
 						</div>
 						<div class="form-group">
 							<label for="id">Channel Group</label>
-							<select name="id" class="select2" data-placeholder="Select channel group"
+							<select name="group" class="select2" data-placeholder="Select channel group"
 									style="width: 100%;">
 								<option value="topup">topup</option>
 								<option value="auto">auto</option>
@@ -120,8 +120,8 @@
 							<input type="text" required class="form-control" id="name" name="name" placeholder="Enter name">
 						</div>
 						<div class="form-group">
-							<label for="icon">Icon</label>
-							<input type="text" required class="form-control" id="icon" name="icon" placeholder="Enter icon">
+							<label for="icons">Icon</label>
+							<input type="text" required class="form-control" id="icons" name="icons" placeholder="Enter icons">
 						</div>
 						<div class="form-group">
 							<label for="fields">Fields</label>

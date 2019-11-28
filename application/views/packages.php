@@ -206,9 +206,11 @@
 							<label>Packs</label>
 							<select name="packs[]" class="select2" multiple="multiple" data-placeholder="Select a packs"
 									style="width: 100%;">
-								<?php foreach($object as $data){ ?>
+								<?php foreach($object as $data){
+									if(isset($data->code)){
+									?>
 								<option value="<?=$data->code;?>"><?=$data->code;?></option>
-								<?php } ?>
+								<?php } } ?>
 							</select>
 						</div>
 						<div class="form-group">

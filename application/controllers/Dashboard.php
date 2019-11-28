@@ -16,21 +16,21 @@ class Dashboard extends CI_Controller{
 	public function publish(){
 		$packages = $this->Packages_model->getContent('packages.json');
 		$wording = $this->Packages_model->getContent('wording.json');
-		$fp = fopen($this->url."packages.json", 'w');
+		$fp = fopen($this->url."packages.txt", 'w');
 		$result = fwrite($fp, $packages[0]->packages_content);
 		fclose($fp);
 		if ($result) {
-			echo "Data Written to packages.json file";
+			echo "Data Written to packages.txt file";
 		} else {
 			echo "Unable to write the packages.json file";
 		}
-		$fp1 = fopen($this->url."wording.json", 'w');
+		$fp1 = fopen($this->url."wording.txt", 'w');
 		$result1 = fwrite($fp1, $wording[0]->packages_content);
 		fclose($fp1);
 		if ($result1) {
-			echo "Data Written to wording.json file";
+			echo "Data Written to wording.txt file";
 		} else {
-			echo "Unable to write the wording.json file";
+			echo "Unable to write the wording.txt file";
 		}
 	}
 

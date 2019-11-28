@@ -34,6 +34,15 @@ class Listsubgroup extends Wordingabstract {
 		if($object == 'partitions'){
 			$list[$_POST['id']] = (object) $_POST;
 			$this->partitions($_POST,$id);
+		} elseif($object == 'map_offer_profile'){
+			$arr1 = $_POST['tagid'];
+			$arr2 = $_POST['exc_tagid'];
+			if(array_intersect($arr1,$arr2)){
+				echo '<script language="javascript">alert("Tag and Exc Tag must be different!")</script>';
+				redirect(site_url('/packages/'.$object));
+			} else {
+				$list[$_POST['name']] = (object) $_POST;
+			}
 		} else {
 			$list[$_POST['name']] = (object) $_POST;
 		}
