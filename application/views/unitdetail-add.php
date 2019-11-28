@@ -68,6 +68,7 @@
 									</div>
 									<div class="modal-footer justify-content-between">
 										<button type="submit" class="btn btn-primary">Update</button>
+										<button class="btn btn-dark" onclick="history.back()">Back</button>
 									</div>
 								</div>
 							</form>

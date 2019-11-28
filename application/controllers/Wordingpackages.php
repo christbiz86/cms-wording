@@ -52,6 +52,7 @@ class Wordingpackages extends Wordingabstract {
 		$object = $this->uri->segment(2);
 		$id = $this->uri->segment(4);
 		$file = $this->getJsonFile();
+		$unit_detail = $file->$object->$id->units;
 		unset($file->$object->$id);
 		$list[$_POST['code']] = (object) $_POST;
 
@@ -95,6 +96,7 @@ class Wordingpackages extends Wordingabstract {
 				$file->$object = ((object)$list);
 			}
 		}
+		$file->$object->$id->units = $unit_detail;
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/packages/'.$object));
 	}
