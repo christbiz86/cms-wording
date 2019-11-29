@@ -35,18 +35,18 @@ class Channel_new extends Wordingabstract{
 
 		$data = ($file->$object);
 		$x = 0;
-		foreach($data as $data1){
-			if($x == $id){
-				foreach($data1 as $key => $value){
-					if($key == $list[$id]->group){
-						$count = count((array)$data1->$key);
-					}
+		foreach($data as $key_data => $data1){
+			foreach($data1 as $key => $value){
+				if($key == $list[$id]->group){
+					$data_key = $key;
+					$count = count((array)$data1->$key);
+				} else {
+					$data_key = $list[$id]->group;
 				}
 			}
 		};
-
 		unset($list[$id]->group);
-		$file->$object->$x->$key[$count] = $list[$id];
+		$file->$object->$id->$data_key[$count] = $list[$id];
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/wording/'.$object));
 	}
