@@ -46,7 +46,7 @@ class Channel_new extends Wordingabstract{
 			}
 		};
 		unset($list[$id]->group);
-		$file->$object->$id->$data_key[$count] = $list[$id];
+		$file->$object->$id->$data_key->$count = $list[$id];
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/wording/'.$object));
 	}

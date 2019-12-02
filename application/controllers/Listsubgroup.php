@@ -13,60 +13,102 @@ class Listsubgroup extends Wordingabstract {
 			$list[$_POST['id']] = (object) $_POST;
 			unset($list[$_POST['id']]->id);
 			$this->partitions($_POST,$_POST['id']);
+			foreach ($file->$object as $key => $value) {
+				$list[$key] = $value;
+			}
+			foreach ($file as $key_file => $entry) {
+				if($key_file == $object){
+					$file->$object = ((object)$list);
+				}
+			}
+			$this->updateJsonFile(json_encode($file));
+			redirect(site_url('/packages/'.$object));
 		} elseif($object == 'map_offer_profile'){
 			$arr1 = $_POST['tagid'];
 			$arr2 = $_POST['exc_tagid'];
 			if(array_intersect($arr1,$arr2)){
-				echo '<script language="javascript">alert("Tag and Exc Tag must be different!")</script>';
-				redirect(site_url('/packages/'.$object));
+				echo "<script type='text/javascript'>alert(\"Tag ID and Exc ID should be different!!!\")</script>";
+				header( "refresh:1; url=".site_url('/packages/'.$object));
 			} else {
 				$list[$_POST['name']] = (object) $_POST;
+				foreach ($file->$object as $key => $value) {
+					$list[$key] = $value;
+				}
+				foreach ($file as $key_file => $entry) {
+					if($key_file == $object){
+						$file->$object = ((object)$list);
+					}
+				}
+				$this->updateJsonFile(json_encode($file));
+				redirect(site_url('/packages/'.$object));
 			}
 		} else {
 			$list[$_POST['name']] = (object) $_POST;
 			unset($list[$_POST['name']]->name);
-		}
-		foreach ($file->$object as $key => $value) {
-			$list[$key] = $value;
-		}
-		foreach ($file as $key_file => $entry) {
-			if($key_file == $object){
-				$file->$object = ((object)$list);
+			foreach ($file->$object as $key => $value) {
+				$list[$key] = $value;
 			}
+			foreach ($file as $key_file => $entry) {
+				if($key_file == $object){
+					$file->$object = ((object)$list);
+				}
+			}
+			$this->updateJsonFile(json_encode($file));
+			redirect(site_url('/packages/'.$object));
 		}
-		$this->updateJsonFile(json_encode($file));
-		redirect(site_url('/packages/'.$object));
 	}
 
 	public function update($id){
 		$object = $this->uri->segment(2);
+		$file = $this->getJsonFile();
 		if($object == 'partitions'){
 			$list[$_POST['id']] = (object) $_POST;
 			$this->partitions($_POST,$id);
+			unset($file->$object->$id);
+			foreach ($file->$object as $key => $value) {
+				$list[$key] = $value;
+			}
+			foreach ($file as $key_file => $entry) {
+				if($key_file == $object){
+					$file->$object = ((object)$list);
+				}
+			}
+			$this->updateJsonFile(json_encode($file));
+			redirect(site_url('/packages/'.$object));
 		} elseif($object == 'map_offer_profile'){
 			$arr1 = $_POST['tagid'];
 			$arr2 = $_POST['exc_tagid'];
 			if(array_intersect($arr1,$arr2)){
-				echo '<script language="javascript">alert("Tag and Exc Tag must be different!")</script>';
-				redirect(site_url('/packages/'.$object));
+				echo "<script type='text/javascript'>alert(\"Tag ID and Exc ID should be different!!!\")</script>";
+				header( "refresh:1; url=".site_url('/packages/'.$object));
 			} else {
 				$list[$_POST['name']] = (object) $_POST;
+				unset($file->$object->$id);
+				foreach ($file->$object as $key => $value) {
+					$list[$key] = $value;
+				}
+				foreach ($file as $key_file => $entry) {
+					if($key_file == $object){
+						$file->$object = ((object)$list);
+					}
+				}
+				$this->updateJsonFile(json_encode($file));
+				redirect(site_url('/packages/'.$object));
 			}
 		} else {
 			$list[$_POST['name']] = (object) $_POST;
-		}
-		$file = $this->getJsonFile();
-		unset($file->$object->$id);
-		foreach ($file->$object as $key => $value) {
-			$list[$key] = $value;
-		}
-		foreach ($file as $key_file => $entry) {
-			if($key_file == $object){
-				$file->$object = ((object)$list);
+			unset($file->$object->$id);
+			foreach ($file->$object as $key => $value) {
+				$list[$key] = $value;
 			}
+			foreach ($file as $key_file => $entry) {
+				if($key_file == $object){
+					$file->$object = ((object)$list);
+				}
+			}
+			$this->updateJsonFile(json_encode($file));
+			redirect(site_url('/packages/'.$object));
 		}
-		$this->updateJsonFile(json_encode($file));
-		redirect(site_url('/packages/'.$object));
 	}
 
 	public function partitions($postData,$partitions_id){
