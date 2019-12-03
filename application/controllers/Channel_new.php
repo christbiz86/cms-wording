@@ -58,7 +58,7 @@ class Channel_new extends Wordingabstract{
 		$id1 = $this->uri->segment(5);
 		$id2 = $this->uri->segment(6);
 		$file = $this->getJsonFile();
-		unset($file->$object->$id->$id1[$id2]);
+		unset($file->$object->$id->$id1->$id2);
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/wording/'.$object));
 	}
