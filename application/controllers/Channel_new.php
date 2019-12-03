@@ -30,23 +30,10 @@ class Channel_new extends Wordingabstract{
 		$object = $this->uri->segment(2);
 		$file = $this->getJsonFile();
 		$id = $_POST['id'];
+		$group = $_POST['group'];
 		$list[$id] = ((object) $_POST);
 		unset($list[$id]->id);
-
-		$data = ($file->$object);
-		$x = 0;
-		foreach($data as $key_data => $data1){
-			foreach($data1 as $key => $value){
-				if($key == $list[$id]->group){
-					$data_key = $key;
-					$count = count((array)$data1->$key);
-				} else {
-					$data_key = $list[$id]->group;
-				}
-			}
-		};
-		unset($list[$id]->group);
-		$file->$object->$id->$data_key[$count] = $list[$id];
+		$file->$object->$id->$group = array_merge($list,$file->$object->$id->$group);
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/wording/'.$object));
 	}
