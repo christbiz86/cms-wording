@@ -39,7 +39,7 @@ class Channel_new extends Wordingabstract{
 			foreach($data1 as $key => $value){
 				if($key == $list[$id]->group){
 					$data_key = $key;
-					$count = count((array)$data1->$key) + 1;
+					$count = count((array)$data1->$key);
 				} else {
 					$data_key = $list[$id]->group;
 				}
