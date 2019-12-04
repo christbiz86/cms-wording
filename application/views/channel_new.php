@@ -49,7 +49,8 @@
 								<?php
 								foreach($object as $row => $value){
 									foreach($value as $row1 => $value1){
-									foreach($value1 as $row2 => $value2){
+										if(isset($value1)){
+										foreach($value1 as $row2 => $value2){
 										?>
 										<tr>
 											<td><?php echo $row;?></td>
@@ -72,7 +73,7 @@
 												</a>
 											</td>
 										</tr>
-									<?php } } } ?>
+									<?php } } } } ?>
 								</tbody>
 							</table>
 						</div>
