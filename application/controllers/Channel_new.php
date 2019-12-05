@@ -34,7 +34,11 @@ class Channel_new extends Wordingabstract{
 		$list[$id] = ((object) $_POST);
 		unset($list[$id]->id);
 		unset($list[$id]->group);
-		$file->$object->$id->$group = array_merge($list,$file->$object->$id->$group);
+		if(isset($file->$object->$id->$group)){
+			$file->$object->$id->$group = array_merge($list,$file->$object->$id->$group);
+		} else {
+			$file->$object->$id->$group = $list;
+		}
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/wording/'.$object));
 	}
