@@ -31,12 +31,15 @@ class Channel_new extends Wordingabstract{
 		$file = $this->getJsonFile();
 		$id = $_POST['id'];
 		$group = $_POST['group'];
-		$list[$id] = ((object) $_POST);
-		unset($list[$id]->id);
-		unset($list[$id]->group);
 		if(isset($file->$object->$id->$group)){
+			$list[$id] = ((object) $_POST);
+			unset($list[$id]->id);
+			unset($list[$id]->group);
 			$file->$object->$id->$group = array_merge($list,$file->$object->$id->$group);
 		} else {
+			$list[0] = ((object) $_POST);
+			unset($list[0]->id);
+			unset($list[0]->group);
 			$file->$object->$id->$group = $list;
 		}
 		$this->updateJsonFile(json_encode($file));
