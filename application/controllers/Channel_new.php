@@ -38,7 +38,6 @@ class Channel_new extends Wordingabstract{
 		} else {
 			$file->$object->$id->$group = $list;
 		}
-//		var_dump($file->$object->$id->$group);
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/wording/'.$object));
 	}
