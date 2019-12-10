@@ -4,13 +4,13 @@
 class Listgrouptype extends CI_Controller {
 
 	public function index(){
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> 'list_group_type',
 			'message'	=> '',
 			'object'	=> $this->Addon_model->getContent()
-		];
+		);
 		return $this->load->view('list_group_type',$data);
 	}
 
@@ -26,14 +26,14 @@ class Listgrouptype extends CI_Controller {
 
 	public function edit(){
 		$id = $this->uri->segment(3);
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> 'list_group_type',
 			'message'	=> '',
 			'id'		=> $id,
 			'name'		=> $this->db->where('addon_id',$id)->from('addon')->get()->row()->addon_title
-		];
+		);
 		return $this->load->view('list_group_type-edit',$data);
 	}
 

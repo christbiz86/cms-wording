@@ -15,14 +15,14 @@ class Packages extends Wordingabstract {
 				$categories[] = $row1;
 			}
 		}
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
 			'message'	=> '',
 			'object'	=> $file->$object,
 			'file'		=> $file
-		];
+		);
 		if($object == 'packages'){
 			$data['curr_packages'] = $file->curr_packages;
 			$data['duration'] = $file->list_duration;
@@ -57,14 +57,14 @@ class Packages extends Wordingabstract {
 				$categories[] = $row1;
 			}
 		}
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
 			'id'		=> $id,
 			'file'		=> $file,
 			'object'	=> $file->$object->$id
-		];
+		);
 		if($object == 'packages'){
 			$data['curr_packages'] = $file->curr_packages;
 			$data['duration'] = $file->list_duration;

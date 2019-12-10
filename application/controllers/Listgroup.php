@@ -9,7 +9,7 @@ class Listgroup extends Wordingabstract {
 	public function index(){
 		$object = $this->uri->segment(2);
 		$file = $this->getJsonFile();
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
@@ -17,7 +17,7 @@ class Listgroup extends Wordingabstract {
 			'object'	=> $file->$object,
 			'file'		=> $file,
 			'head'		=> $file->list_head_group_new,
-		];
+		);
 		$data['addon'] = $this->Addon_model->getContent();
 		return $this->load->view($object,$data);
 	}
@@ -52,7 +52,7 @@ class Listgroup extends Wordingabstract {
 		$id = $this->uri->segment(4);
 		$detail = $this->uri->segment(5);
 		$file = $this->getJsonFile();
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
@@ -60,7 +60,7 @@ class Listgroup extends Wordingabstract {
 			'detail'	=> $detail,
 			'object'	=> $file->$object->$id->$detail,
 			'head'		=> $file->list_head_group_new
-		];
+		);
 		$data['addon'] = $this->Addon_model->getContent();
 		return $this->load->view($object.'-edit',$data);
 	}

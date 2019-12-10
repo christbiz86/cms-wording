@@ -106,7 +106,7 @@ class Wordingpackages extends Wordingabstract {
 		$file = $this->getJsonFile();
 		$object = $this->uri->segment(2);
 		$id = $this->uri->segment(4);
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
@@ -115,7 +115,7 @@ class Wordingpackages extends Wordingabstract {
 			'id'		=> $id,
 			'duration'		=> $file->list_duration,
 			'curr_packages'	=> $file->curr_packages
-		];
+		);
 		return $this->load->view($object.'-view',$data);
 	}
 
@@ -123,12 +123,12 @@ class Wordingpackages extends Wordingabstract {
 		$file = $this->getJsonFile();
 		$object = 'packages';
 		$var = get_object_vars($file->$object);
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
 			'id'		=> $id
-		];
+		);
 		if($id=='add'){
 			return $this->load->view('unitdetail-add',$data);
 		} else {

@@ -10,12 +10,12 @@ class Wording extends Wordingabstract {
 		$categories = array();
 		$file = $this->getJsonFile();
 		$object = $this->uri->segment(2);
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
 			'object'	=> $file->$object
-		];
+		);
 		return $this->load->view($object,$data);
 	}
 
@@ -39,13 +39,13 @@ class Wording extends Wordingabstract {
 		$object = $this->uri->segment(2);
 		$id = $this->uri->segment(4);
 		$file = $this->getJsonFile();
-		$data = [
+		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
 			'submenu'	=> $object,
 			'id'		=> $id,
 			'object'	=> $file->$object->$id
-		];
+		);
 		return $this->load->view($object.'-edit',$data);
 	}
 
