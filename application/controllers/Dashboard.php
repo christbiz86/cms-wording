@@ -34,4 +34,11 @@ class Dashboard extends CI_Controller{
 		}
 	}
 
+	public function getfile($file){
+		$this->load->helper('download');
+		$pth = file_get_contents(base_url('assets/'.$file.'.json'));
+		$nme = $file.".json";
+		force_download($nme, $pth);
+	}
+
 }

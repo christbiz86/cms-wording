@@ -203,6 +203,10 @@
 							<input type="text" class="form-control" id="info" name="info" placeholder="Enter package info">
 						</div>
 						<div class="form-group">
+							<label for="info">Expired Partitions</label>
+							<input type="text" class="form-control" id="exp_partition" name="exp_partition" placeholder="Enter expired partitions">
+						</div>
+						<div class="form-group">
 							<label>Packs</label>
 							<select name="packs[]" class="select2" multiple="multiple" data-placeholder="Select a packs"
 									style="width: 100%;">

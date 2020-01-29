@@ -162,6 +162,10 @@
 										<input type="text" class="form-control" id="info" name="info" value="<?php if(isset($object->info)){ echo $object->info;} ?>">
 									</div>
 									<div class="form-group">
+										<label for="info">Expired Partitions</label>
+										<input type="text" class="form-control" id="exp_partition" name="exp_partition" value="<?php if(isset($object->exp_partition)){ echo $object->exp_partition;} ?>">
+									</div>
+									<div class="form-group">
 										<label>Packs</label>
 										<select name="packs[]" class="select2" multiple="multiple"
 												style="width: 100%;">

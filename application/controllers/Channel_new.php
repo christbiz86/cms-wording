@@ -12,7 +12,7 @@ class Channel_new extends Wordingabstract{
 		$id1 = $this->uri->segment(5);
 		$id2 = $this->uri->segment(6);
 		$file = $this->getJsonFile();
-		$row = $file->$object->$id->$id1;
+		$obj = $file->$object->$id->$id1;
 		$data = array(
 			'title'		=> 'Wording List',
 			'menu'		=> 'wording',
@@ -20,7 +20,7 @@ class Channel_new extends Wordingabstract{
 			'id'		=> $id,
 			'id1'		=> $id1,
 			'id2'		=> $id2,
-			'object'	=> $row[$id2]
+			'object'	=> $obj[$id2]
 		);
 		return $this->load->view($object.'-edit',$data);
 	}
@@ -49,10 +49,12 @@ class Channel_new extends Wordingabstract{
 		$id1 = $this->uri->segment(5);
 		$id2 = $this->uri->segment(6);
 		$file = $this->getJsonFile();
+		$obj = $file->$object->$id->$id1;
 		$list = ((object) $_POST);
 		unset($list->id);
-		unset($file->$object->$id->$id1[$id2]);
-		$file->$object->$id->$id1[$id2] = $list;
+		unset($obj[$id2]);
+		$obj[$id2] = $list;
+		$file->$object->$id->$id1 = $obj;
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/wording/'.$object));
 	}
@@ -63,7 +65,9 @@ class Channel_new extends Wordingabstract{
 		$id1 = $this->uri->segment(5);
 		$id2 = $this->uri->segment(6);
 		$file = $this->getJsonFile();
-		unset($file->$object->$id->$id1[$id2]);
+		$obj = $file->$object->$id->$id1;
+		unset($obj[$id2]);
+		$file->$object->$id->$id1 = $obj;
 		$file->$object->$id->$id1 = array_values($file->$object->$id->$id1);
 		$this->updateJsonFile(json_encode($file));
 		redirect(site_url('/wording/'.$object));
